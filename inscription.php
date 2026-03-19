@@ -111,4 +111,4 @@ if (isset($_POST['btn_inscription'])) {
 </html>
 <?php
 $conn->close();
-?>fsefs
+?>
