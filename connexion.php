@@ -53,7 +53,7 @@ if (isset($_POST['btn_connexion'])) {
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="inscription-wrapper">
         <div class="form-header">
@@ -77,7 +77,7 @@ if (isset($_POST['btn_connexion'])) {
             </div>
         </form>
     </div>
-    <?php include 'footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
     <script src="burger_profile.js"></script>
 </body>
 
