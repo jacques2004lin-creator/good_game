@@ -11,7 +11,7 @@
 <body>
     <header class="site-header">
         <a href="accueil.php" class="logo-container">
-            <img src="gg.png" alt="Logo Good Game" class="logo">
+            <img src="image/gg.png" alt="Logo Good Game" class="logo">
         </a>
 
         <div class="search-container">
@@ -26,10 +26,10 @@
         </nav>
 
         <div class="user-actions">
-            <a href="panier.php" class="cart-icon"><img src="caddie.png" class="icon" alt="Panier"></a>
+            <a href="panier.php" class="cart-icon"><img src="image/caddie.png" class="icon" alt="Panier"></a>
 
             <div class="profile-container">
-                <img src="profile.png" class="profile-trigger" id="profileBtn" alt="Profil">
+                <img src="image/profile.png" class="profile-trigger" id="profileBtn" alt="Profil">
                 <ul class="dropdown-menu" id="sideMenu">
                     <li><a href="compte.php">Compte</a></li>
                     <li><a href="liste_souhaits.php">Liste de souhaits</a></li>
@@ -43,7 +43,7 @@
             </div>
         </div>
     </header>
-    <script src="burger_profile.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
