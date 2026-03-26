@@ -1,0 +1,238 @@
+/* HEADER & NAVIGATION */
+
+/* l'alignement magique du Header (flexbox) */
+.site-header {
+  display: flex; /* aligne tout sur une ligne */
+  justify-content: space-between; /* écarte les 4 zones au maximum */
+  align-items: center;
+  padding: 15px 40px; /* espace autour du header */
+  background-color: #121212; /* noir légèrement plus clair pour détacher le menu du fond */
+}
+
+/* taille des images */
+.logo {
+  height: 60px; /* Correction: le 150px en double a été retiré */
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.icon,
+.profile-trigger {
+  height: 50px;
+  width: auto;
+}
+
+.user-actions img {
+  height: 35px;
+  width: auto;
+  cursor: pointer;
+}
+
+/* barre de recherche */
+.search-bar {
+  background-color: #333;
+  border: none;
+  border-radius: 25px; /* bords arrondis */
+  padding: 10px 20px;
+  color: white;
+  width: 250px;
+  font-size: 14px;
+}
+.search-bar:focus {
+  outline: 1px solid #777; /* effet quand on clique dedans */
+}
+
+/* liens de navigation */
+.main-nav .head {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.main-nav .head:hover {
+  color: white;
+}
+
+/* zone de droite (Panier + Profil) */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espace entre le panier et le profil */
+}
+
+/* menu déroulant (dark Mode) */
+.profile-container {
+  position: relative;
+}
+
+/* Le menu burger caché par défaut */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background-color: #1a1a1a; /* fond gris très foncé */
+  border: 1px solid #333;
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); /* ombre plus forte pour le fond noir */
+  z-index: 1000;
+}
+.dropdown-menu.active {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white; /* c'est ici que le texte des liens devient vraiment blanc */
+}
+.dropdown-menu li a:hover {
+  background-color: #333;
+  color: white;
+}
+.dropdown-menu hr {
+  border-color: #333;
+  margin: 5px 0;
+}
+
+/*HEADER RESPONSIVE (Mobiles & Tablettes) */
+
+@media (max-width: 900px) {
+  .site-header {
+    flex-wrap: wrap; /* Autorise les éléments à passer à la ligne */
+    padding: 15px 20px; /* Réduit un peu les marges sur mobile */
+    gap: 15px; /* Espace entre les lignes */
+  }
+
+  /* 1. Le Logo (Haut Gauche) */
+  .logo-container {
+    order: 1;
+  }
+
+  /* 2. Les actions Utilisateur (Haut Droite) */
+  .user-actions {
+    order: 2;
+  }
+
+  /* 3. La barre de recherche (Milieu - Pleine largeur) */
+  .search-container {
+    order: 3;
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+    box-sizing: border-box; /* Empêche la barre de déborder de l'écran */
+  }
+
+  /* 4. Les liens de navigation (Bas - Centrés) */
+  .main-nav {
+    order: 4;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Si trop de liens, ils passent à la ligne proprement */
+    gap: 10px;
+  }
+
+  .main-nav .head {
+    margin: 0 5px;
+    font-size: 13px; /* Texte légèrement plus petit pour que tout rentre */
+  }
+
+  /* Ajustement de sécurité pour le menu déroulant profil */
+  .dropdown-menu {
+    right: -10px;
+  }
+}
+
+/* Ajustement supplémentaire pour les tous petits téléphones */
+@media (max-width: 400px) {
+  .logo {
+    height: 45px;
+  } /* On réduit un peu le logo */
+  .main-nav .head {
+    font-size: 12px;
+  }
+}
+
+/* FOOTER (DESIGN EXACT MAQUETTE)            */
+
+.gg-footer {
+  background-color: #1a1a1a; /* Fond gris sombre identique à la maquette */
+  padding: 50px 0;
+  margin-top: 80px; /* Pousse le footer vers le bas de la page */
+}
+
+.gg-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Colonne de gauche (Liens) */
+.gg-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.gg-footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.gg-footer-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Colonne de droite (Icônes et Textes) */
+.gg-footer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.footer-icon {
+  width: 24px;
+  height: 24px;
+  color: white; /* Rend les icônes SVG parfaitement blanches */
+}
+
+/* Rend le liens avec icônes joli et interactif */
+a.interactive-link {
+  text-decoration: none; /* Enlève le soulignement moche */
+  transition: color 0.2s;
+}
+
+a.interactive-link:hover {
+  color: white;
+}
+
+/* Responsive Mobile : on empile les colonnes l'une sous l'autre */
+@media (max-width: 768px) {
+  .gg-footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+}

@@ -46,6 +46,7 @@ if (isset($_POST['btn_connexion'])) {
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="burger_profile.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Good Game</title>
