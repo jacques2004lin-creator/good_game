@@ -87,8 +87,6 @@ a {
 /* menu déroulant (dark Mode) */
 .profile-container {
   position: relative;
-  display: inline-block;
-  cursor: pointer;
 }
 
 /* Le menu burger caché par défaut */
@@ -96,7 +94,7 @@ a {
   display: none;
   position: absolute;
   right: 0;
-  top: 100%;
+  top: 50px;
   background-color: #1a1a1a; /* fond gris très foncé */
   border: 1px solid #333;
   border-radius: 5px;
@@ -104,12 +102,10 @@ a {
   padding: 10px 0;
   min-width: 200px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); /* ombre plus forte pour le fond noir */
-  z-index: 9999;
+  z-index: 1000;
 }
 .dropdown-menu.active {
-  display: block !important;
-  visibility: visible;
-  opacity: 1;
+  display: block;
 }
 
 .dropdown-menu li a {
