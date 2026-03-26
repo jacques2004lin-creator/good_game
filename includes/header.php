@@ -34,7 +34,7 @@
                     <li><a href="compte.php">Compte</a></li>
                     <li><a href="liste_souhaits.php">Liste de souhaits</a></li>
                     <li><a href="historique.php">Mes commandes</a></li>
-                    <li><a href="#support">Assistance</a></li>
+                    <li><a href="support.php">Assistance</a></li>
                     <li>
                         <hr>
                     </li>
