@@ -31,48 +31,13 @@ if (isset($_POST['btn_inscription'])) {
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="burger_profile.css">
+    <link rel="stylesheet" href="page.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veuillez vous inscrire</title>
 </head>
 
 <body>
-    <header class="site-header">
-        <a href="accueil.php" class="logo-container">
-            <img src="gg.png" alt="Logo Good Game" class="logo">
-        </a>
-
-        <div class="search-container">
-            <input type="text" placeholder="Recherche" class="search-bar">
-        </div>
-
-        <nav class="main-nav">
-            <a href="accueil.php" class="head">Accueil</a>
-            <a href="blibliotheque.php" class="head">Bibliothèque</a>
-            <a href="categories.php" class="head">Catégories</a>
-            <a href="support.php" class="head">Support</a>
-        </nav>
-
-        <div class="user-actions">
-            <a href="panier.php" class="cart-icon"><img src="caddie.png" class="icon" alt="Panier"></a>
-            </a>
-
-            <div class="profile-container">
-                <img src="profile.png" class="profile-trigger" id="profileBtn" alt="Profil">
-                <ul class="dropdown-menu" id="sideMenu">
-                    <li><a href="compte.php">Compte</a></li>
-                    <li><a href="#liste_de_souhait">Liste de souhaits</a></li>
-                    <li><a href="#commende">Mes commandes</a></li>
-                    <li><a href="#support">Assistance</a></li>
-                    <li>
-                        <hr>
-                    </li>
-                    <li><a href="deconnexion.php">Déconnexion</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
-    <script src="burger_profile.js"></script>
+    <?php include 'menu.php'; ?>
     <div class="inscription-wrapper">
         <div class="form-header">
             <img src="gg.png" alt="Logo Good Game" class="form-logo">
@@ -99,13 +64,8 @@ if (isset($_POST['btn_inscription'])) {
             </div>
         </form>
     </div>
-    <footer>
-        <div id="contact">
-            <h2>Contactez-nous</h2>
-            <a class="mail" href="mailto: good_game@example.com">Envoyez-nous un email</a>
-            </p>
-        </div>
-    </footer>
+
+    <?php include 'footer.php'; ?>
 </body>
 
 </html>
