@@ -1,3 +1,26 @@
+/* Bases */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+h2 {
+    margin: 0;
+}
+
+a, p {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
 /* HEADER & NAVIGATION */
 
 /* l'alignement magique du Header (flexbox) */

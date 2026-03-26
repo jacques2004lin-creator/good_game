@@ -78,7 +78,7 @@ if (isset($_POST['btn_connexion'])) {
         </form>
     </div>
     <?php include 'includes/footer.php'; ?>
-    <script src="burger_profile.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

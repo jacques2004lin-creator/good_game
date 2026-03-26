@@ -68,6 +68,7 @@ if (isset($_POST['btn_inscription'])) {
     </div>
 
     <?php include 'includes/footer.php'; ?>
+    <script src="script.js"></script>
 </body>
 
 </html>
