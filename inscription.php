@@ -37,7 +37,8 @@ if (isset($_POST['btn_inscription'])) {
 </head>
 
 <body>
-    <?php include 'menu.php'; ?>
+    <?php include 'header.php'; ?>
+
     <div class="inscription-wrapper">
         <div class="form-header">
             <img src="gg.png" alt="Logo Good Game" class="form-logo">

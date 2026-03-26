@@ -52,7 +52,7 @@ if (isset($_POST['btn_connexion'])) {
 </head>
 
 <body>
-    <?php include 'menu.php'; ?>
+    <?php include 'header.php'; ?>
 
     <div class="inscription-wrapper">
         <div class="form-header">
