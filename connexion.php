@@ -47,7 +47,7 @@ if (isset($_POST['btn_connexion'])) {
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/burger_profile.css">
+    <link rel="stylesheet" href="css/page.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Good Game</title>
 </head>
@@ -57,7 +57,7 @@ if (isset($_POST['btn_connexion'])) {
 
     <div class="inscription-wrapper">
         <div class="form-header">
-            <img src="gg.png" alt="Logo Good Game" class="form-logo">
+            <img src="image/gg.png" alt="Logo Good Game" class="form-logo">
             <h2>Connexion</h2>
         </div>
 
@@ -78,7 +78,7 @@ if (isset($_POST['btn_connexion'])) {
         </form>
     </div>
     <?php include 'includes/footer.php'; ?>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

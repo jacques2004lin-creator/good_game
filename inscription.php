@@ -42,7 +42,7 @@ if (isset($_POST['btn_inscription'])) {
 
     <div class="inscription-wrapper">
         <div class="form-header">
-            <img src="gg.png" alt="Logo Good Game" class="form-logo">
+            <img src="image/gg.png" alt="Logo Good Game" class="form-logo">
             <h2>Inscription</h2>
         </div>
 
@@ -68,7 +68,7 @@ if (isset($_POST['btn_inscription'])) {
     </div>
 
     <?php include 'includes/footer.php'; ?>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
