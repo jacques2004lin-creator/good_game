@@ -1,0 +1,86 @@
+<?php
+// DÉMARRAGE DE LA SESSION
+session_start();
+
+include "good_game_db.php";
+
+$message = "";
+
+// TRAITEMENT DE LA CONNEXION
+// On vérifie si l'utilisateur a cliqué sur le bouton "Se connecter"
+if (isset($_POST['btn_connexion'])) {
+
+    // On sécurise l'email saisi
+    $email = $conn->real_escape_string($_POST['email']);
+    $mdp_saisi = $_POST['mdp'];
+
+    // On cherche l'utilisateur dans la base de données via son email
+    $sql = "SELECT * FROM utilisateurs WHERE email = '$email'";
+    $resultat = $conn->query($sql);
+
+    // Si l'email existe dans la base
+    if ($resultat->num_rows > 0) {
+        $utilisateur = $resultat->fetch_assoc();
+
+        // On vérifie si le mot de passe saisi correspond au mot de passe crypté en base
+        if (password_verify($mdp_saisi, $utilisateur['motdepasse'])) {
+
+            // Succès ! On stocke les infos dans la session
+            $_SESSION['id_utilisateur'] = $utilisateur['id']; // Remplacez 'id' par le vrai nom de votre colonne ID si différent
+            $_SESSION['prenom'] = $utilisateur['prenom'];
+
+            // On redirige vers l'accueil
+            header("Location: accueil.php");
+            exit();
+        } else {
+            $message = "<p>Mot de passe incorrect.</p>";
+        }
+    } else {
+        $message = "<p>Aucun compte trouvé avec cet email.</p>";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="burger_profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Good Game</title>
+</head>
+
+<body>
+    <?php include 'menu.php'; ?>
+
+    <div class="inscription-wrapper">
+        <div class="form-header">
+            <img src="gg.png" alt="Logo Good Game" class="form-logo">
+            <h2>Connexion</h2>
+        </div>
+
+        <?php if (!empty($message)) echo $message; ?>
+
+        <form action="" method="post" class="inscription-form">
+            <input type="email" class="form-input" name="email" placeholder="E-mail" required>
+            <input type="password" class="form-input" name="mdp" placeholder="Mot de passe" required>
+
+            <button type="submit" name="btn_connexion" class="btn-submit">Se connecter</button>
+
+            <div class="back-link-container">
+                <span>Pas encore de compte ? </span>
+                <a href="inscription.php" class="back-link">
+                    S'inscrire
+                </a>
+            </div>
+        </form>
+    </div>
+    <?php include 'footer.php'; ?>
+    <script src="burger_profile.js"></script>
+</body>
+
+</html>
+<?php
+$conn->close();
+?>
