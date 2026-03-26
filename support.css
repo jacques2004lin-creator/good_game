@@ -1,0 +1,80 @@
+main {
+    margin: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.support-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.support-carte {
+    background-color: #212124;
+    border-radius: 12px;
+    padding: 35px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.contact-carte {
+    background-color: #212124;
+    border-radius: 12px;
+    padding: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-lien {
+    color: #4DA0FF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-lien:hover {
+    text-decoration: underline;
+}
+
+.carte-icone {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.carte-titre {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+}
+
+.carte-texte {
+    font-size: 0.95rem;
+    color: #d1d1d1;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .support-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
