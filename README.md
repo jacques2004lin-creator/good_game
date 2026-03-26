@@ -1,1 +1,1 @@
-# good_game
+Good Game est une plateforme de vente de jeux vidéo en ligne. Il permet aux clients de consulter les nouveautés et de passer commande facilement. Pour le gérant, le site sert d'outil de travail : il peut l'utiliser pour mettre à jour son catalogue, changer les prix et suivre les commandes des clients depuis son espace administrateur.
