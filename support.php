@@ -14,23 +14,23 @@
 
     <main>
         <div class="support-container">
-            <div class="support-carte">
+            <a href="support_commandes.php" class="support-carte">
                 <i class="fa-solid fa-box-open carte-icone"></i>
                 <h3 class="carte-titre">Commandes et produits</h3>
                 <p class="carte-texte">Assistance pour l'activation des clés et les informations sur les produits.</p>
-            </div>
+            </a>
 
-            <div class="support-carte">
+            <a href="support_compte.php" class="support-carte">
                 <i class="fa-solid fa-user carte-icone"></i>
                 <h3 class="carte-titre">Compte et sécurité</h3>
                 <p class="carte-texte">Assistance à la gestion des comptes et à la sécurité.</p>
-            </div>
+            </a>
 
-            <div class="support-carte">
+            <a href="support_paiement.php" class="support-carte">
                 <i class="fa-solid fa-credit-card carte-icone"></i>
                 <h3 class="carte-titre">Paiement</h3>
                 <p class="carte-texte">Aide pour tout problème ou question lié au paiement.</p>
-            </div>
+            </a>
         </div>
 
         <div class="contact">
