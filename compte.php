@@ -88,6 +88,7 @@ $utilisateur_actuel = $result->fetch_assoc();
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/compte.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Compte - Good Game</title>
 </head>
