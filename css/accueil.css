@@ -1,0 +1,300 @@
+/* Bases */
+h2 {
+    margin: 0;
+}
+
+.section-titre {
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Banniere */
+.banniere {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.lien {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.banniere-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%; 
+}
+
+/* Sliders */
+.sliderNouveaux, .sliderJeux {
+    --swiper-navigation-color: white;
+    --swiper-pagination-color: white;
+    width: 100%;
+}
+
+.swiper-pagination-bullet {
+    background: #555 !important;
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: white !important;
+    width: 20px !important;
+    border-radius: 5px !important;
+}
+
+/* Nouveaux */
+.nouveaux-section {
+    padding: 50px 0;
+    background-color: #202024;
+}
+
+.sliderNouveaux {
+    padding-top: 20px;
+    padding-bottom: 60px !important;
+}
+
+.sliderNouveaux .swiper-slide {
+    width: 70vw !important;
+    max-width: 600px !important;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.4;
+    transform: scale(0.9);
+}
+
+.sliderNouveaux .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.05); 
+    z-index: 2;
+}
+
+.image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    transition: transform 0.4s ease;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titre {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 20px;
+}
+
+/* Jeux */
+.tendances-section, .gratuit-section {
+    padding: 50px 5%;
+}
+
+.gratuit-section {
+    background-color: #202024;
+}
+
+.grille-jeux {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.carte-jeu {
+    background-color: #1a1a1c;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.carte-jeu:hover {
+    transform: translateY(-5px);
+}
+
+.carte-jeu img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Genre */
+.genres-section {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.genres-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.genre-carte {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.genre-carte:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}
+
+.genre-icone {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+}
+
+.genre-titre {
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 12px 0;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.btn-voir-plus {
+    margin-top: 30px;
+    display: inline-block;
+    text-decoration: none;
+    color: #888888;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-voir-plus:hover {
+    color: white;
+    transform: translateY(5px);
+}
+
+/* Responsive */
+/* PC */
+@media (min-width: 481px) {
+    .sliderJeux .grille-jeux {
+        display: grid !important;
+        gap: 25px !important;
+        transform: none !important;
+        width: 100% !important;
+    }
+
+    .sliderJeux .swiper-slide {
+        width: 100% !important;
+        opacity: 1 !important;
+        transform: none !important;
+        margin: 0 !important;
+    }
+
+    @media (max-width: 1024px) {
+        .grille-jeux {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .grille-jeux {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+/* Tablette */
+@media (max-width: 768px) {
+    .titre h3 {
+        font-size: 1rem;
+    }
+
+    .grille-jeux {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .sliderNouveaux .swiper-slide {
+        width: 85vw !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .jeu-lien, .image-container {
+        width: 100% !important;
+        border-radius: 12px; 
+    }
+
+    .sliderNouveaux .swiper-button-prev, .sliderNouveaux .swiper-button-next {
+        display: none !important;
+    }
+
+    .sliderNouveaux .swiper-pagination {
+        display: none !important;
+    }
+
+    .image-container {
+        height: 250px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .banniere {
+        height: 220px;
+    }
+
+    .sliderJeux .grille-jeux {
+        display: flex !important;
+        grid-template-columns: none !important;
+        gap: 0 !important;
+    }
+
+    .sliderJeux .swiper-slide {
+        width: 75% !important;
+        opacity: 0.5;
+        transform: scale(0.85) !important;
+    }
+
+    .sliderJeux .swiper-slide-active {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+
+    .genres-container {
+        gap: 10px;
+    }
+
+    .genre-carte {
+        width: calc(50% - 10px) !important;
+        height: 140px;
+    }
+
+    .section-titre {
+        font-size: 1.4rem;
+    }
+}
