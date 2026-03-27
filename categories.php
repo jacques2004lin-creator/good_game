@@ -9,7 +9,7 @@ $conn->set_charset("utf8mb4");
 $sql_categories = "SELECT * FROM categories"; 
 $res_categories = $conn->query($sql_categories);
 ?>
-a
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
