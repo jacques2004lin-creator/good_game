@@ -30,7 +30,7 @@ if (isset($_POST['btn_connexion'])) {
             $_SESSION['prenom'] = $utilisateur['prenom'];
 
             // On redirige vers l'accueil
-            header("Location: accueil.php");
+            header("Location: index.php");
             exit();
         } else {
             $message = "<p>Mot de passe incorrect.</p>";
