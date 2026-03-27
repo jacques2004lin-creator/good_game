@@ -1,0 +1,171 @@
+/* PAGE MON COMPTE (DASHBOARD) */
+
+.account-layout {
+  display: flex;
+  max-width: 1100px;
+  margin: 50px auto;
+  gap: 30px;
+  padding: 0 20px;
+  align-items: flex-start;
+}
+
+/* COLONNE DE GAUCHE : SIDEBAR */
+.account-sidebar {
+  width: 280px;
+  background-color: #1e1e1e; /* fond gris très sombre */
+  border-radius: 10px;
+  padding: 20px 0;
+  position: sticky;
+  top: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-header {
+  padding: 0 20px 15px 20px;
+  border-bottom: 1px solid #333;
+  margin-bottom: 10px;
+}
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: white;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-menu li a {
+  display: block;
+  padding: 15px 20px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent; /* prépare l'espace pour la bordure active */
+}
+.sidebar-menu li a:hover,
+.sidebar-menu li.active a {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+/* COLONNE DE DROITE : CARTES */
+.account-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.account-card {
+  display: flex;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-left {
+  flex: 1;
+  padding: 30px;
+  background-color: #1e1e1e;
+}
+.card-left h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: white;
+}
+.card-left p {
+  margin: 0;
+  font-size: 13px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.card-right {
+  flex: 1;
+  padding: 30px;
+  background-color: #252525; /* légèrement plus clair */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* FORMULAIRES ET INPUTS */
+.card-right form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.input-group label {
+  font-size: 12px;
+  color: #ccc;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.input-group input {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  color: white;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+.input-group input:focus {
+  outline: none;
+  border-color: #555;
+}
+.input-group input::placeholder {
+  color: #666;
+}
+
+.warning-label {
+  color: #aaa !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+}
+
+/* TWO FACTOR (spécifique) */
+.two-factor-icon {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 6px;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.two-factor-icon span {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+}
+.two-factor-icon p {
+  margin: 10px 0 0 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #aaa;
+}
+
+.info-box {
+  background-color: #153020; /* fond vert très foncé */
+  border-left: 4px solid #28a745;
+  padding: 12px 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.info-box p {
+  margin: 0;
+  font-size: 12px;
+  color: #ccc;
+  line-height: 1.5;
+}
