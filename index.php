@@ -26,8 +26,6 @@ $res_gratuit = $conn->query($sql_gratuit);
 // Requete pour récupérer les catégories
 $sql_genres = "SELECT * FROM categories LIMIT 5"; 
 $res_genres = $conn->query($sql_genres);
-
-$nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
 ?>
 
 <!DOCTYPE html>
@@ -36,8 +34,8 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accueil</title>
-        <link href="accueil.css" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
+        <link href="css/accueil.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -50,6 +48,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
             <section class="banniere">
                 <?php
                 if ($banniere) {
+                    $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($banniere['titre'])));
                     echo "<a href='jeux.php?id=" . $banniere["id"] . "' class='lien'>";
                         echo "<img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars($banniere['image']) . "' alt='" . htmlspecialchars($banniere["titre"]) . "' class='banniere-img'>";
                     echo "</a>";
@@ -67,6 +66,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                     echo "<div class='swiper sliderNouveaux'>";
                         echo "<div class='swiper-wrapper'>";
                             while($nouveau = $res_nouveaux->fetch_assoc()) {
+                                $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($nouveau['titre'])));
                                 echo "<div class='swiper-slide'>";
                                     echo "<a href='jeux.php?id=" . $nouveau["id"] . "' class='jeu-lien'>";
                                         echo "<div class='image-container'>";
@@ -98,6 +98,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                         <?php
                         if($res_tendance->num_rows > 0) {
                             while($jeu = $res_tendance->fetch_assoc()) {
+                                $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
                                 echo "<div class='carte-jeu swiper-slide'>";
                                     echo "<a href='jeux.php?id=" . $jeu["id"] . "'>";
                                         echo "<img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars($jeu["image"]) . "' alt='" . htmlspecialchars($jeu["titre"]) . "'>";
@@ -122,6 +123,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                         <?php
                         if($res_gratuit->num_rows > 0) {
                             while($jeu_gratuit = $res_gratuit->fetch_assoc()) {
+                                $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu_gratuit['titre'])));
                                 echo "<div class='carte-jeu swiper-slide'>";
                                     echo "<a href='jeux.php?id=" . $jeu_gratuit["id"] . "'>";
                                         echo "<img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars($jeu_gratuit["image"]) . "' alt='" . htmlspecialchars($jeu_gratuit["titre"]) . "'>";

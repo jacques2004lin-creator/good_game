@@ -24,8 +24,6 @@ if (isset($_GET['cat']) && !empty($_GET['cat'])) {
     header("Location: index.php");
     exit();
 }
-
-$nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +45,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
             <?php
             if($res_genre && $res_genre->num_rows > 0) {
                 while($jeu = $res_genre->fetch_assoc()) {
+                    $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
                     echo "<div class='carte-jeu'>";
                         echo "<a href='jeux.php?id=" . $jeu['id'] . "'>";
                             echo "<img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars($jeu['image']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'>";
