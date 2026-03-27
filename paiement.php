@@ -52,7 +52,10 @@ if ($conn->query($sql_achat) === TRUE) {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="burger_profile.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/panier.css">
+    <link rel="stylesheet" href="css/paiement.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validation de commande - Good Game</title>
 </head>

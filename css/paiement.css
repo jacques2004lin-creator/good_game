@@ -1,0 +1,53 @@
+/*PAGE PAIEMENT (CONFIRMATION) */
+
+.gg-payment-container {
+  text-align: center;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gg-payment-success-title {
+  color: #28a745; /* Vert de validation */
+  margin-bottom: 10px;
+}
+
+.gg-payment-error-title {
+  color: #ff4d4d; /* Rouge d'erreur */
+  margin-bottom: 10px;
+}
+
+.gg-payment-text {
+  color: #ccc;
+  font-size: 16px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.gg-payment-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Nouveau bouton contour blanc pour la page succès */
+.gg-btn-outline-white {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gg-btn-outline-white:hover {
+  background-color: white;
+  color: black;
+}
