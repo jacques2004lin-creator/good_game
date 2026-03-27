@@ -10,7 +10,7 @@
 
 <body>
     <header class="site-header">
-        <a href="accueil.php" class="logo-container">
+        <a href="index.php" class="logo-container">
             <img src="image/gg.png" alt="Logo Good Game" class="logo">
         </a>
 
