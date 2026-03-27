@@ -142,12 +142,6 @@ a {
     order: 2;
   }
 
-  /* 3. La barre de recherche (Milieu - Pleine largeur) */
-  .search-container {
-    order: 3;
-    width: 100%;
-  }
-
   .search-bar {
     width: 100%;
     box-sizing: border-box; /* Empêche la barre de déborder de l'écran */
