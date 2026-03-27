@@ -194,7 +194,6 @@ $utilisateur_actuel = $result->fetch_assoc();
         </main>
     </div>
     <?php include 'includes/footer.php'; ?>
-    <script src="burger_profile.js"></script>
 </body>
 
 </html>
