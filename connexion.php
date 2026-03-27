@@ -78,7 +78,6 @@ if (isset($_POST['btn_connexion'])) {
         </form>
     </div>
     <?php include 'includes/footer.php'; ?>
-    <script src="js/script.js"></script>
 </body>
 
 </html>
