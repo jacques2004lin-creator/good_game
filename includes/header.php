@@ -19,7 +19,7 @@
         </div>
 
         <nav class="main-nav">
-            <a href="accueil.php" class="head">Accueil</a>
+            <a href="index.php" class="head">Accueil</a>
             <a href="bibliotheque.php" class="head">Bibliothèque</a>
             <a href="categories.php" class="head">Catégories</a>
             <a href="support.php" class="head">Support</a>
