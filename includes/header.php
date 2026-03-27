@@ -14,11 +14,8 @@
             <img src="image/gg.png" alt="Logo Good Game" class="logo">
         </a>
 
-        <div class="search-container">
-            <input type="text" placeholder="Recherche" class="search-bar">
-        </div>
-
         <nav class="main-nav">
+            <input type="text" placeholder="Recherche" class="search-bar">
             <a href="index.php" class="head">Accueil</a>
             <a href="bibliotheque.php" class="head">Bibliothèque</a>
             <a href="categories.php" class="head">Catégories</a>
