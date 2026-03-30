@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         $check = $conn->query("SELECT * FROM panier WHERE utilisateur_id = $id_user AND jeu_id = $id_jeu_post");
         if ($check->num_rows == 0) {
             $conn->query("INSERT INTO panier (utilisateur_id, jeu_id) VALUES ($id_user, $id_jeu_post)");
-            $message = "<div class='msg-succes'>Jeu ajouté au panier ! 🛒</div>";
+            $message = "<div class='msg-succes'>Jeu ajouté au panier !</div>";
         } else {
             $message = "<div class='msg-info'>Ce jeu est déjà dans votre panier.</div>";
         }
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         $check = $conn->query("SELECT * FROM souhait WHERE utilisateur_id = $id_user AND jeu_id = $id_jeu_post");
         if ($check->num_rows == 0) {
             $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_user, $id_jeu_post)");
-            $message = "<div class='msg-succes'>Jeu ajouté aux souhaits ! ❤️</div>";
+            $message = "<div class='msg-succes'>Jeu ajouté aux souhaits !</div>";
         } else {
             $message = "<div class='msg-info'>Ce jeu est déjà dans votre liste.</div>";
         }
