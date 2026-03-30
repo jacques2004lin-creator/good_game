@@ -46,7 +46,9 @@ $resultat_souhait = $conn->query($sql_souhait);
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="burger_profile.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/liste_souhaits.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste de souhaits - Good Game</title>
 </head>
