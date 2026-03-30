@@ -1,0 +1,290 @@
+/* Bases */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: white;
+}
+
+.titre-principal {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Grande image */
+.mainSwiper {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.swiper .mainSwiper {
+    --swiper-navigation-color: white;
+    --swiper-pagination-color: white;
+}
+
+.mainSwiper .swiper-slide img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    color: white;
+}
+
+/* Miniatures */
+.thumbSwiper {
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+}
+
+.thumbSwiper .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.thumbSwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 2px solid white;
+}
+
+.thumbSwiper .swiper-slide img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+}
+
+/* Achat + images */
+.jeu {
+    display: grid;
+    grid-template-columns: 60% 35%;
+    gap: 5%;
+    margin-bottom: 50px;
+}
+
+/* Colonne Gauche */
+.description-courte {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* Colonne Droite */
+.img-cover {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.prix-box {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn-achat, .btn-souhait {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-achat {
+    background: white;
+    color: black;
+}
+
+.btn-achat:hover {
+    background: #e0e0e0;
+}
+
+.btn-souhait {
+    background: #333;
+    color: white;
+}
+
+.btn-souhait:hover {
+    background: #444;
+}
+
+.jeu-info {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* Tags et fonctionnalités */
+.jeu-tags {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.col-tags, .col-fonctionnalite {
+    flex: 1;
+}
+
+.separateur {
+    width: 1px;
+    height: 60px;
+    background-color: #444;
+    margin: 0 40px;
+}
+
+.tags-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background: #ff9900;
+    color: black;
+}
+
+/* Description longue */
+.jeu-description {
+    margin: 50px 0;
+    padding-top: 30px;
+    border-top: 1px solid #333;
+}
+
+.jeu-description h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.texte-description {
+    color: #cccccc;
+    line-height: 1.8;
+    font-size: 1rem;
+    max-width: 900px;
+}
+
+/* Configuration */
+.jeu-config h2 {
+    margin-top: 50px;
+}
+
+.config-tabs {
+    margin-bottom: 20px;
+}
+
+.config-tabs .tab {
+    display: inline-block;
+    padding: 10px 0;
+    border-bottom: 2px solid white;
+}
+
+.config-box {
+    background-color: #1a1a1c;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.config-col ul {
+    list-style: none;
+    padding: 0;
+    line-height: 2;
+    font-size: 0.9rem;
+}
+
+.config-col .label {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.config-langues {
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .titre-principal {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .jeu {
+        display: flex;
+        flex-direction: column; 
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .jeu-sidebar {
+        order: 1;
+    }
+
+    .jeu-galerie {
+        order: 2;
+    }
+
+    .img-cover {
+        display: block !important; 
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .prix-box {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .jeu-tags {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    .separateur {
+        display: none; 
+    }
+
+    .config-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+
+    .config-box {
+        padding: 20px 15px;
+    }
+}
