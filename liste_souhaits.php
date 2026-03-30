@@ -54,7 +54,7 @@ $resultat_souhait = $conn->query($sql_souhait);
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="gg-wl-container">
 
@@ -103,8 +103,7 @@ $resultat_souhait = $conn->query($sql_souhait);
 
         <?php endif; ?>
     </div>
-    <?php include 'footer.php'; ?>
-    <script src="burger_profile.js"></script>
+    <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>
