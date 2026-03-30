@@ -71,7 +71,7 @@ $resultat_souhait = $conn->query($sql_souhait);
                             <div class="gg-wl-top">
                                 <div class="gg-wl-info">
                                     <h3><?php echo htmlspecialchars($jeu['titre']); ?></h3>
-                                    <img src="image/caddie.png" alt="Windows" class="gg-platform-icon-img">
+                                    <img src="image/windows_logo.png" alt="Windows" class="gg-platform-icon-img">
                                 </div>
                                 <div class="gg-wl-price">
                                     <?php echo number_format($jeu['prix'], 2, ',', ''); ?>€
