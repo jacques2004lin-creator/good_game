@@ -98,7 +98,7 @@ $resultat_souhait = $conn->query($sql_souhait);
 
             <div class="gg-cart-empty">
                 <h2>Votre liste de souhaits est vide.</h2>
-                <a href="accueil.php" class="gg-btn-white">Acheter des jeux et des applications</a>
+                <a href="index.php" class="gg-btn-white">Acheter des jeux et des applications</a>
             </div>
 
         <?php endif; ?>
