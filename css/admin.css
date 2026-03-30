@@ -1,0 +1,181 @@
+/* Bases */
+body {
+    color: white;
+    padding: 20px;
+}
+
+header {
+    background: #1a1a1c;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.lien {
+    color: #4DA0FF;
+    text-decoration: none;
+}
+
+section h2 {
+    margin: 20px 0;
+}
+
+/* Tableaux & scroll horizontal */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    background: #151517;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1800px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    font-size: 0.9rem;
+    vertical-align: top;
+}
+
+td:nth-child(6) {
+    white-space: normal;
+    min-width: 200px;
+}
+
+th {
+    background: #111;
+}
+
+.specs-cell {
+    font-size: 0.75rem;
+    color: #aaa;
+    line-height: 1.3;
+}
+
+.boutons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Formulaires */
+.form-box {
+    background: #1a1a1c;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+.saut-ligne {
+    margin-top: 15px;
+}
+
+.infos-generales {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.langues, .config {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.textarea-court {
+    width: 100%;
+    height: 50px;
+}
+
+.textarea-long {
+    width: 100%;
+    height: 80px;
+}
+
+input, select, textarea {
+    background: #2a2a2e;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.config-jeu {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Boutons et messages */
+.btn {
+    cursor: pointer;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-update {
+    background: #f39c12;
+    width: 45%;
+    text-align: center;
+}
+
+.btn-supprimer {
+    background: #e74c3c;
+}
+
+.btn-ajouter {
+    background: #27ae60;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.msg {
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.vide {
+    text-align: center;
+    color: #888888;
+    padding: 20px 0;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {    
+    .infos-generales, .langues, .config {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}
