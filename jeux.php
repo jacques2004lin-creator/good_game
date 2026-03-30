@@ -65,12 +65,12 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                         ?>
                         <?php
                         if(!empty($jeu['img_min2'])) {
-                            echo "<div class='swiper-slide'><img src='image/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
                         }
                         ?>
                         <?php
                         if(!empty($jeu['img_min3'])) {
-                            echo "<div class='swiper-slide'><img src='image/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
                         }
                         ?>
                     </div>
@@ -85,17 +85,17 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                         <div class="swiper-slide"><img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="<?php echo htmlspecialchars($jeu['titre']); ?>"></div>
                         <?php
                         if(!empty($jeu['img_min1'])) {
-                            echo "<div class='swiper-slide'><img src='image/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min1']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min1']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
                         }
                         ?>
                         <?php
                         if(!empty($jeu['img_min2'])) {
-                            echo "<div class='swiper-slide'><img src='image/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
                         }
                         ?>
                         <?php
                         if(!empty($jeu['img_min3'])) {
-                            echo "<div class='swiper-slide'><img src='image/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
                         }
                         ?>
                     </div>
