@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
         }
     }
 }
-// ==========================================
+
 
 // Vérifie si on a bien l'id du jeu dans l'URL
 if(isset($_GET['id'])) {
@@ -83,11 +83,6 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <style>
-        /* Petits styles rapides pour les notifications */
-        .msg-succes { background-color: #153020; color: #28a745; border: 1px solid #28a745; padding: 10px; border-radius: 5px; text-align: center; margin-bottom: 15px; font-size: 14px; font-weight: bold;}
-        .msg-info { background-color: #1a2a3a; color: #007bff; border: 1px solid #007bff; padding: 10px; border-radius: 5px; text-align: center; margin-bottom: 15px; font-size: 14px; font-weight: bold;}
-    </style>
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
