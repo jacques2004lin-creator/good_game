@@ -1,0 +1,49 @@
+/* PAGE HISTORIQUE D'ACHAT */
+
+.gg-history-card {
+  background-color: #222222; /* gris sombre de la maquette */
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gg-history-table {
+  width: 100%;
+  border-collapse: collapse; /* permet d'avoir des lignes de séparation nettes */
+  color: white;
+}
+
+/* en-têtes du tableau (th) */
+.gg-history-table th {
+  text-align: left;
+  color: #e0e0e0;
+  font-size: 14px;
+  font-weight: normal;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #555; /* ligne de séparation sous l'en-tête */
+}
+
+/* cellules du tableau (td) */
+.gg-history-table td {
+  padding: 20px 0; /* espace vertical entre les lignes */
+  border-bottom: 1px solid #444; /* ligne de séparation fine entre chaque achat */
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* enlève la ligne de séparation pour la toute dernière commande du tableau */
+.gg-history-table tbody tr:last-child td {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Historique d'achat (Mobile) */
+@media (max-width: 600px) {
+  .gg-history-card {
+    padding: 20px;
+  }
+  .gg-history-table th,
+  .gg-history-table td {
+    font-size: 12px;
+  }
+}
