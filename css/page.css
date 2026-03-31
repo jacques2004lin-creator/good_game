@@ -194,3 +194,44 @@ body {
 .chevron {
   font-size: 14px;
 }
+
+/* MEDIA QUERIES (RESPONSIVE GLOBALE)*/
+
+/* Tablettes et petits écrans (900px et moins) */
+@media (max-width: 900px) {
+  .account-layout,
+  .gg-cart-layout,
+  .gg-lib-layout {
+    flex-direction: column;
+  }
+
+  .account-sidebar,
+  .gg-cart-items-section,
+  .gg-cart-summary,
+  .gg-lib-sidebar {
+    width: 100%;
+  }
+
+  .account-sidebar {
+    position: static;
+  }
+
+  .account-card,
+  .gg-cart-card {
+    flex-direction: column;
+  }
+
+  .card-left,
+  .card-right {
+    padding: 20px;
+  }
+
+  .gg-item-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .gg-lib-layout {
+    gap: 40px;
+  }
+}
