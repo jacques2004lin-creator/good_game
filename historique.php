@@ -81,7 +81,6 @@ $achats = $conn->query($sql);
         </div>
     </div>
     <?php include 'includes/footer.php'; ?>
-    <script src="burger_profile.js"></script>
 </body>
 
 </html>
