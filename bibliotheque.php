@@ -33,7 +33,7 @@ $resultat_biblio = $conn->query($sql_biblio);
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'includes/header.php'; ?>
 
     <div class="gg-lib-container">
         <h1 class="gg-page-title">Bibliothèque</h1>
@@ -81,8 +81,7 @@ $resultat_biblio = $conn->query($sql_biblio);
 
         </div>
     </div>
-    <?php include 'footer.php'; ?>
-    <script src="burger_profile.js"></script>
+    <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>
