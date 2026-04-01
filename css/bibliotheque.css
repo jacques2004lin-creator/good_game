@@ -1,0 +1,146 @@
+/*PAGE BIBLIOTHÈQUE (DESIGN EXACT) */
+
+.gg-lib-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 40px;
+  font-family: sans-serif;
+}
+
+.gg-page-title {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.gg-lib-layout {
+  display: flex;
+  gap: 60px; /* Espace entre les jeux et le panneau de filtre */
+  align-items: flex-start;
+}
+
+/* --- GRILLE DES JEUX (Gauche) --- */
+.gg-lib-grid {
+  flex: 1;
+  display: grid;
+  /* Crée une grille auto-adaptable, les cartes feront au minimum 200px de large */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 30px;
+}
+
+.gg-lib-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.gg-lib-card:hover {
+  transform: scale(1.03); /* Petit effet de zoom au survol */
+}
+
+.gg-lib-img {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Force l'image au format portrait (comme les boîtes de jeu) */
+  object-fit: cover;
+  border-radius: 12px; /* Bords bien arrondis comme sur la maquette */
+  background-color: #222;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gg-lib-title {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* --- BARRE DE FILTRES (Droite) --- */
+.gg-lib-sidebar {
+  width: 320px;
+  background-color: #1e1e1e; /* Fond gris sombre */
+  border-radius: 12px;
+  padding: 25px;
+  flex-shrink: 0; /* Empêche le panneau de rétrécir */
+}
+
+.gg-filter-title {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+/* Barre de recherche dans le filtre */
+.gg-filter-search {
+  display: flex;
+  align-items: center;
+  background-color: #aaa; /* Fond gris clair du bouton recherche */
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 25px;
+}
+
+.gg-filter-search span {
+  color: #333;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.gg-filter-search input {
+  background: transparent;
+  border: none;
+  color: #111;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  font-weight: bold;
+}
+
+.gg-filter-search input::placeholder {
+  color: #555;
+}
+
+.gg-filter-subtitle {
+  color: white;
+  font-size: 15px;
+  margin: 0 0 15px 0;
+}
+
+/* Liste des catégories */
+.gg-filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gg-filter-list li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.gg-filter-list li a:hover {
+  color: white;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 900px) {
+  .gg-lib-layout {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .gg-lib-sidebar {
+    width: 100%;
+  }
+}
