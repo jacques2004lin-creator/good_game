@@ -90,7 +90,7 @@ if ($conn->query($sql_achat) === TRUE) {
 
     </div>
 
-    <?php include 'footer.php'; ?>
+    <?php include 'includes/footer.php'; ?>
 </body>
 </html>
 <?php $conn->close(); ?>
