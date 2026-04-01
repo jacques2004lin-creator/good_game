@@ -16,7 +16,6 @@ $categorie_active = null;
 
 if (isset($_GET['categorie_id']) && is_numeric($_GET['categorie_id'])) {
     $categorie_active = (int)$_GET['categorie_id'];
-    // On ajoute une condition à la requête SQL pour filtrer par la catégorie cliquée
     $filtre_sql = " AND j.categorie_id = $categorie_active";
 }
 
@@ -64,7 +63,7 @@ $resultat_categories = $conn->query($sql_categories);
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <div style="grid-column: 1 / -1; color: #888; padding: 20px;">
+                    <div class="gg-lib-empty">
                         <p>Aucun jeu ne correspond à cette recherche dans votre bibliothèque.</p>
                     </div>
                 <?php endif; ?>
@@ -81,23 +80,23 @@ $resultat_categories = $conn->query($sql_categories);
                 <ul class="gg-filter-list">
                     
                     <li>
-                        <a href="bibliotheque.php" <?php if(!$categorie_active) echo 'style="color: white; font-weight: bold;"'; ?>>
+                        <a href="bibliotheque.php" <?php if(!$categorie_active) echo 'class="gg-filter-active"'; ?>>
                             Tous les jeux
                         </a>
                     </li>
-                    <li style="margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 10px;"></li>
+                    
+                    <li class="gg-filter-divider"></li>
 
                     <?php if ($resultat_categories && $resultat_categories->num_rows > 0): ?>
                         <?php while ($cat = $resultat_categories->fetch_assoc()): ?>
                             <?php 
-                                // Nettoyage du nom pour l'affichage (ex: "open_world" devient "Open world")
                                 $nom_affiche = ucfirst(strtolower(str_replace('_', ' ', $cat['nom'])));
                                 
-                                // Si cette catégorie est celle cliquée, on la met en surbrillance (texte blanc)
-                                $style_actif = ($categorie_active == $cat['id']) ? 'style="color: white; font-weight: bold;"' : '';
+                                // On applique la classe gg-filter-active si c'est la catégorie cliquée
+                                $class_actif = ($categorie_active == $cat['id']) ? 'class="gg-filter-active"' : '';
                             ?>
                             <li>
-                                <a href="bibliotheque.php?categorie_id=<?php echo $cat['id']; ?>" <?php echo $style_actif; ?>>
+                                <a href="bibliotheque.php?categorie_id=<?php echo $cat['id']; ?>" <?php echo $class_actif; ?>>
                                     <?php echo htmlspecialchars($nom_affiche); ?>
                                 </a>
                             </li>

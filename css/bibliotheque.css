@@ -144,3 +144,23 @@
     width: 100%;
   }
 }
+
+/* Message quand aucun jeu n'est trouvé avec le filtre */
+.gg-lib-empty {
+  grid-column: 1 / -1;
+  color: #888;
+  padding: 20px;
+}
+
+/* La petite ligne de séparation sous "Tous les jeux" */
+.gg-filter-divider {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+/* Le style du lien quand la catégorie est sélectionnée */
+.gg-filter-list li a.gg-filter-active {
+  color: white;
+  font-weight: bold;
+}
