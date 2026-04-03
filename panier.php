@@ -21,7 +21,25 @@ if (isset($_POST['btn_supprimer_tout'])) {
     $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur");
 }
 
-// RÉCUPÉRER LES JEUX
+// DÉPLACER VERS LA LISTE DE SOUHAITS
+if (isset($_POST['btn_deplacer_souhait'])) {
+    $jeu_id = (int)$_POST['jeu_id'];
+
+    // On vérifie que le jeu n'est pas déjà dans la liste de souhaits
+    $check_souhait = $conn->query("SELECT * FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
+    if ($check_souhait->num_rows == 0) {
+        $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id)");
+    }
+
+    // Ensuite on le supprime du panier
+    $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
+
+    // On recharge la page proprement
+    header("Location: panier.php");
+    exit();
+}
+
+// RÉCUPÉRER LES JEUX DU PANIER
 $sql_panier = "
     SELECT j.id, j.titre, j.prix, j.image 
     FROM panier p 
@@ -56,10 +74,16 @@ $total_panier = 0;
 
                 <div class="gg-cart-items-section">
                     <?php while ($jeu = $resultat_panier->fetch_assoc()): ?>
-                        <?php $total_panier += $jeu['prix']; ?>
+
+                        <?php
+                        $total_panier += $jeu['prix'];
+
+                        // RÉSOLUTION DU PROBLÈME D'IMAGE : On génère le nom du dossier
+                        $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
+                        ?>
 
                         <div class="gg-cart-card">
-                            <img src="<?php echo htmlspecialchars($jeu['image']); ?>" alt="Jeu" class="gg-item-img">
+                            <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="Jeu" class="gg-item-img">
 
                             <div class="gg-item-content">
                                 <div class="gg-item-top">
@@ -78,7 +102,10 @@ $total_panier = 0;
                                         <button type="submit" name="btn_supprimer" class="gg-btn-text">Supprimer</button>
                                     </form>
 
-                                    <button class="gg-btn-outline">Ajouter à la liste de souhaits</button>
+                                    <form action="" method="POST" style="margin: 0;">
+                                        <input type="hidden" name="jeu_id" value="<?php echo $jeu['id']; ?>">
+                                        <button type="submit" name="btn_deplacer_souhait" class="gg-btn-outline">Ajouter à la liste de souhaits</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -117,6 +144,7 @@ $total_panier = 0;
 
         <?php endif; ?>
     </div>
+
     <?php include 'includes/footer.php'; ?>
 </body>
 

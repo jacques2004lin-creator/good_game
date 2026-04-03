@@ -62,10 +62,11 @@ $resultat_souhait = $conn->query($sql_souhait);
         <?php if ($resultat_souhait->num_rows > 0): ?>
 
             <div class="gg-wl-list">
-                <?php while ($jeu = $resultat_souhait->fetch_assoc()): ?>
+                <?php while ($jeu = $resultat_souhait->fetch_assoc()):
+                    $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))); ?>
 
                     <div class="gg-wl-card">
-                        <img src="<?php echo htmlspecialchars($jeu['image']); ?>" alt="Jeu" class="gg-wl-img">
+                        <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="Jeu" class="gg-wl-img">
 
                         <div class="gg-wl-content">
                             <div class="gg-wl-top">
