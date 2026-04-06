@@ -56,6 +56,7 @@ if ($conn->query($sql_achat) === TRUE) {
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/panier.css">
     <link rel="stylesheet" href="css/paiement.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validation de commande - Good Game</title>
 </head>
@@ -91,6 +92,8 @@ if ($conn->query($sql_achat) === TRUE) {
     </div>
 
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 </html>
 <?php $conn->close(); ?>

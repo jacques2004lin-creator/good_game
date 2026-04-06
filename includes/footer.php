@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <footer class="gg-footer">
+    <footer>
         <div class="gg-footer-content">
 
             <div class="gg-footer-links">
@@ -31,17 +31,21 @@
                 </div>
 
                 <div class="footer-feature-item">
-                    <svg viewBox="0 0 24 24" class="footer-icon">
-                        <path fill="currentColor" d="M22 12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7h20zm-9-2v11h-2V10h2zm9-4v4H2V6h20zm-9 0v4h-2V6h2zm-2-4h2c2.21 0 4 1.79 4 4v2h-4c-1.1 0-2-.9-2-2v-4zM6 6v2c0 1.1-.9 2-2 2H4V6c0-2.21 1.79-4 4-4h2v4H6z" />
-                    </svg>
-                    <span>Utiliser une Carte Cadeau</span>
+                    <a href="https://discord.com/" target="_blank" class="footer-feature-item interactive-link">
+                        <svg viewBox="0 0 24 24" class="footer-icon">
+                            <path fill="currentColor" d="M22 12v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7h20zm-9-2v11h-2V10h2zm9-4v4H2V6h20zm-9 0v4h-2V6h2zm-2-4h2c2.21 0 4 1.79 4 4v2h-4c-1.1 0-2-.9-2-2v-4zM6 6v2c0 1.1-.9 2-2 2H4V6c0-2.21 1.79-4 4-4h2v4H6z" />
+                        </svg>
+                        <span>Utiliser une Carte Cadeau</span>
+                    </a>
                 </div>
 
                 <div class="footer-feature-item">
-                    <svg viewBox="0 0 24 24" class="footer-icon">
-                        <path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z" />
-                    </svg>
-                    <span>Actualités des jeux vidéo PC et consoles</span>
+                    <a href="https://discord.com/" target="_blank" class="footer-feature-item interactive-link">
+                        <svg viewBox="0 0 24 24" class="footer-icon">
+                            <path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z" />
+                        </svg>
+                        <span>Actualités des jeux vidéo PC et consoles</span>
+                    </a>
                 </div>
 
             </div>

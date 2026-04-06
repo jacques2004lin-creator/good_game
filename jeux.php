@@ -31,6 +31,19 @@ if(isset($_GET['id'])) {
 }
 
 $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
+
+$deja_possede = false;
+
+if (isset($_SESSION['id_utilisateur'])) {
+    $id_user = $_SESSION['id_utilisateur'];
+    $id_jeu = $jeu['id'];
+    
+    $check_biblio = $conn->query("SELECT * FROM biblio WHERE utilisateur_id = '$id_user' AND jeu_id = '$id_jeu'");
+    
+    if ($check_biblio && $check_biblio->num_rows > 0) {
+        $deja_possede = true;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -39,10 +52,11 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($jeu['titre']); ?></title>
-    <link href="css/jeux.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/jeux.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -120,17 +134,27 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                 </div>
 
                 <!-- Boutons -->
-                <form action="panier.php" method="POST">
-                    <input type="hidden" name="action" value="ajouter">
-                    <input type="hidden" name="id_produit" value="<?php echo $jeu['id']; ?>">
-                    <button type="submit" class="btn-achat">Acheter</button>
-                </form>
-                
-                <form action="souhaits.php" method="POST">
-                    <input type="hidden" name="action" value="ajouter_souhait">
-                    <input type="hidden" name="id_produit" value="<?php echo $jeu['id']; ?>">
-                    <button type="submit" class="btn-souhait">Liste de souhaits</button>
-                </form>
+                <div class="actions-jeu">
+                    <?php 
+                    if ($deja_possede) {
+                        // Si le jeu est possédé : Un seul bouton vert non cliquable
+                        echo "<button class='btn-achat' style='background-color: #28a745; color: white; cursor: default;'>Possédé</button>";
+                    } else {
+                        // Si le jeu n'est pas possédé : On affiche Acheter + Liste de souhaits
+                        echo "<form action='panier.php' method='POST'>";
+                            echo "<input type='hidden' name='action' value='ajouter'>";
+                            echo "<input type='hidden' name='id_produit' value='" . $jeu['id'] . "'>";
+                            echo "<button type='submit' class='btn-achat'>Acheter</button>";
+                        echo "</form>";
+                        
+                        echo "<form action='liste_souhaits.php' method='POST'>";
+                            echo "<input type='hidden' name='action' value='ajouter_souhait'>";
+                            echo "<input type='hidden' name='id_produit' value='" . $jeu['id'] . "'>";
+                            echo "<button type='submit' class='btn-souhait'>Liste de souhaits</button>";
+                        echo "</form>";
+                    }
+                    ?>
+                </div>
 
                 <!-- Infos -->
                 <ul class="jeu-info">
@@ -217,8 +241,10 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
     <?php include 'includes/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 </html>
 

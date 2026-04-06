@@ -28,6 +28,7 @@ if (isset($_POST['btn_connexion'])) {
             // Succès ! On stocke les infos dans la session
             $_SESSION['id_utilisateur'] = $utilisateur['id']; // Remplacez 'id' par le vrai nom de votre colonne ID si différent
             $_SESSION['prenom'] = $utilisateur['prenom'];
+            $_SESSION['role'] = $utilisateur['role'];
 
             // On redirige vers l'accueil
             header("Location: index.php");
@@ -48,6 +49,7 @@ if (isset($_POST['btn_connexion'])) {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Good Game</title>
 </head>
@@ -78,6 +80,8 @@ if (isset($_POST['btn_connexion'])) {
         </form>
     </div>
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 
 </html>

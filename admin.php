@@ -6,12 +6,10 @@ $conn = new mysqli("db", "root", "root", "good_game");
 $conn->set_charset("utf8mb4");
 
 // On Vérifie si c'est bien l'Admin
-/* 
-if(!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
+if(!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header("Location: index.php");
     exit();
 } 
-*/
 
 $message = "";
 

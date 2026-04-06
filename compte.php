@@ -89,6 +89,7 @@ $utilisateur_actuel = $result->fetch_assoc();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/compte.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Compte - Good Game</title>
 </head>
@@ -115,7 +116,7 @@ $utilisateur_actuel = $result->fetch_assoc();
             </div>
             <ul class="sidebar-menu">
                 <li><a href="#sec-compte">Compte</a></li>
-                <li><a href="#sec-twofactor">Two-Factor</a></li>
+                <li><a href="#sec-twofactor">Authentification à deux facteurs</a></li>
                 <li><a href="#sec-acces">Accès au compte</a></li>
                 <li><a href="#sec-supprimer">Supprimer le compte</a></li>
             </ul>
@@ -141,7 +142,7 @@ $utilisateur_actuel = $result->fetch_assoc();
 
             <div class="account-card" id="sec-twofactor">
                 <div class="card-left">
-                    <h3>Two-Factor</h3>
+                    <h3>Authentification à deux facteurs</h3>
                     <p>Protégez votre compte avec une couche supplémentaire de sécurité. Un code va vous être demandé quand vous essayez de vous connecter à votre compte.</p>
                 </div>
                 <div class="card-right">
@@ -195,6 +196,9 @@ $utilisateur_actuel = $result->fetch_assoc();
         </main>
     </div>
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 
 </html>
