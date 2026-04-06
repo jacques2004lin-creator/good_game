@@ -19,6 +19,7 @@ $res_categories = $conn->query($sql_categories);
     <link href="css/categories.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -42,6 +43,9 @@ $res_categories = $conn->query($sql_categories);
     </main>
 
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 </html>
 

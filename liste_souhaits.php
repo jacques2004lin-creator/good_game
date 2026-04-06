@@ -10,13 +10,40 @@ if (!isset($_SESSION['id_utilisateur'])) {
 include "good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
-// 1. SUPPRIMER UN JEU DE LA LISTE
+$conn->query("
+    DELETE FROM souhait 
+    WHERE utilisateur_id = $id_utilisateur 
+    AND jeu_id IN (SELECT jeu_id FROM biblio WHERE utilisateur_id = $id_utilisateur)
+");
+
+// AJOUTER UN JEU À LA LISTE DE SOUHAITS
+if (isset($_POST['action']) && $_POST['action'] == 'ajouter_souhait') {
+    $jeu_id_a_ajouter = (int)$_POST['id_produit'];
+    
+    // On vérifie d'abord si l'utilisateur possède DÉJÀ ce jeu dans sa bibliothèque
+    $verif_biblio = $conn->query("SELECT * FROM biblio WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_ajouter");
+    
+    if ($verif_biblio->num_rows == 0) {
+        $verif_souhait = $conn->query("SELECT * FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_ajouter");
+        
+        if ($verif_souhait->num_rows == 0) {
+            $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id_a_ajouter)");
+        }
+    }
+    
+    header("Location: liste_souhaits.php");
+    exit();
+}
+
+// SUPPRIMER UN JEU DE LA LISTE MANUELLEMENT
 if (isset($_POST['btn_supprimer'])) {
     $jeu_id_a_retirer = (int)$_POST['jeu_id'];
     $conn->query("DELETE FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_retirer");
+    header("Location: liste_souhaits.php"); 
+    exit();
 }
 
-// 2. DÉPLACER VERS LE PANIER
+// DÉPLACER VERS LE PANIER
 if (isset($_POST['btn_ajouter_panier'])) {
     $jeu_id = (int)$_POST['jeu_id'];
 
@@ -24,14 +51,15 @@ if (isset($_POST['btn_ajouter_panier'])) {
     $check_panier = $conn->query("SELECT * FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
 
     if ($check_panier->num_rows == 0) {
-        // Ajouter au panier
         $conn->query("INSERT INTO panier (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id)");
-        // Retirer de la liste de souhaits
         $conn->query("DELETE FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
     }
+    
+    header("Location: liste_souhaits.php"); 
+    exit();
 }
 
-// RÉCUPÉRER LES JEUX DE LA LISTE DE SOUHAITS
+// RÉCUPÉRER LES JEUX DE LA LISTE DE SOUHAITS POUR L'AFFICHAGE
 $sql_souhait = "
     SELECT j.id, j.titre, j.prix, j.image 
     FROM souhait s 
@@ -50,6 +78,7 @@ $resultat_souhait = $conn->query($sql_souhait);
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/panier.css">
     <link rel="stylesheet" href="css/liste_souhaits.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste de souhaits - Good Game</title>
 </head>
@@ -58,13 +87,12 @@ $resultat_souhait = $conn->query($sql_souhait);
     <?php include 'includes/header.php'; ?>
 
     <div class="gg-wl-container">
-
+        <h1 class="gg-wl-title">Ma liste de souhait</h1>
         <?php if ($resultat_souhait->num_rows > 0): ?>
 
             <div class="gg-wl-list">
-                <?php while ($jeu = $resultat_souhait->fetch_assoc()):
-                    $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))); ?>
-
+                <?php while ($jeu = $resultat_souhait->fetch_assoc()): ?>
+                    <?php $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))); ?>
                     <div class="gg-wl-card">
                         <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="Jeu" class="gg-wl-img">
 
@@ -106,6 +134,8 @@ $resultat_souhait = $conn->query($sql_souhait);
         <?php endif; ?>
     </div>
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 
 </html>

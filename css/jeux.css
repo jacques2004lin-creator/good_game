@@ -1,8 +1,6 @@
 /* Bases */
 main {
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
     color: white;
 }
 
@@ -287,29 +285,4 @@ main {
     .config-box {
         padding: 20px 15px;
     }
-}
-
-/* Petits styles rapides pour les notifications */
-.msg-succes { 
-    background-color: #153020; 
-    color: #28a745; 
-    border: 1px solid #28a745; 
-    padding: 10px; 
-    border-radius: 5px; 
-    text-align: center; 
-    margin-bottom: 15px; 
-    font-size: 14px; 
-    font-weight: bold;
-}
-
-.msg-info { 
-    background-color: #1a2a3a; 
-    color: #007bff; 
-    border: 1px solid #007bff; 
-    padding: 10px; 
-    border-radius: 5px; 
-    text-align: center; 
-    margin-bottom: 15px; 
-    font-size: 14px; 
-    font-weight: bold;
 }

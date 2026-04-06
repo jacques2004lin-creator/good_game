@@ -21,9 +21,8 @@ $achats = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/page.css">
-    <link rel="stylesheet" href="css/panier.css">
     <link rel="stylesheet" href="css/historique.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historique d'achat - Good Game</title>
 </head>
@@ -31,17 +30,17 @@ $achats = $conn->query($sql);
 <body>
     <?php include 'includes/header.php'; ?>
 
-    <div class="gg-history-container">
+    <main>
         <h1 class="gg-page-title">Historique d'achat</h1>
 
         <div class="gg-history-card">
             <table class="gg-history-table">
                 <thead>
                     <tr>
-                        <th>ID commande</th>
+                        <th>ID Commande</th>
                         <th>Date</th>
-                        <th>jeux</th>
-                        <th style="text-align: right;">prix</th>
+                        <th>Jeux</th>
+                        <th>Prix</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,13 +55,12 @@ $achats = $conn->query($sql);
                                     <?php
                                     $id_achat = $a['id'];
                                     $jeux = $conn->query("SELECT jeux.titre FROM achat_jeux JOIN jeux ON achat_jeux.jeu_id = jeux.id WHERE achat_id = $id_achat");
-
-                                    $liste_jeux = [];
+                                    
+                                    echo "<ul>";
                                     while ($j = $jeux->fetch_assoc()) {
-                                        $liste_jeux[] = htmlspecialchars($j['titre']);
+                                        echo "<li>" . htmlspecialchars($j['titre']) . "</li>";
                                     }
-                                    // S'il y a plusieurs jeux, on les sépare par un retour à la ligne
-                                    echo implode("<br>", $liste_jeux);
+                                    echo "</ul>";
                                     ?>
                                 </td>
 
@@ -79,8 +77,10 @@ $achats = $conn->query($sql);
                 </tbody>
             </table>
         </div>
-    </div>
+    </main>
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 
 </html>

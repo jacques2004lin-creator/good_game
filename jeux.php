@@ -5,46 +5,6 @@ session_start();
 $conn = new mysqli("db", "root", "root", "good_game");
 $conn->set_charset("utf8mb4");
 
-$message = ""; // Variable pour stocker les messages de notification
-
-// GESTION DU PANIER ET DE LA LISTE DE SOUHAITS
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
-    
-    // Vérifier si l'utilisateur est connecté
-    if (!isset($_SESSION['id_utilisateur'])) {
-        header("Location: connexion.php");
-        exit();
-    }
-
-    $id_user = $_SESSION['id_utilisateur'];
-    $id_jeu_post = (int)$_POST['id_produit'];
-
-    // AJOUT AU PANIER
-    if ($_POST['action'] == 'ajouter') {
-        // Vérifier s'il n'est pas déjà dans le panier
-        $check = $conn->query("SELECT * FROM panier WHERE utilisateur_id = $id_user AND jeu_id = $id_jeu_post");
-        if ($check->num_rows == 0) {
-            $conn->query("INSERT INTO panier (utilisateur_id, jeu_id) VALUES ($id_user, $id_jeu_post)");
-            $message = "<div class='msg-succes'>Jeu ajouté au panier !</div>";
-        } else {
-            $message = "<div class='msg-info'>Ce jeu est déjà dans votre panier.</div>";
-        }
-    }
-
-    // AJOUT À LA LISTE DE SOUHAITS
-    if ($_POST['action'] == 'ajouter_souhait') {
-        // Vérifier s'il n'est pas déjà dans la liste
-        $check = $conn->query("SELECT * FROM souhait WHERE utilisateur_id = $id_user AND jeu_id = $id_jeu_post");
-        if ($check->num_rows == 0) {
-            $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_user, $id_jeu_post)");
-            $message = "<div class='msg-succes'>Jeu ajouté aux souhaits !</div>";
-        } else {
-            $message = "<div class='msg-info'>Ce jeu est déjà dans votre liste.</div>";
-        }
-    }
-}
-
-
 // Vérifie si on a bien l'id du jeu dans l'URL
 if(isset($_GET['id'])) {
     $id_url = $conn->real_escape_string($_GET['id']);
@@ -71,6 +31,20 @@ if(isset($_GET['id'])) {
 }
 
 $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
+
+$deja_possede = false;
+
+// Vérifie si l'utilisateur à deja le jeu
+if (isset($_SESSION['id_utilisateur'])) {
+    $id_user = $_SESSION['id_utilisateur'];
+    $id_jeu = $jeu['id'];
+    
+    $check_biblio = $conn->query("SELECT * FROM biblio WHERE utilisateur_id = '$id_user' AND jeu_id = '$id_jeu'");
+    
+    if ($check_biblio && $check_biblio->num_rows > 0) {
+        $deja_possede = true;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -79,38 +53,66 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($jeu['titre']); ?></title>
-    <link href="css/jeux.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/jeux.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
 
     <main>
+        <!-- Titre -->
         <h1 class="titre-principal"><?php echo htmlspecialchars($jeu['titre']); ?></h1>
 
         <section class="jeu">
             <div class="jeu-galerie">
     
+                <!-- Slider Principal -->
                 <div class="swiper mainSwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="<?php echo htmlspecialchars($jeu['titre']); ?>"></div>
-                        <?php if(!empty($jeu['img_min1'])) { echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min1']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>"; } ?>
-                        <?php if(!empty($jeu['img_min2'])) { echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>"; } ?>
-                        <?php if(!empty($jeu['img_min3'])) { echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>"; } ?>
+                        <?php
+                        if(!empty($jeu['img_min1'])) {
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min1']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                        }
+                        ?>
+                        <?php
+                        if(!empty($jeu['img_min2'])) {
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                        }
+                        ?>
+                        <?php
+                        if(!empty($jeu['img_min3'])) {
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                        }
+                        ?>
                     </div>
 
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
 
+                <!-- Slider des Miniatures -->
                 <div class="swiper thumbSwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="<?php echo htmlspecialchars($jeu['titre']); ?>"></div>
-                        <?php if(!empty($jeu['img_min1'])) { echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min1']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>"; } ?>
-                        <?php if(!empty($jeu['img_min2'])) { echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>"; } ?>
-                        <?php if(!empty($jeu['img_min3'])) { echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>"; } ?>
+                        <?php
+                        if(!empty($jeu['img_min1'])) {
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min1']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                        }
+                        ?>
+                        <?php
+                        if(!empty($jeu['img_min2'])) {
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min2']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                        }
+                        ?>
+                        <?php
+                        if(!empty($jeu['img_min3'])) {
+                            echo "<div class='swiper-slide'><img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars((string)$jeu['img_min3']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'></div>";
+                        }
+                        ?>
                     </div>
                 </div>
 
@@ -132,20 +134,30 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                     ?>
                 </div>
 
-                <?php if(!empty($message)) echo $message; ?>
+                <!-- Boutons -->
+                <div class="actions-jeu">
+                    <?php 
+                    if ($deja_possede) {
+                        // Si le jeu est possédé : Un seul bouton vert non cliquable
+                        echo "<button class='btn-achat' style='background-color: #28a745; color: white; cursor: default;'>Possédé</button>";
+                    } else {
+                        // Si le jeu n'est pas possédé : On affiche Acheter + Liste de souhaits
+                        echo "<form action='panier.php' method='POST'>";
+                            echo "<input type='hidden' name='action' value='ajouter'>";
+                            echo "<input type='hidden' name='id_produit' value='" . $jeu['id'] . "'>";
+                            echo "<button type='submit' class='btn-achat'>Acheter</button>";
+                        echo "</form>";
+                        
+                        echo "<form action='liste_souhaits.php' method='POST'>";
+                            echo "<input type='hidden' name='action' value='ajouter_souhait'>";
+                            echo "<input type='hidden' name='id_produit' value='" . $jeu['id'] . "'>";
+                            echo "<button type='submit' class='btn-souhait'>Liste de souhaits</button>";
+                        echo "</form>";
+                    }
+                    ?>
+                </div>
 
-                <form action="" method="POST">
-                    <input type="hidden" name="action" value="ajouter">
-                    <input type="hidden" name="id_produit" value="<?php echo $jeu['id']; ?>">
-                    <button type="submit" class="btn-achat">Acheter</button>
-                </form>
-                
-                <form action="" method="POST">
-                    <input type="hidden" name="action" value="ajouter_souhait">
-                    <input type="hidden" name="id_produit" value="<?php echo $jeu['id']; ?>">
-                    <button type="submit" class="btn-souhait">Liste de souhaits</button>
-                </form>
-
+                <!-- Infos -->
                 <ul class="jeu-info">
                     <li><strong>Classification :</strong> PEGI <?php echo htmlspecialchars($jeu['pegi']); ?></li>
                     <li><strong>Développeur :</strong> <?php echo htmlspecialchars($jeu['developpeur']); ?></li>
@@ -155,6 +167,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
             </div>
         </section>
 
+        <!-- Tags & fonctionnalités -->
         <section class="jeu-tags">
             <div class="col-tags">
                 <h3>Genre</h3>
@@ -169,6 +182,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
             </div>
         </section>
 
+        <!-- Description longue -->
         <section class="jeu-description">
             <h2>À propos de ce jeu</h2>
             
@@ -177,6 +191,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
             </div>
         </section>
 
+        <!-- Configuration -->
         <section class="jeu-config">
             <h2>Configuration système requise pour <?php echo htmlspecialchars($jeu['titre']); ?></h2>
             
@@ -187,6 +202,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
             <div class="config-box">
                 <div class="config-grid">
 
+                    <!-- Minimum -->
                     <div class="config-col">
                         <h4>Minimum</h4>
                         <ul>
@@ -199,6 +215,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                         </ul>
                     </div>
 
+                    <!-- Recommandée -->
                     <div class="config-col">
                         <h4>Configuration recommandée</h4>
                         <ul>
@@ -212,6 +229,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
                     </div>
                 </div>
 
+                <!-- Langues -->
                 <div class="config-langues">
                     <span class="label">Langues disponibles :</span>
                     <p><strong>Audio :</strong> <?php echo htmlspecialchars($jeu['lang_audio']); ?><br>
@@ -224,8 +242,10 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
     <?php include 'includes/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/slider.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 </html>
 

@@ -1,0 +1,19 @@
+h4 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.lien {
+    color:#4DA0FF;
+}
+
+.form-ajout-jeu {
+    margin-top: 20px;
+}
+
+.btn-ajouter {
+    width:100%;
+    margin: 40px 0;
+    padding:20px;
+    font-size:1.2rem;
+}

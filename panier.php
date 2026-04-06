@@ -10,36 +10,38 @@ if (!isset($_SESSION['id_utilisateur'])) {
 include "good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
-// SUPPRIMER UN JEU SPÉCIFIQUE
-if (isset($_POST['btn_supprimer'])) {
-    $jeu_id_a_supprimer = (int)$_POST['jeu_id'];
-    $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_supprimer");
-}
-
-// SUPPRIMER TOUT LE PANIER
-if (isset($_POST['btn_supprimer_tout'])) {
-    $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur");
-}
-
-// DÉPLACER VERS LA LISTE DE SOUHAITS
-if (isset($_POST['btn_deplacer_souhait'])) {
-    $jeu_id = (int)$_POST['jeu_id'];
-
-    // On vérifie que le jeu n'est pas déjà dans la liste de souhaits
-    $check_souhait = $conn->query("SELECT * FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
-    if ($check_souhait->num_rows == 0) {
-        $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id)");
+if (isset($_POST['action']) && $_POST['action'] == 'ajouter') {
+    $jeu_id_a_ajouter = (int)$_POST['id_produit'];
+    
+    // On vérifie d'abord si le jeu n'est pas déjà dans le panier
+    $verif_panier = $conn->query("SELECT * FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_ajouter");
+    
+    if ($verif_panier->num_rows == 0) {
+        // S'il n'y est pas, on l'ajoute dans la base de données !
+        $conn->query("INSERT INTO panier (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id_a_ajouter)");
     }
-
-    // Ensuite on le supprime du panier
-    $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
-
+    
     // On recharge la page proprement
     header("Location: panier.php");
     exit();
 }
 
-// RÉCUPÉRER LES JEUX DU PANIER
+// SUPPRIMER UN JEU SPÉCIFIQUE
+if (isset($_POST['btn_supprimer'])) {
+    $jeu_id_a_supprimer = (int)$_POST['jeu_id'];
+    $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_supprimer");
+    header("Location: panier.php"); 
+    exit();
+}
+
+// SUPPRIMER TOUT LE PANIER
+if (isset($_POST['btn_supprimer_tout'])) {
+    $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur");
+    header("Location: panier.php");
+    exit();
+}
+
+// RÉCUPÉRER LES JEUX POUR LES AFFICHER
 $sql_panier = "
     SELECT j.id, j.titre, j.prix, j.image 
     FROM panier p 
@@ -58,6 +60,7 @@ $total_panier = 0;
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/panier.css">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Panier - Good Game</title>
 </head>
@@ -74,16 +77,11 @@ $total_panier = 0;
 
                 <div class="gg-cart-items-section">
                     <?php while ($jeu = $resultat_panier->fetch_assoc()): ?>
-
-                        <?php
-                        $total_panier += $jeu['prix'];
-
-                        // RÉSOLUTION DU PROBLÈME D'IMAGE : On génère le nom du dossier
-                        $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre'])));
-                        ?>
+                        <?php $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))); ?>
+                        <?php $total_panier += $jeu['prix']; ?>
 
                         <div class="gg-cart-card">
-                            <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="Jeu" class="gg-item-img">
+                            <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="<?php echo htmlspecialchars($jeu['titre']); ?>" alt="Jeu" class="gg-item-img">
 
                             <div class="gg-item-content">
                                 <div class="gg-item-top">
@@ -102,9 +100,10 @@ $total_panier = 0;
                                         <button type="submit" name="btn_supprimer" class="gg-btn-text">Supprimer</button>
                                     </form>
 
-                                    <form action="" method="POST" style="margin: 0;">
-                                        <input type="hidden" name="jeu_id" value="<?php echo $jeu['id']; ?>">
-                                        <button type="submit" name="btn_deplacer_souhait" class="gg-btn-outline">Ajouter à la liste de souhaits</button>
+                                    <form action="liste_souhaits.php" method="POST">
+                                        <input type="hidden" name="action" value="ajouter_souhait">
+                                        <input type="hidden" name="id_produit" value="<?php echo $jeu['id']; ?>">
+                                        <button type="submit" class="gg-btn-outline">Ajouter à la liste de souhaits</button>
                                     </form>
                                 </div>
                             </div>
@@ -144,8 +143,9 @@ $total_panier = 0;
 
         <?php endif; ?>
     </div>
-
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 
 </html>

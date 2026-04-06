@@ -1,12 +1,37 @@
 /* Bases */
-
 body {
+<<<<<<< HEAD
   margin: 0;
   padding: 0;
   background-color: black;
   color: white;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+=======
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+  margin: 50px auto;
+}
+
+/* 2. On dit aux conteneurs du milieu de s'étirer au maximum */
+.gg-wl-container, 
+.gg-cart-container, 
+.account-layout, 
+main {
+    flex: 1 0 auto;
+}
+
+.gg-wl-container, .gg-cart-container {
+  width: 100%;
+>>>>>>> 0cf97e16ee60aa865a3be2f016aecf0fac80f642
 }
 
 h2 {
@@ -25,7 +50,7 @@ a {
 /* HEADER & NAVIGATION */
 
 /* l'alignement magique du Header (flexbox) */
-.site-header {
+header {
   display: flex; /* aligne tout sur une ligne */
   justify-content: space-between; /* écarte les 4 zones au maximum */
   align-items: center;
@@ -102,6 +127,51 @@ a {
 }
 
 /* liens de navigation */
+/* 1. Aligner la barre de recherche avec les liens */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-wrapper {
+    width: 250px; /* Ajuste la largeur selon tes besoins */
+}
+
+/* 2. Styliser le champ de saisie (TS-CONTROL) */
+.ts-control {
+    background-color: #2a2a2e !important; /* Le gris foncé de ton design */
+    border: 1px solid #444 !important;
+    border-radius: 20px !important; /* Arrondi comme avant */
+    color: white !important;
+    padding: 8px 15px !important;
+    box-shadow: none !important;
+}
+
+/* Couleur du texte quand on tape */
+.ts-control input {
+    color: white !important;
+}
+
+/* Style du menu qui descend (TS-DROPDOWN) */
+.ts-dropdown {
+    background-color: #1a1a1c !important;
+    border: 1px solid #444 !important;
+    color: white !important;
+    margin-top: 5px !important;
+}
+
+/* Style des éléments dans la liste au survol */
+.ts-dropdown .active {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+/* Cacher le petit triangle bleu de base */
+.ts-wrapper.single .ts-control::after {
+    display: none !important;
+}
+
 .main-nav .head {
   color: #ccc;
   text-decoration: none;
@@ -162,7 +232,7 @@ a {
 /*HEADER RESPONSIVE (Mobiles & Tablettes) */
 
 @media (max-width: 900px) {
-  .site-header {
+  header {
     flex-wrap: wrap; /* Autorise les éléments à passer à la ligne */
     padding: 15px 20px; /* Réduit un peu les marges sur mobile */
     gap: 15px; /* Espace entre les lignes */
@@ -216,10 +286,10 @@ a {
 
 /* FOOTER (DESIGN EXACT MAQUETTE)            */
 
-.gg-footer {
+footer {
+  margin-top: auto;
   background-color: #1a1a1a; /* Fond gris sombre identique à la maquette */
   padding: 50px 0;
-  margin-top: 80px; /* Pousse le footer vers le bas de la page */
 }
 
 .gg-footer-content {

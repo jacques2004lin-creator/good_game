@@ -35,6 +35,7 @@ if (isset($_GET['cat']) && !empty($_GET['cat'])) {
     <link href="css/genre.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 </head>
 <body>
     <?php include 'includes/header.php'; ?>
@@ -50,7 +51,11 @@ if (isset($_GET['cat']) && !empty($_GET['cat'])) {
                         echo "<a href='jeux.php?id=" . $jeu['id'] . "'>";
                             echo "<img src='image/jeux/" . $nom_dossier . "/" . htmlspecialchars($jeu['image']) . "' alt='" . htmlspecialchars($jeu['titre']) . "'>";
                             echo "<h3>" . htmlspecialchars($jeu['titre']) . "</h3>";
-                            echo "<p>" . number_format($jeu['prix'], 2, ',', ' ') . " €</p>";
+                            if($jeu['prix'] > 0) {
+                                echo "<p>" . number_format($jeu['prix'], 2, ',', ' ') . " €</p>";
+                            } else {
+                                echo "<p>Gratuit</p>";
+                            }
                         echo "</a>";
                     echo "</div>";
                 }
@@ -62,6 +67,8 @@ if (isset($_GET['cat']) && !empty($_GET['cat'])) {
     </main>
 
     <?php include 'includes/footer.php'; ?>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/tom.js"></script>
 </body>
 </html>
 

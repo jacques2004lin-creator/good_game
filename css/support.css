@@ -1,8 +1,8 @@
 main {
-    margin: 50px 30px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    justify-content: center;
+    gap: 50px;
     align-items: center;
 }
 

@@ -1,5 +1,9 @@
 /* PAGE HISTORIQUE D'ACHAT */
 
+main {
+  margin: 50px 30%;
+}
+
 .gg-history-card {
   background-color: #222222; /* gris sombre de la maquette */
   border-radius: 12px;
