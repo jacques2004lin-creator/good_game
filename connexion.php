@@ -6,7 +6,6 @@ include "good_game_db.php";
 
 $message = "";
 
-// TRAITEMENT DE LA CONNEXION
 // On vérifie si l'utilisateur a cliqué sur le bouton "Se connecter"
 if (isset($_POST['btn_connexion'])) {
 
@@ -26,7 +25,7 @@ if (isset($_POST['btn_connexion'])) {
         if (password_verify($mdp_saisi, $utilisateur['motdepasse'])) {
 
             // Succès ! On stocke les infos dans la session
-            $_SESSION['id_utilisateur'] = $utilisateur['id']; // Remplacez 'id' par le vrai nom de votre colonne ID si différent
+            $_SESSION['id_utilisateur'] = $utilisateur['id'];
             $_SESSION['prenom'] = $utilisateur['prenom'];
             $_SESSION['role'] = $utilisateur['role'];
 

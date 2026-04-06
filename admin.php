@@ -16,14 +16,6 @@ $message = "";
 // Gestion des actions
 if (isset($_POST['action'])) {
 
-    // Action : Changer le statut d'une commande
-    if ($_POST['action'] == 'changer_statut') {
-        $id = intval($_POST['id_achat']);
-        $nouveau_statut = $conn->real_escape_string($_POST['statut']);
-        $conn->query("UPDATE achats SET status = '$nouveau_statut' WHERE id = $id");
-        $message = "Statut de la commande #$id mis à jour !";
-    }
-
     // Action : Ajouter un jeu
     if ($_POST['action'] == 'ajouter_jeu') {
         $titre = $conn->real_escape_string($_POST['titre']);
@@ -123,7 +115,6 @@ $res_achats = $conn->query($sql_achats);
                         <th>Utilisateur</th>
                         <th>Détails</th>
                         <th>Total</th>
-                        <th>Statut / Action</th>
                     </tr>
                     <?php 
                     if($res_achats->num_rows > 0) {
@@ -139,17 +130,6 @@ $res_achats = $conn->query($sql_achats);
                                     }
                                 echo "</td></ul>";
                                 echo "<td>" . $a['sous_total'] . " €</td>";
-                                echo "<td>";
-                                    echo "<form method='POST' class='boutons'>";
-                                        echo "<input type='hidden' name='action' value='changer_statut'>";
-                                        echo "<input type='hidden' name='id_achat' value='" . $a['id'] . "'>";
-                                        echo "<select name='statut'>";
-                                            echo "<option value='En attente' " . ($a['status'] == 'En attente' ? 'selected' : '') . ">En attente</option>";
-                                            echo "<option value='Livrée' " . ($a['status'] == 'Livrée' ? 'selected' : '') . ">Livrée</option>";
-                                        echo "</select>";
-                                        echo "<button type='submit' class='btn btn-update'>OK</button>";
-                                    echo "</form>";
-                                echo "</td>";
                             echo "</tr>";
                         }
                     } else {
@@ -247,7 +227,7 @@ $res_achats = $conn->query($sql_achats);
                         while ($j = $res_liste->fetch_assoc()) {
                             echo "<tr>";
                                 echo "<td>" . $j['id'] . "</td>";
-                                echo "<td><ul>" ;
+                                echo "<td><ul>";
                                     echo "<li>". $j['image'] . "</li>";
                                     echo "<li>". $j['img_min1'] . "</li>";
                                     echo "<li>". $j['img_min2'] . "</li>";

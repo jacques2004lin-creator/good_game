@@ -1,9 +1,8 @@
 <?php
 session_start();
 
-// 1. VÉRIFICATION DE SÉCURITÉ : L'utilisateur est-il connecté ?
+// On vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['id_utilisateur'])) {
-    // S'il n'est pas connecté, on le renvoie de force vers la page de connexion
     header("Location: connexion.php");
     exit();
 }
@@ -14,16 +13,14 @@ $id_utilisateur = $_SESSION['id_utilisateur'];
 $message_succes = "";
 $message_erreur = "";
 
-// 2. TRAITEMENT DES FORMULAIRES
-
-// A. Changement de Pseudo (On utilise le champ 'prenom' de votre base de données)
+// Changement de Pseudo
 if (isset($_POST['btn_update_pseudo'])) {
     $nouveau_pseudo = $conn->real_escape_string(trim($_POST['nouveau_pseudo']));
 
     if (!empty($nouveau_pseudo)) {
         $sql = "UPDATE utilisateurs SET prenom = '$nouveau_pseudo' WHERE id = $id_utilisateur";
         if ($conn->query($sql) === TRUE) {
-            $_SESSION['prenom'] = $nouveau_pseudo; // Met à jour la session
+            $_SESSION['prenom'] = $nouveau_pseudo;
             $message_succes = "Votre pseudo a été mis à jour avec succès.";
         } else {
             $message_erreur = "Erreur lors de la mise à jour du pseudo.";
@@ -31,7 +28,7 @@ if (isset($_POST['btn_update_pseudo'])) {
     }
 }
 
-// B. Changement d'accès (Email et/ou Mot de passe)
+// Changement d'accès (Email et/ou Mot de passe)
 if (isset($_POST['btn_update_acces'])) {
     $nouvel_email = $conn->real_escape_string(trim($_POST['nouvel_email']));
     $nouveau_mdp = trim($_POST['nouveau_mdp']);
@@ -56,7 +53,7 @@ if (isset($_POST['btn_update_acces'])) {
     }
 }
 
-// C. Suppression du compte
+// Suppression du compte
 if (isset($_POST['btn_delete_account'])) {
     $confirmation = trim($_POST['confirm_delete']);
 
@@ -75,7 +72,7 @@ if (isset($_POST['btn_delete_account'])) {
     }
 }
 
-// 3. RÉCUPÉRATION DES DONNÉES ACTUELLES DE L'UTILISATEUR
+// RÉCUPÉRATION DES DONNÉES ACTUELLES DE L'UTILISATEUR
 $sql_user = "SELECT * FROM utilisateurs WHERE id = $id_utilisateur";
 $result = $conn->query($sql_user);
 $utilisateur_actuel = $result->fetch_assoc();
@@ -153,7 +150,7 @@ $utilisateur_actuel = $result->fetch_assoc();
                     <div class="info-box">
                         <p>Protégez votre compte en utilisant un code unique envoyé par mail.</p>
                     </div>
-                    <button class="btn-green">ACTIVER (Bientôt disponible)</button>
+                    <button class="btn-green">Bientôt disponible</button>
                 </div>
             </div>
 

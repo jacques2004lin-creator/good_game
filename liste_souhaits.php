@@ -23,14 +23,10 @@ if (isset($_POST['action']) && $_POST['action'] == 'ajouter_souhait') {
     // On vérifie d'abord si l'utilisateur possède DÉJÀ ce jeu dans sa bibliothèque
     $verif_biblio = $conn->query("SELECT * FROM biblio WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_ajouter");
     
-    // S'il ne l'a pas, on continue
     if ($verif_biblio->num_rows == 0) {
-        
-        // On vérifie s'il n'est pas déjà dans la liste de souhaits
         $verif_souhait = $conn->query("SELECT * FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_ajouter");
         
         if ($verif_souhait->num_rows == 0) {
-            // S'il n'y est pas, on l'ajoute dans la base de données
             $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id_a_ajouter)");
         }
     }

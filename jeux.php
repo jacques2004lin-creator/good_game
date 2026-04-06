@@ -34,6 +34,7 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
 
 $deja_possede = false;
 
+// Vérifie si l'utilisateur à deja le jeu
 if (isset($_SESSION['id_utilisateur'])) {
     $id_user = $_SESSION['id_utilisateur'];
     $id_jeu = $jeu['id'];

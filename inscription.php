@@ -5,10 +5,8 @@ include "good_game_db.php";
 
 $message = "";
 
-// TRAITEMENT DE L'INSCRIPTION
 // On vérifie si l'utilisateur a cliqué sur le bouton "S'inscrire"
 if (isset($_POST['btn_inscription'])) {
-    // On récupère et sécurise les données
     $nom = $conn->real_escape_string($_POST['nom']);
     $prenom = $conn->real_escape_string($_POST['prenom']);
     $email = $conn->real_escape_string($_POST['email']);
