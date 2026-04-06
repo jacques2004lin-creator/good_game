@@ -177,24 +177,38 @@ a {
     order: 2;
   }
 
-  .search-bar {
+  .gg-search-form {
+    order: 3;
     width: 100%;
-    box-sizing: border-box; /* Empêche la barre de déborder de l'écran */
+    margin: 10px 0; /* Ajoute un petit espace au-dessus et en-dessous */
   }
 
-  /* 4. Les liens de navigation (Bas - Centrés) */
+  .search-bar {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 4. Les liens de navigation (Tout en bas, sur une seule ligne défilante) */
   .main-nav {
     order: 4;
     width: 100%;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Si trop de liens, ils passent à la ligne proprement */
-    gap: 10px;
+    flex-wrap: nowrap; /* Force la ligne unique */
+    gap: 15px;
+    overflow-x: auto; /* Scroll tactile */
+    padding-bottom: 5px;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
+    display: none;
   }
 
   .main-nav .head {
-    margin: 0 5px;
-    font-size: 13px; /* Texte légèrement plus petit pour que tout rentre */
+    margin: 0;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   /* Ajustement de sécurité pour le menu déroulant profil */

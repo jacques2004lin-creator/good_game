@@ -14,10 +14,11 @@
             <img src="image/gg.png" alt="Logo Good Game" class="logo">
         </a>
 
+        <form action="recherche.php" method="GET" class="gg-search-form">
+            <input type="text" name="q" placeholder="Recherche" class="search-bar" required>
+        </form>
+
         <nav class="main-nav">
-            <form action="recherche.php" method="GET" class="gg-search-form">
-                <input type="text" name="q" placeholder="Recherche" class="search-bar" required>
-            </form>
             <a href="index.php" class="head">Accueil</a>
             <a href="bibliotheque.php" class="head">Bibliothèque</a>
             <a href="categories.php" class="head">Catégories</a>
