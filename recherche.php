@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 session_start();
 include "good_game_db.php";
 
@@ -70,17 +69,3 @@ $resultat_recherche = $conn->query($sql_recherche);
 
 </html>
 <?php $conn->close(); ?>
-=======
-include "good_game_db.php";
-$q = $_GET['q'] ?? '';
-
-$sql = "SELECT id, titre FROM jeux WHERE titre LIKE '%$q%' LIMIT 10";
-$result = $conn->query($sql);
-
-$json = [];
-while($row = $result->fetch_assoc()){
-    $json[] = $row;
-}
-
-echo json_encode($json);
->>>>>>> 0cf97e16ee60aa865a3be2f016aecf0fac80f642
