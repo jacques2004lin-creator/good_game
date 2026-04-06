@@ -1,24 +1,25 @@
 /* Bases */
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
-a, p {
-    color: white;
+a,
+p {
+  color: white;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* HEADER & NAVIGATION */
@@ -63,6 +64,41 @@ a {
 }
 .search-bar:focus {
   outline: 1px solid #777; /* effet quand on clique dedans */
+}
+
+/* Formulaire de la barre de recherche dans le header */
+.gg-search-form {
+  display: inline-block;
+  margin: 0;
+}
+
+/* Grille spécifique pour les résultats de recherche (pleine largeur) */
+.gg-search-grid {
+  width: 100%;
+}
+
+/* Lien invisible autour des cartes de jeux */
+.gg-search-link {
+  text-decoration: none;
+}
+
+/* Prix affiché sous les jeux dans la recherche */
+.gg-search-price {
+  color: #ccc;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Zone quand aucun résultat n'est trouvé */
+.gg-search-empty {
+  text-align: center;
+  padding: 50px;
+}
+
+/* Bouton de retour dans la zone vide */
+.gg-search-empty-btn {
+  display: inline-block;
+  margin-top: 20px;
 }
 
 /* liens de navigation */
