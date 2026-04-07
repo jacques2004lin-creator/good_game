@@ -113,7 +113,6 @@ $utilisateur_actuel = $result->fetch_assoc();
             </div>
             <ul class="sidebar-menu">
                 <li><a href="#sec-compte">Compte</a></li>
-                <li><a href="#sec-twofactor">Authentification à deux facteurs</a></li>
                 <li><a href="#sec-acces">Accès au compte</a></li>
                 <li><a href="#sec-supprimer">Supprimer le compte</a></li>
             </ul>
@@ -134,23 +133,6 @@ $utilisateur_actuel = $result->fetch_assoc();
                         </div>
                         <button type="submit" name="btn_update_pseudo" class="btn-green">CONFIRMER</button>
                     </form>
-                </div>
-            </div>
-
-            <div class="account-card" id="sec-twofactor">
-                <div class="card-left">
-                    <h3>Authentification à deux facteurs</h3>
-                    <p>Protégez votre compte avec une couche supplémentaire de sécurité. Un code va vous être demandé quand vous essayez de vous connecter à votre compte.</p>
-                </div>
-                <div class="card-right">
-                    <div class="two-factor-icon">
-                        <span>@</span>
-                        <p>EMAIL</p>
-                    </div>
-                    <div class="info-box">
-                        <p>Protégez votre compte en utilisant un code unique envoyé par mail.</p>
-                    </div>
-                    <button class="btn-green">Bientôt disponible</button>
                 </div>
             </div>
 

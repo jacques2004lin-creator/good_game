@@ -138,27 +138,6 @@ main {
   text-transform: uppercase;
 }
 
-/* TWO FACTOR (spécifique) */
-.two-factor-icon {
-  background-color: #1a1a1a;
-  border: 1px solid #333;
-  border-radius: 6px;
-  text-align: center;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-.two-factor-icon span {
-  font-size: 24px;
-  color: white;
-  font-weight: bold;
-}
-.two-factor-icon p {
-  margin: 10px 0 0 0;
-  font-size: 12px;
-  font-weight: bold;
-  color: #aaa;
-}
-
 .info-box {
   background-color: #153020; /* fond vert très foncé */
   border-left: 4px solid #28a745;
