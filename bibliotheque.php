@@ -15,7 +15,7 @@ $filtre_sql = "";
 $categorie_active = null;
 
 if (isset($_GET['categorie_id']) && is_numeric($_GET['categorie_id'])) {
-    $categorie_active = (int)$_GET['categorie_id'];
+    $categorie_active = (int) $_GET['categorie_id'];
     $filtre_sql = " AND j.categorie_id = $categorie_active";
 }
 
@@ -61,7 +61,8 @@ $resultat_categories = $conn->query($sql_categories);
                         <?php $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))); ?>
 
                         <div class="gg-lib-card">
-                            <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="<?php echo htmlspecialchars($jeu['titre']); ?>" alt="Jeu" class="gg-lib-img">
+                            <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>"
+                                alt="<?php echo htmlspecialchars($jeu['titre']); ?>" alt="Jeu" class="gg-lib-img">
                             <h3 class="gg-lib-title"><?php echo htmlspecialchars($jeu['titre']); ?></h3>
                         </div>
                     <?php endwhile; ?>
@@ -81,21 +82,22 @@ $resultat_categories = $conn->query($sql_categories);
 
                 <h4 class="gg-filter-subtitle">Catégories:</h4>
                 <ul class="gg-filter-list">
-                    
+
                     <li>
-                        <a href="bibliotheque.php" <?php if(!$categorie_active) echo 'class="gg-filter-active"'; ?>>
+                        <a href="bibliotheque.php" <?php if (!$categorie_active)
+                            echo 'class="gg-filter-active"'; ?>>
                             Tous les jeux
                         </a>
                     </li>
-                    
+
                     <li class="gg-filter-divider"></li>
 
                     <?php if ($resultat_categories && $resultat_categories->num_rows > 0): ?>
                         <?php while ($cat = $resultat_categories->fetch_assoc()): ?>
-                            <?php 
-                                $nom_affiche = ucfirst(strtolower(str_replace('_', ' ', $cat['nom'])));
-                                
-                                $class_actif = ($categorie_active == $cat['id']) ? 'class="gg-filter-active"' : '';
+                            <?php
+                            $nom_affiche = ucfirst(strtolower(str_replace('_', ' ', $cat['nom'])));
+
+                            $class_actif = ($categorie_active == $cat['id']) ? 'class="gg-filter-active"' : '';
                             ?>
                             <li>
                                 <a href="bibliotheque.php?categorie_id=<?php echo $cat['id']; ?>" <?php echo $class_actif; ?>>
@@ -110,7 +112,7 @@ $resultat_categories = $conn->query($sql_categories);
 
         </div>
     </div>
-    
+
     <?php include 'includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <script src="js/script.js"></script>
