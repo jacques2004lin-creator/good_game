@@ -94,14 +94,18 @@
 /* STYLE DU FORMULAIRE D'INSCRIPTION */
 
 /* la grande boîte grise foncée */
+/* la grande boîte grise foncée */
 .inscription-wrapper {
   background-color: #1e1e1e; /* gris très foncé */
   border-radius: 12px; /* bords arrondis */
   padding: 40px;
   max-width: 400px;
+  width: 100%;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* ombre douce pour détacher du fond noir */
-  margin: auto;
-  width: 100%; 
+
+  /*LE SECRET DU CENTRAGE*/
+  margin: 10vh auto; /* 'auto' centre de gauche à droite. '10vh' le pousse vers le bas de 10% de la taille de l'écran*/
+  box-sizing: border-box; /* Sécurité : empêche le padding de faire déborder la boîte sur les petits téléphones */
 }
 
 /* l'en-tête du formulaire (logo + titre) */
