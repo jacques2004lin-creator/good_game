@@ -243,33 +243,28 @@ a {
   justify-content: space-between;
   align-items: center;
 }
-
 /* Colonne de gauche (Liens) */
 .gg-footer-links {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
 .gg-footer-links a {
   color: #ccc;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
 }
-
 .gg-footer-links a:hover {
   color: white;
   text-decoration: underline;
 }
-
 /* Colonne de droite (Icônes et Textes) */
 .gg-footer-features {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .footer-feature-item {
   display: flex;
   align-items: center;
@@ -277,23 +272,19 @@ a {
   color: #ccc;
   font-size: 14px;
 }
-
 .footer-icon {
   width: 24px;
   height: 24px;
   color: white; /* Rend les icônes SVG parfaitement blanches */
 }
-
 /* Rend le liens avec icônes joli et interactif */
 a.interactive-link {
   text-decoration: none; /* Enlève le soulignement moche */
   transition: color 0.2s;
 }
-
 a.interactive-link:hover {
   color: white;
 }
-
 /* Responsive Mobile : on empile les colonnes l'une sous l'autre */
 @media (max-width: 768px) {
   .gg-footer-content {
