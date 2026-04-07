@@ -25,18 +25,22 @@ a {
 
 /* l'alignement magique du Header (flexbox) */
 .site-header {
-  display: flex; /* aligne tout sur une ligne */
-  justify-content: space-between; /* écarte les 4 zones au maximum */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px 40px; /* espace autour du header */
-  background-color: #121212; /* noir légèrement plus clair pour détacher le menu du fond */
+  /* On réduit le padding vertical de 15px à 5px */
+  padding: 5px 40px; 
+  background-color: #121212;
+  height: 90px; /* On peut aussi fixer une hauteur précise pour bloquer la barre */
 }
 
 /* taille des images */
 .logo {
-  height: 60px; /* Correction: le 150px en double a été retiré */
-  object-fit: cover;
-  object-position: center 40%;
+  height: 60px; /* On garde une base raisonnable */
+  transform: scale(1.8); /* On zoome à 180% */
+  transform-origin: left center; /* On bloque l'ancrage à gauche pour qu'il ne sorte pas de l'écran */
+  object-fit: contain;
+  margin-left: 10px; /* Un petit espace pour décoller du bord après le zoom */
 }
 
 .icon,
@@ -161,7 +165,7 @@ a {
 
   /* 1. Le Logo (Haut Gauche) */
   .logo-container {
-    order: 1;
+    flex-shrink: 0; /* Dit au logo : "Ne rétrécis jamais, même si la place manque" */
   }
 
   /* 2. Les actions Utilisateur (Haut Droite) */
