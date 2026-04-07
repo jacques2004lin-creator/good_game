@@ -21,9 +21,9 @@ if (isset($_POST['btn_update_pseudo'])) {
         $sql = "UPDATE utilisateurs SET prenom = '$nouveau_pseudo' WHERE id = $id_utilisateur";
         if ($conn->query($sql) === TRUE) {
             $_SESSION['prenom'] = $nouveau_pseudo;
-            $message_succes = "Votre pseudo a été mis à jour avec succès.";
+            $message_succes = "Votre Prénom a été mis à jour avec succès.";
         } else {
-            $message_erreur = "Erreur lors de la mise à jour du pseudo.";
+            $message_erreur = "Erreur lors de la mise à jour de votre prénom.";
         }
     }
 }
@@ -123,12 +123,12 @@ $utilisateur_actuel = $result->fetch_assoc();
             <div class="account-card" id="sec-compte">
                 <div class="card-left">
                     <h3>Compte</h3>
-                    <p>Changez de pseudo quand vous voulez.</p>
+                    <p>Changez de Prénom quand vous voulez.</p>
                 </div>
                 <div class="card-right">
                     <form action="" method="POST">
                         <div class="input-group">
-                            <label>Changer de pseudo</label>
+                            <label>Changer de prénom</label>
                             <input type="text" name="nouveau_pseudo" placeholder="<?php echo htmlspecialchars($utilisateur_actuel['prenom']); ?>" required>
                         </div>
                         <button type="submit" name="btn_update_pseudo" class="btn-green">CONFIRMER</button>

@@ -52,62 +52,54 @@ a {
 }
 
 /* barre de recherche */
-.search-bar {
-  background-color: #333;
-  border: none;
-  border-radius: 25px; /* bords arrondis */
-  padding: 10px 20px;
-  color: white;
+.search-wrapper {
   width: 250px;
-  font-size: 14px;
-}
-.search-bar:focus {
-  outline: 1px solid #777; /* effet quand on clique dedans */
+  margin-right: 10px;
 }
 
-/* Formulaire de la barre de recherche dans le header */
-.gg-search-form {
-  display: inline-block;
-  margin: 0;
+.ts-control {
+    background-color: #2a2a2e !important;
+    border: 1px solid #444 !important;
+    border-radius: 20px !important;
+    color: white !important;
+    padding: 8px 15px !important;
 }
 
-/* Grille spécifique pour les résultats de recherche (pleine largeur) */
-.gg-search-grid {
-  width: 100%;
+.ts-control input {
+    color: white !important;
 }
 
-/* Lien invisible autour des cartes de jeux */
-.gg-search-link {
-  text-decoration: none;
+.ts-dropdown {
+    background-color: #1a1a1c !important;
+    border: 1px solid #444 !important;
+    color: white !important;
 }
 
-/* Prix affiché sous les jeux dans la recherche */
-.gg-search-price {
-  color: #ccc;
-  margin-top: 5px;
-  font-weight: bold;
+.ts-dropdown .active {
+    background-color: #4DA0FF !important; /* Bleu comme tes liens */
+    color: white !important;
 }
 
-/* Zone quand aucun résultat n'est trouvé */
-.gg-search-empty {
-  text-align: center;
-  padding: 50px;
-}
-
-/* Bouton de retour dans la zone vide */
-.gg-search-empty-btn {
-  display: inline-block;
-  margin-top: 20px;
+.ts-wrapper.single .ts-control::after {
+    display: none !important;
 }
 
 /* liens de navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .main-nav .head {
   color: #ccc;
   text-decoration: none;
-  margin: 0 15px;
+  margin: 0 10px;
   font-size: 15px;
   font-weight: bold;
+  white-space: nowrap;
 }
+
 .main-nav .head:hover {
   color: white;
 }
@@ -177,23 +169,13 @@ a {
     order: 2;
   }
 
-  .gg-search-form {
-    order: 3;
-    width: 100%;
-    margin: 10px 0; /* Ajoute un petit espace au-dessus et en-dessous */
-  }
-
-  .search-bar {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
   /* 4. Les liens de navigation (Tout en bas, sur une seule ligne défilante) */
   .main-nav {
     order: 4;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: nowrap; /* Force la ligne unique */
     gap: 15px;
     overflow-x: auto; /* Scroll tactile */
