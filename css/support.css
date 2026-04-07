@@ -1,80 +1,92 @@
+/*LE CONTENEUR PRINCIPAL*/
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 50px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centre verticalement */
+  align-items: center; /* Centre horizontalement */
+  gap: 50px;
+
+  /* LES AJOUTS MAGIQUES POUR LE CENTRAGE : */
+  width: 100%;
+  min-height: 60vh; /* S'assure que le bloc prend au moins 60% de la hauteur de l'écran pour centrer verticalement */
+  padding: 50px 20px; /* Évite que le contenu colle aux bords de l'écran ou au header/footer */
+  box-sizing: border-box;
 }
 
+/*LES CARTES DE SUPPORT*/
 .support-container {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    width: 100%;
-    max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .support-carte {
-    background-color: #212124;
-    border-radius: 12px;
-    padding: 35px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  background-color: #212124;
+  border-radius: 12px;
+  padding: 35px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
+/*LA ZONE CONTACT*/
 .contact {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .contact-carte {
-    background-color: #212124;
-    border-radius: 12px;
-    padding: 35px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  background-color: #212124;
+  border-radius: 12px;
+  padding: 35px;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Ajouté pour s'assurer que le texte s'empile bien au centre */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .contact-lien {
-    color: #4DA0FF;
-    text-decoration: none;
-    font-weight: bold;
+  color: #4da0ff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .contact-lien:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
+/*TEXTES ET ICÔNES*/
 .carte-icone {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
 }
 
 .carte-titre {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
 }
 
 .carte-texte {
-    font-size: 0.95rem;
-    color: #d1d1d1;
-    line-height: 1.5;
-    margin: 0;
+  font-size: 0.95rem;
+  color: #d1d1d1;
+  line-height: 1.5;
+  margin: 0;
 }
 
+/* RESPONSIVE MOBILE*/
 @media (max-width: 768px) {
-    .support-container {
-        flex-direction: column;
-        gap: 20px;
-    }
+  .support-container {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
