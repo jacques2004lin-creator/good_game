@@ -85,36 +85,6 @@ $resultat_categories = $conn->query($sql_categories);
                         <input type="text" name="q_lib" placeholder="Recherche..." value="<?php echo htmlspecialchars($recherche_lib); ?>">
                     </div>
 
-                <form action="bibliotheque.php" method="GET" id="filterForm">
-                    <!-- Recherche texte -->
-                    <div class="gg-filter-search">
-                        <input type="text" name="q_lib" placeholder="Recherche..." value="<?php echo htmlspecialchars($recherche_lib); ?>">
-                    </div>
-
-                    <h4 class="gg-filter-subtitle">Catégories:</h4>
-
-                    <!-- PC -->
-                    <ul class="gg-filter-list desktop-only">
-                        <li>
-                            <a href="bibliotheque.php" class="<?php echo ($categorie_active == 0) ? 'gg-filter-active' : ''; ?>">Tous les jeux</a>
-                        </li>
-                        <li class="gg-filter-divider"></li>
-                        <?php
-                        if ($resultat_categories->num_rows > 0) {
-                            $resultat_categories->data_seek(0);
-                            while ($cat = $resultat_categories->fetch_assoc()) {
-                                $nom_affiche = ucfirst(strtolower(str_replace('_', ' ', $cat['nom'])));
-                                $class_actif = ($categorie_active == $cat['id']) ? 'class="gg-filter-active"' : '';
-                                echo "<li><a href='bibliotheque.php?categorie_id=" . $cat['id'] . "' $class_actif>" . htmlspecialchars($nom_affiche) . "</a></li>";
-                            }
-                        }
-                        ?>
-                    </ul>
-
-                    <!-- Mobile -->
-                    <select name="categorie_id" class="mobile-only-select" onchange="this.form.submit()">
-                        <option value="0">Toutes les catégories</option>
-                        <?php
                     <h4 class="gg-filter-subtitle">Catégories:</h4>
 
                     <!-- PC -->
@@ -144,11 +114,7 @@ $resultat_categories = $conn->query($sql_categories);
                             while ($cat = $resultat_categories->fetch_assoc()) {
                                 $nom_affiche = ucfirst(strtolower(str_replace('_', ' ', $cat['nom'])));
                                 $selected = ($categorie_active == $cat['id']) ? 'selected' : '';
-
-                                echo "<option value='" . $cat['id'] . "' $selected>" . htmlspecialchars($nom_affiche) . "</option>";
-
                                 echo "<option value='".$cat['id']."' $selected>".htmlspecialchars($nom_affiche)."</option>";
-
                             }
                         }
                         ?>
