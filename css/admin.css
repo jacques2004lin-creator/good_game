@@ -70,15 +70,38 @@ td:last-child form {
 }
 
 th, td {
-    padding: 10px;
+    padding: 15px 10px;
     border-bottom: 1px solid #333;
     font-size: 0.9rem;
-    vertical-align: top;
+    vertical-align: middle;
+    text-align: left;
 }
 
-td:nth-child(6) {
-    white-space: normal;
-    min-width: 200px;
+/* Colonne N° */
+th:nth-child(1), td:nth-child(1) {
+    width: 60px;
+    text-align: center;
+}
+
+/* Colonne Utilisateur */
+th:nth-child(2), td:nth-child(2) {
+    width: 200px;
+}
+
+/* Colonne Détails (la liste des jeux) */
+th:nth-child(3), td:nth-child(3) {
+    width: auto;
+}
+
+/* Colonne Total (Prix) */
+th:nth-child(4), td:nth-child(4) {
+    width: 120px;
+}
+
+td ul {
+    list-style: disc;
+    margin: 0;
+    padding-left: 20px;
 }
 
 th {

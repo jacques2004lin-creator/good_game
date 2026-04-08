@@ -1,3 +1,7 @@
+main {
+  width: auto !important;
+}
+
 .gg-lib-container {
   display: flex;
   flex-direction: column;
@@ -20,7 +24,7 @@
   align-items: flex-start;
 }
 
-/* --- GRILLE DES JEUX (Gauche) --- */
+/* GRILLE DES JEUX (Gauche) */
 .gg-lib-grid {
   flex: 1;
   display: grid;
@@ -42,9 +46,11 @@
 }
 
 .gg-lib-img {
-  width: 98%;
+  width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center;
+  display: block;
   border-radius: 12px;
   background-color: #222;
   margin-bottom: 15px;
@@ -59,7 +65,7 @@
   line-height: 1.3;
 }
 
-/* --- BARRE DE FILTRES (Droite) --- */
+/* BARRE DE FILTRES (Droite) */
 .gg-lib-sidebar {
   width: 320px;
   background-color: #1e1e1e;
@@ -112,6 +118,11 @@
   margin: 0 0 15px 0;
 }
 
+.gg-filter-active {
+  color: #4DA0FF !important;
+  font-weight: bold;
+}
+
 /* Liste des catégories */
 .gg-filter-list {
   list-style: none;
@@ -133,17 +144,6 @@
   color: white;
 }
 
-/* Responsive pour petits écrans */
-@media (max-width: 900px) {
-  .gg-lib-layout {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .gg-lib-sidebar {
-    width: 100%;
-  }
-}
-
 /* Message quand aucun jeu n'est trouvé avec le filtre */
 .gg-lib-empty {
   grid-column: 1 / -1;
@@ -151,7 +151,6 @@
   padding: 20px;
 }
 
-/* La petite ligne de séparation sous "Tous les jeux" */
 .gg-filter-divider {
   margin-bottom: 10px;
   border-bottom: 1px solid #333;
@@ -162,4 +161,88 @@
 .gg-filter-list li a.gg-filter-active {
   color: white;
   font-weight: bold;
+}
+
+/* Affichage PC et Mobile */
+.mobile-only-select {
+    display: none;
+}
+
+.desktop-only {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only-select {
+    display: block !important;
+    width: 100%;
+    background-color: #2a2a2e;
+    color: white;
+    border: 1px solid #444;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .gg-lib-container {
+    padding: 0 15px !important;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .gg-page-title {
+    font-size: 26px;
+    margin-left: 5px;
+  }
+
+  .gg-lib-layout {
+    flex-direction: column-reverse;
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gg-lib-sidebar {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 0;
+    border-radius: 15px;
+  }
+
+  .gg-filter-search, .mobile-only-select {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .gg-lib-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gg-lib-img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .gg-lib-title {
+    font-size: 14px;
+    padding: 0 5px;
+  }
 }

@@ -13,7 +13,7 @@ $id_utilisateur = $_SESSION['id_utilisateur'];
 $message_succes = "";
 $message_erreur = "";
 
-// Changement de Pseudo
+// Changement de Prénom
 if (isset($_POST['btn_update_pseudo'])) {
     $nouveau_pseudo = $conn->real_escape_string(trim($_POST['nouveau_pseudo']));
 
@@ -21,9 +21,9 @@ if (isset($_POST['btn_update_pseudo'])) {
         $sql = "UPDATE utilisateurs SET prenom = '$nouveau_pseudo' WHERE id = $id_utilisateur";
         if ($conn->query($sql) === TRUE) {
             $_SESSION['prenom'] = $nouveau_pseudo;
-            $message_succes = "Votre pseudo a été mis à jour avec succès.";
+            $message_succes = "Votre Prénom a été mis à jour avec succès.";
         } else {
-            $message_erreur = "Erreur lors de la mise à jour du pseudo.";
+            $message_erreur = "Erreur lors de la mise à jour de votre prénom.";
         }
     }
 }
@@ -86,6 +86,8 @@ $utilisateur_actuel = $result->fetch_assoc();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/compte.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Compte - Good Game</title>
@@ -113,7 +115,6 @@ $utilisateur_actuel = $result->fetch_assoc();
             </div>
             <ul class="sidebar-menu">
                 <li><a href="#sec-compte">Compte</a></li>
-                <li><a href="#sec-twofactor">Authentification à deux facteurs</a></li>
                 <li><a href="#sec-acces">Accès au compte</a></li>
                 <li><a href="#sec-supprimer">Supprimer le compte</a></li>
             </ul>
@@ -124,33 +125,16 @@ $utilisateur_actuel = $result->fetch_assoc();
             <div class="account-card" id="sec-compte">
                 <div class="card-left">
                     <h3>Compte</h3>
-                    <p>Changez de pseudo quand vous voulez.</p>
+                    <p>Changez de Prénom quand vous voulez.</p>
                 </div>
                 <div class="card-right">
                     <form action="" method="POST">
                         <div class="input-group">
-                            <label>Changer de pseudo</label>
+                            <label>Changer de prénom</label>
                             <input type="text" name="nouveau_pseudo" placeholder="<?php echo htmlspecialchars($utilisateur_actuel['prenom']); ?>" required>
                         </div>
                         <button type="submit" name="btn_update_pseudo" class="btn-green">CONFIRMER</button>
                     </form>
-                </div>
-            </div>
-
-            <div class="account-card" id="sec-twofactor">
-                <div class="card-left">
-                    <h3>Authentification à deux facteurs</h3>
-                    <p>Protégez votre compte avec une couche supplémentaire de sécurité. Un code va vous être demandé quand vous essayez de vous connecter à votre compte.</p>
-                </div>
-                <div class="card-right">
-                    <div class="two-factor-icon">
-                        <span>@</span>
-                        <p>EMAIL</p>
-                    </div>
-                    <div class="info-box">
-                        <p>Protégez votre compte en utilisant un code unique envoyé par mail.</p>
-                    </div>
-                    <button class="btn-green">Bientôt disponible</button>
                 </div>
             </div>
 

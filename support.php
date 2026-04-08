@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "good_game_db.php";
 ?>
 
 <!DOCTYPE html>
