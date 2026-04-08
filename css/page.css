@@ -1,6 +1,8 @@
 /* TITRES ET BOUTONS PARTAGÉS */
 
-.gg-cart-title, .gg-page-title, .gg-cart-empty h2 {
+.gg-cart-title,
+.gg-page-title,
+.gg-cart-empty h2 {
   color: white;
   font-size: 32px;
   font-weight: bold;
@@ -16,7 +18,8 @@
 }
 
 /* Boutons verts et rouges */
-.btn-green, .btn-red {
+.btn-green,
+.btn-red {
   padding: 14px;
   border-radius: 6px;
   font-size: 13px;
@@ -50,7 +53,10 @@
 }
 
 /* Boutons blancs partagés */
-.btn-submit, .gg-btn-white-full, .gg-btn-white, .gg-btn-white-small {
+.btn-submit,
+.gg-btn-white-full,
+.gg-btn-white,
+.gg-btn-white-small {
   background-color: white;
   color: black;
   border: none;
@@ -59,7 +65,10 @@
   transition: background-color 0.2s;
 }
 
-.btn-submit:hover, .gg-btn-white-full:hover, .gg-btn-white:hover, .gg-btn-white-small:hover {
+.btn-submit:hover,
+.gg-btn-white-full:hover,
+.gg-btn-white:hover,
+.gg-btn-white-small:hover {
   background-color: #e0e0e0;
 }
 
@@ -89,33 +98,31 @@
   font-size: 13px;
 }
 
-<<<<<<< HEAD
 /* STYLE DU FORMULAIRE D'INSCRIPTION */
 
 /* la grande boîte grise foncée */
 /* la grande boîte grise foncée */
 =======
 /* FORMULAIRE D'INSCRIPTION */
->>>>>>> 0626a0f5b18bc89a3b7e78f3cbf912c2c900dd2b
+
 .inscription-wrapper {
   background-color: #1e1e1e;
   border-radius: 12px;
   padding: 40px;
   max-width: 400px;
-<<<<<<< HEAD
+
   width: 100%;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* ombre douce pour détacher du fond noir */
 
   /*LE SECRET DU CENTRAGE*/
   margin: 10vh auto; /* 'auto' centre de gauche à droite. '10vh' le pousse vers le bas de 10% de la taille de l'écran*/
   box-sizing: border-box; /* Sécurité : empêche le padding de faire déborder la boîte sur les petits téléphones */
-=======
+
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
   margin: auto;
   width: 100%;
   box-sizing: border-box;
   flex-shrink: 0;
->>>>>>> 0626a0f5b18bc89a3b7e78f3cbf912c2c900dd2b
 }
 
 /* l'en-tête du formulaire (logo + titre) */
@@ -236,11 +243,16 @@
     padding: 12px;
   }
 
-  .account-layout, .gg-cart-layout, .gg-lib-layout {
+  .account-layout,
+  .gg-cart-layout,
+  .gg-lib-layout {
     flex-direction: column;
   }
 
-  .account-sidebar, .gg-cart-items-section, .gg-cart-summary, .gg-lib-sidebar {
+  .account-sidebar,
+  .gg-cart-items-section,
+  .gg-cart-summary,
+  .gg-lib-sidebar {
     width: 100%;
   }
 
@@ -248,11 +260,13 @@
     position: static;
   }
 
-  .account-card, .gg-cart-card {
+  .account-card,
+  .gg-cart-card {
     flex-direction: column;
   }
 
-  .card-left, .card-right {
+  .card-left,
+  .card-right {
     padding: 20px;
   }
 
