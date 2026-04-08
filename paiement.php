@@ -72,7 +72,7 @@ if ($conn->query($sql_achat) === TRUE) {
             
             <h1 class="gg-cart-title gg-payment-success-title">Paiement réussi !</h1>
             <p class="gg-payment-text">
-                Merci pour votre confiance. Votre commande n° <strong>#GG- <?php echo sprintf("%05d", $id_achat); ?></strong> a bien été confirmée. <br>
+                Merci pour votre confiance. Votre commande n° <strong>#GG-<?php echo sprintf("%05d", $id_achat); ?></strong> a bien été confirmée. <br>
                 Les jeux ont été ajoutés de manière permanente à votre compte.
             </p>
             

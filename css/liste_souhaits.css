@@ -33,17 +33,83 @@
   gap: 15px;
 }
 
-/* Liste de souhaits (Mobile) */
 @media (max-width: 700px) {
+  .gg-wl-container {
+    width: 95%; 
+    margin: 15px auto;
+    padding: 0;
+  }
+
   .gg-wl-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .gg-wl-img {
+    width: 80px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+
+  .gg-wl-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
     flex-direction: column;
   }
-  .gg-wl-img {
-    width: 100%;
-    height: auto;
-  }
-  .gg-wl-bottom {
+
+  .gg-wl-top {
+    display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .gg-wl-info h3 {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  .gg-wl-price {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+
+  .gg-wl-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+  }
+
+  .gg-btn-text {
+    font-size: 11px;
+  }
+
+  .gg-btn-white-small {
+    padding: 5px 8px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .gg-platform-icon-img {
+    display: none;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  .gg-cart-empty {
+    min-height: 300px;
   }
 }

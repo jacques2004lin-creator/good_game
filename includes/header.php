@@ -36,6 +36,11 @@
         <div class="profile-container">
             <img src="image/profile.png" class="profile-trigger" id="profileBtn" alt="Profil">
             <ul class="dropdown-menu" id="sideMenu">
+                <?php 
+                if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+                    echo "<li><a href='admin.php' style='color: #ff4757;'>Administration</a></li>";
+                }
+                ?>
                 <li><a href="compte.php">Compte</a></li>
                 <li><a href="liste_souhaits.php">Liste de souhaits</a></li>
                 <li><a href="historique.php">Mes commandes</a></li>

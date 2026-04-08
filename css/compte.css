@@ -159,3 +159,10 @@ main {
   color: #ccc;
   line-height: 1.5;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .account-sidebar {
+    width: 100%;
+  }
+}
