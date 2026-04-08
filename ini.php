@@ -1,12 +1,6 @@
 <?php
-// 1. CONFIGURATION DE LA CONNEXION
-$host = "db";
-$user = "root";
-$pass = "root";
-$dbname = "good_game";
-
-// Connexion au serveur MySQL
-$conn = new mysqli($host, $user, $pass);
+// CONFIGURATION DE LA CONNEXION
+include "good_game_db.php";
 
 if ($conn->connect_error) {
     die("<h2 style='color:red;'>Erreur de connexion : " . $conn->connect_error . "</h2>");
