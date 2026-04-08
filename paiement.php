@@ -56,6 +56,8 @@ if ($conn->query($sql_achat) === TRUE) {
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/panier.css">
     <link rel="stylesheet" href="css/paiement.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validation de commande - Good Game</title>
@@ -70,7 +72,7 @@ if ($conn->query($sql_achat) === TRUE) {
             
             <h1 class="gg-cart-title gg-payment-success-title">Paiement réussi !</h1>
             <p class="gg-payment-text">
-                Merci pour votre confiance. Votre commande n° <strong>#GG- <?php echo sprintf("%05d", $id_achat); ?></strong> a bien été confirmée. <br>
+                Merci pour votre confiance. Votre commande n° <strong>#GG-<?php echo sprintf("%05d", $id_achat); ?></strong> a bien été confirmée. <br>
                 Les jeux ont été ajoutés de manière permanente à votre compte.
             </p>
             
@@ -93,6 +95,7 @@ if ($conn->query($sql_achat) === TRUE) {
 
     <?php include 'includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/tom.js"></script>
 </body>
 </html>

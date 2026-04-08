@@ -1,7 +1,5 @@
 /* STRUCTURES PARTAGEES : PANIER & SOUHAITS  */
-
-.gg-wl-container,
-.gg-history-container {
+.gg-wl-container, .gg-history-container {
   max-width: 900px;
   margin: 50px auto;
   padding: 0 20px;
@@ -13,17 +11,15 @@
   padding: 0 40px;
 }
 
-.gg-cart-card,
-.gg-wl-card {
-  background-color: #1a1a1a; /* gris très sombre comme la maquette */
+.gg-cart-card, .gg-wl-card {
+  background-color: #1a1a1a;
   border-radius: 8px;
   display: flex;
   padding: 15px;
   gap: 20px;
 }
 
-.gg-item-content,
-.gg-wl-content {
+.gg-item-content, .gg-wl-content {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -31,14 +27,12 @@
 }
 
 /* section Haut (titre + prix) */
-.gg-item-top,
-.gg-wl-top {
+.gg-item-top, .gg-wl-top {
   display: flex;
   justify-content: space-between;
 }
 
-.gg-item-info h3,
-.gg-wl-info h3 {
+.gg-item-info h3, .gg-wl-info h3 {
   color: white;
   margin: 0 0 5px 0;
   font-size: 16px;
@@ -50,14 +44,11 @@
   height: 16px;
   width: auto;
   display: block;
-  filter: opacity(
-    0.7
-  ); /* Rend l'image gris clair pour correspondre à la maquette */
+  filter: opacity(0.7);
   margin-top: 2px;
 }
 
-.gg-item-price,
-.gg-wl-price {
+.gg-item-price, .gg-wl-price {
   color: white;
   font-weight: bold;
   font-size: 16px;
@@ -71,14 +62,13 @@
   cursor: pointer;
   text-decoration: none;
 }
+
 .gg-btn-text:hover {
   color: white;
   text-decoration: underline;
 }
 
-/* PAGE PANIER (DESIGN EXACT)                */
-
-/* ÉTAT 1 : PANIER REMPLI */
+/* PAGE PANIER */
 .gg-cart-layout {
   display: flex;
   gap: 20px;
@@ -117,6 +107,7 @@
   padding: 5px 8px;
   cursor: pointer;
 }
+
 .gg-btn-icon:hover {
   border-color: #888;
   color: white;
@@ -180,11 +171,18 @@
   margin-bottom: 30px;
 }
 
-/* ÉTAT 2 : PANIER VIDE */
+/* PANIER VIDE */
 .gg-cart-empty {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px; /* crée l'espace vide vu sur l'image */
+  min-height: 400px;
+}
+
+@media (max-width: 480px) {
+  .gg-cart-summary {
+    width: 300px;
+    padding: 15px;
+  }
 }

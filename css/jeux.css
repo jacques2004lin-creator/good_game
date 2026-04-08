@@ -1,10 +1,10 @@
-/*Bases*/
+/* Bases */
 main {
   max-width: 1100px;
-  width: 100%; /* S'assure que le bloc s'adapte sur mobile */
-  margin: 0 auto; /* LE SECRET : Centre parfaitement tout le bloc au milieu de l'écran */
-  padding: 50px 20px; /* Donne de l'espace en haut/bas et empêche le texte de coller aux bords */
-  box-sizing: border-box; /* S'assure que le padding ne casse pas la largeur */
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  box-sizing: border-box;
   color: white;
 }
 
@@ -14,7 +14,7 @@ main {
   text-transform: uppercase;
 }
 
-/*Grande image*/
+/* Grande image */
 .mainSwiper {
   width: 100%;
   border-radius: 8px;
@@ -34,12 +34,11 @@ main {
   display: block;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
+.swiper-button-next::after, .swiper-button-prev::after {
   color: white;
 }
 
-/* --- Miniatures --- */
+/* Miniatures */
 .thumbSwiper {
   width: 100%;
   box-sizing: border-box;
@@ -68,7 +67,7 @@ main {
   display: block;
 }
 
-/*Achat + images*/
+/* Achat + images */
 .jeu {
   display: grid;
   grid-template-columns: 60% 35%;
@@ -96,8 +95,7 @@ main {
   margin-bottom: 20px;
 }
 
-.btn-achat,
-.btn-souhait {
+.btn-achat, .btn-souhait {
   width: 100%;
   padding: 15px;
   margin-bottom: 10px;
@@ -135,15 +133,14 @@ main {
   line-height: 1.8;
 }
 
-/*Tags et fonctionnalités*/
+/* Tags et fonctionnalités */
 .jeu-tags {
   display: flex;
   align-items: center;
   margin-bottom: 50px;
 }
 
-.col-tags,
-.col-fonctionnalite {
+.col-tags, .col-fonctionnalite {
   flex: 1;
 }
 
@@ -169,7 +166,7 @@ main {
   color: black;
 }
 
-/*Description longue*/
+/* Description longue */
 .jeu-description {
   margin: 50px 0;
   padding-top: 30px;
@@ -188,7 +185,7 @@ main {
   max-width: 900px;
 }
 
-/*Configuration*/
+/* Configuration */
 .jeu-config h2 {
   margin-top: 50px;
 }
@@ -238,7 +235,6 @@ main {
 /*Responsive Mobile*/
 @media (max-width: 768px) {
   main {
-    /* On réduit un peu l'espace en haut et en bas sur téléphone */
     padding: 30px 20px;
   }
 

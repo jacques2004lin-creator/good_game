@@ -1,7 +1,3 @@
-main {
-    padding: 0 5%;
-}
-
 .section-titre {
     margin-bottom: 50px;
     font-size: 1.8rem;
@@ -15,6 +11,9 @@ main {
     gap: 20px;
     max-width: 900px;
     margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .carte-jeu {
@@ -51,5 +50,12 @@ main {
 @media (max-width: 768px) {
     .grille-jeux {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .section-titre {
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 }

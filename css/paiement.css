@@ -1,5 +1,4 @@
-/*PAGE PAIEMENT (CONFIRMATION) */
-
+/*PAGE PAIEMENT */
 .gg-payment-container {
   text-align: center;
   min-height: 50vh;
@@ -10,12 +9,12 @@
 }
 
 .gg-payment-success-title {
-  color: #28a745; /* Vert de validation */
+  color: #28a745;
   margin-bottom: 10px;
 }
 
 .gg-payment-error-title {
-  color: #ff4d4d; /* Rouge d'erreur */
+  color: #ff4d4d;
   margin-bottom: 10px;
 }
 
@@ -33,7 +32,6 @@
   justify-content: center;
 }
 
-/* Nouveau bouton contour blanc pour la page succès */
 .gg-btn-outline-white {
   background: transparent;
   border: 1px solid white;

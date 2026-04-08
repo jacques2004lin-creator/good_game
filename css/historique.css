@@ -1,41 +1,51 @@
 /* PAGE HISTORIQUE D'ACHAT */
-
 main {
-  margin: 50px 30%;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .gg-history-card {
-  background-color: #222222; /* gris sombre de la maquette */
+  background-color: #222222;
   border-radius: 12px;
   padding: 30px 40px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1 {
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 32px;
 }
 
 .gg-history-table {
   width: 100%;
-  border-collapse: collapse; /* permet d'avoir des lignes de séparation nettes */
+  border-collapse: collapse;
   color: white;
 }
 
-/* en-têtes du tableau (th) */
+/* en-têtes du tableau */
 .gg-history-table th {
   text-align: left;
   color: #e0e0e0;
   font-size: 14px;
   font-weight: normal;
   padding-bottom: 15px;
-  border-bottom: 1px solid #555; /* ligne de séparation sous l'en-tête */
+  border-bottom: 1px solid #555;
 }
 
-/* cellules du tableau (td) */
+/* cellules du tableau */
 .gg-history-table td {
-  padding: 20px 0; /* espace vertical entre les lignes */
-  border-bottom: 1px solid #444; /* ligne de séparation fine entre chaque achat */
+  padding: 20px 0;
+  border-bottom: 1px solid #444;
   font-size: 14px;
   vertical-align: middle;
 }
 
-/* enlève la ligne de séparation pour la toute dernière commande du tableau */
 .gg-history-table tbody tr:last-child td {
   border-bottom: none;
   padding-bottom: 0;

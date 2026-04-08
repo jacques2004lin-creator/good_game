@@ -6,6 +6,21 @@ body {
   color: white;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto; 
+  width: 100%;
+  margin: 50px 0;
+}
+
+footer, .gg-footer {
+  margin-top: auto;
+  flex-shrink: 0;
+  padding: 30px 0;
 }
 
 h2 {
@@ -22,25 +37,25 @@ a {
 }
 
 /* HEADER & NAVIGATION */
-
-/* l'alignement magique du Header (flexbox) */
 .site-header {
-  display: flex; /* aligne tout sur une ligne */
-  justify-content: space-between; /* écarte les 4 zones au maximum */
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px 40px; /* espace autour du header */
-  background-color: #121212; /* noir légèrement plus clair pour détacher le menu du fond */
+  padding: 5px 40px; 
+  background-color: #121212;
+  height: 90px;
 }
 
 /* taille des images */
 .logo {
-  height: 60px; /* Correction: le 150px en double a été retiré */
-  object-fit: cover;
-  object-position: center 40%;
+  height: 60px;
+  transform: scale(1.8);
+  transform-origin: left center;
+  object-fit: contain;
+  margin-left: 10px;
 }
 
-.icon,
-.profile-trigger {
+.icon, .profile-trigger {
   height: 50px;
   width: auto;
 }
@@ -58,37 +73,37 @@ a {
 }
 
 .ts-control {
-    background-color: #2a2a2e !important;
-    border: 1px solid #444 !important;
-    border-radius: 20px !important;
-    color: white !important;
-    padding: 8px 15px !important;
+  background-color: #2a2a2e !important;
+  border: 1px solid #444 !important;
+  border-radius: 20px !important;
+  color: white !important;
+  padding: 8px 15px !important;
 }
 
 .ts-control input {
-    color: white !important;
+  color: white !important;
 }
 
 .ts-dropdown {
-    background-color: #1a1a1c !important;
-    border: 1px solid #444 !important;
-    color: white !important;
+  background-color: #1a1a1c !important;
+  border: 1px solid #444 !important;
+  color: white !important;
 }
 
 .ts-dropdown .active {
-    background-color: #4DA0FF !important; /* Bleu comme tes liens */
-    color: white !important;
+  background-color: #4DA0FF !important;
+  color: white !important;
 }
 
 .ts-wrapper.single .ts-control::after {
-    display: none !important;
+  display: none !important;
 }
 
 /* liens de navigation */
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .main-nav .head {
@@ -108,12 +123,28 @@ a {
 .user-actions {
   display: flex;
   align-items: center;
-  gap: 20px; /* espace entre le panier et le profil */
+  gap: 20px;
 }
 
-/* menu déroulant (dark Mode) */
+/* menu déroulant */
 .profile-container {
   position: relative;
+}
+
+/* Le menu burger */
+#burgerBtn {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #ccc;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 /* Le menu burger caché par défaut */
@@ -121,16 +152,18 @@ a {
   display: none;
   position: absolute;
   right: 0;
-  top: 50px;
-  background-color: #1a1a1a; /* fond gris très foncé */
+  top: 100%; 
+  margin-top: 15px;
+  background-color: #1a1a1a;
   border: 1px solid #333;
-  border-radius: 5px;
+  border-radius: 8px;
   list-style: none;
-  padding: 10px 0;
+  padding: 8px 0;
   min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8); /* ombre plus forte pour le fond noir */
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
+
 .dropdown-menu.active {
   display: block;
 }
@@ -139,63 +172,99 @@ a {
   display: block;
   padding: 10px 15px;
   text-decoration: none;
-  color: white; /* c'est ici que le texte des liens devient vraiment blanc */
+  color: white;
 }
+
 .dropdown-menu li a:hover {
   background-color: #333;
   color: white;
 }
+
 .dropdown-menu hr {
   border-color: #333;
   margin: 5px 0;
 }
 
-/*HEADER RESPONSIVE (Mobiles & Tablettes) */
-
+/*HEADER RESPONSIVE */
 @media (max-width: 900px) {
   .site-header {
-    flex-wrap: wrap; /* Autorise les éléments à passer à la ligne */
-    padding: 15px 20px; /* Réduit un peu les marges sur mobile */
-    gap: 15px; /* Espace entre les lignes */
+    height: 70px !important;
+    padding: 10px 15px !important;
+    gap: 10px;
   }
 
-  /* 1. Le Logo (Haut Gauche) */
-  .logo-container {
+  /* Menu burger */
+  #burgerBtn {
+    display: block !important;
     order: 1;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    min-width: 35px;
   }
 
-  /* 2. Les actions Utilisateur (Haut Droite) */
-  .user-actions {
+  /* Logo */
+  .logo-container {
+    display: none !important;
+  }
+
+  /* Recherche */
+  .main-nav {
+    flex: 1;
     order: 2;
   }
 
-  /* 4. Les liens de navigation (Tout en bas, sur une seule ligne défilante) */
-  .main-nav {
-    order: 4;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap; /* Force la ligne unique */
-    gap: 15px;
-    overflow-x: auto; /* Scroll tactile */
-    padding-bottom: 5px;
-    scrollbar-width: none;
+  .search-wrapper {
+    width: 100% !important;
   }
 
-  .main-nav::-webkit-scrollbar {
+  .ts-control {
+    width: 100% !important;
+  }
+
+  /* Actions à droite */
+  .user-actions {
+    order: 3;
+    gap: 15px !important;
+  }
+
+  .user-actions img {
+    height: 28px !important;
+  }
+
+  /* Menu burger */
+  .nav-links {
     display: none;
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    background-color: #1a1a1c;
+    border: 1px solid #333;
+    border-radius: 8px;
+    flex-direction: column;
+    width: 200px;
+    z-index: 9999;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    padding: 10px 0;
   }
 
-  .main-nav .head {
-    margin: 0;
-    font-size: 13px;
-    white-space: nowrap;
+  .nav-links.active {
+    display: flex;
   }
 
-  /* Ajustement de sécurité pour le menu déroulant profil */
+  .nav-links a {
+    padding: 12px 20px;
+    border-bottom: 1px solid #222;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Menu Profil */
   .dropdown-menu {
-    right: -10px;
+    top: 100% !important;
+    right: 0;
+    margin-top: 10px;
+    position: absolute !important;
   }
 }
 
@@ -203,18 +272,17 @@ a {
 @media (max-width: 400px) {
   .logo {
     height: 45px;
-  } /* On réduit un peu le logo */
+  }
   .main-nav .head {
     font-size: 12px;
   }
 }
 
-/* FOOTER (DESIGN EXACT MAQUETTE)            */
-
+/* FOOTER */
 .gg-footer {
-  background-color: #1a1a1a; /* Fond gris sombre identique à la maquette */
+  background-color: #1a1a1a;
   padding: 50px 0;
-  margin-top: 80px; /* Pousse le footer vers le bas de la page */
+  margin-top: 80px;
 }
 
 .gg-footer-content {
@@ -225,28 +293,33 @@ a {
   justify-content: space-between;
   align-items: center;
 }
-/* Colonne de gauche (Liens) */
+
+/* Colonne de gauche */
 .gg-footer-links {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 .gg-footer-links a {
   color: #ccc;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
 }
+
 .gg-footer-links a:hover {
   color: white;
   text-decoration: underline;
 }
-/* Colonne de droite (Icônes et Textes) */
+
+/* Colonne de droite */
 .gg-footer-features {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
+
 .footer-feature-item {
   display: flex;
   align-items: center;
@@ -254,19 +327,22 @@ a {
   color: #ccc;
   font-size: 14px;
 }
+
 .footer-icon {
   width: 24px;
   height: 24px;
-  color: white; /* Rend les icônes SVG parfaitement blanches */
+  color: white;
 }
+
 /* Rend le liens avec icônes joli et interactif */
 a.interactive-link {
-  text-decoration: none; /* Enlève le soulignement moche */
+  text-decoration: none;
   transition: color 0.2s;
 }
 a.interactive-link:hover {
   color: white;
 }
+
 /* Responsive Mobile : on empile les colonnes l'une sous l'autre */
 @media (max-width: 768px) {
   .gg-footer-content {
