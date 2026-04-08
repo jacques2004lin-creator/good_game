@@ -80,7 +80,6 @@ $resultat_categories = $conn->query($sql_categories);
                 <h3 class="gg-filter-title">FILTRE</h3>
                 
                 <form action="bibliotheque.php" method="GET" id="filterForm">
-                    <!-- Recherche texte -->
                     <div class="gg-filter-search">
                         <input type="text" name="q_lib" placeholder="Recherche..." value="<?php echo htmlspecialchars($recherche_lib); ?>">
                     </div>
@@ -126,7 +125,6 @@ $resultat_categories = $conn->query($sql_categories);
 
     <?php include 'includes/footer.php'; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/tom.js"></script>
 </body>

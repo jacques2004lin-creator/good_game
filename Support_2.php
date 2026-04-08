@@ -8,7 +8,11 @@ $section = isset($_GET['section']) ? $_GET['section'] : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Good Game - Support Officiel</title>
-    <link rel="stylesheet" href="support.css">
+    <link href="css/support.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <style>
         /* Styles rapides pour le formulaire de ticket et les CGV */
         .ticket-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
@@ -24,22 +28,14 @@ $section = isset($_GET['section']) ? $_GET['section'] : '';
 </head>
 <body>
 
-<header>
-    <a href="support.php" class="logo">GOOD<span>GAME</span></a>
-    <nav class="links">
-        <a href="#">Accueil</a>
-        <a href="#">Bibliothèque</a>
-        <a href="#">Catégories</a>
-        <a href="support.php">Support</a>
-    </nav>
-</header>
+<?php include 'includes/header.php'; ?>
 
 <div class="container">
 
     <?php if($page == 'accueil'): ?>
         <h1 class="page-title">Support</h1>
-        <div class="support-card-grid">
-            <a href="?page=commande" class="card"><h3>📦 Aide Commande</h3><p>Problèmes d'achat et clés</p></a>
+        <div class="support-container">
+            <a href="?page=commande" class="support-cart"><h3>📦 Aide Commande</h3><p>Problèmes d'achat et clés</p></a>
             <a href="?page=paiement" class="card"><h3>💳 Paiement</h3><p>Transactions et remboursements</p></a>
             <a href="?page=compte" class="card"><h3>👤 Compte & Sécu</h3><p>Connexion et données</p></a>
         </div>
@@ -494,14 +490,11 @@ Unit 1204, Jumeirah Business Center 3, Cluster Y, Jumeirah Lakes Towers, Dubaï,
 
 </div>
 
-<footer>
-    <div class="footer-links">
-        <a href="?page=ticket">nous contacter</a>
-        <a href="?page=confidentialite">Politique de confidentialité</a>
-        <a href="#">programme d'affiliation</a>
-        <a href="?page=cgv">les conditions de ventes</a>
-    </div>
-</footer>
+<?php include 'includes/footer.php'; ?>
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/tom.js"></script>
 
 </body>
 </html>
