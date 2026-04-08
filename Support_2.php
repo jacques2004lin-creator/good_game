@@ -1,7 +1,10 @@
 <?php
+session_start();
+include "good_game_db.php";
 $page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
 $section = isset($_GET['section']) ? $_GET['section'] : '';
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -30,14 +33,34 @@ $section = isset($_GET['section']) ? $_GET['section'] : '';
 
 <?php include 'includes/header.php'; ?>
 
-<div class="container">
+<main>
 
     <?php if($page == 'accueil'): ?>
         <h1 class="page-title">Support</h1>
         <div class="support-container">
-            <a href="?page=commande" class="support-cart"><h3>📦 Aide Commande</h3><p>Problèmes d'achat et clés</p></a>
-            <a href="?page=paiement" class="card"><h3>💳 Paiement</h3><p>Transactions et remboursements</p></a>
-            <a href="?page=compte" class="card"><h3>👤 Compte & Sécu</h3><p>Connexion et données</p></a>
+            <a href="?page=commande" class="support-carte">
+                <i class="fa-solid fa-box-open carte-icone"></i>
+                <h3 class="carte-titre">Commandes et produits</h3>
+                <p class="carte-texte">Assistance pour l'activation des clés et les informations sur les produits.</p>
+            </a>
+
+            <a href="?page=compte" class="support-carte">
+                <i class="fa-solid fa-user carte-icone"></i>
+                <h3 class="carte-titre">Compte et sécurité</h3>
+                <p class="carte-texte">Assistance à la gestion des comptes et à la sécurité.</p>
+            </a>
+
+            <a href="?page=paiement" class="support-carte">
+                <i class="fa-solid fa-credit-card carte-icone"></i>
+                <h3 class="carte-titre">Paiement</h3>
+                <p class="carte-texte">Aide pour tout problème ou question lié au paiement.</p>
+            </a>
+        </div>
+
+        <div class="contact">
+            <div class="contact-carte">
+                <p class="carte-texte">Contactez-nous : <a href="mailto:support@goodgame.com" class="contact-lien">support@goodgame.com</a> (faux mail)</p>
+            </div>
         </div>
 
 <?php elseif($page == 'confidentialite'): ?>
@@ -188,10 +211,6 @@ Unit 1204, Jumeirah Business Center 3, Cluster Y, Jumeirah Lakes Towers, Dubaï,
             <p>19.1. Nous pouvons modifier les présentes Conditions générales de temps à autre. Veuillez les consulter à chaque commande de codes afin de vous assurer que vous acceptez les Conditions en vigueur à ce moment-là, car toute nouvelle condition s'appliquera à tous vos achats ultérieurs. Les modifications apportées aux présentes Conditions générales après l'acceptation de votre commande n'auront aucune incidence sur celle-ci.</p>
             <p>19.2. Ces conditions ont été modifiées pour la dernière fois le 2 novembre 2023. Les versions précédentes de ces conditions, y compris leurs dates d'entrée en vigueur, sont disponibles ici .</p>
         </div>
-
-
-
-
 
 </div> <?php elseif($page == 'ticket'): ?>
         <a href="?page=accueil" class="btn-back"> < Retour</a>
@@ -488,7 +507,7 @@ Unit 1204, Jumeirah Business Center 3, Cluster Y, Jumeirah Lakes Towers, Dubaï,
 
     <?php endif; ?>
 
-</div>
+</main>
 
 <?php include 'includes/footer.php'; ?>
 
