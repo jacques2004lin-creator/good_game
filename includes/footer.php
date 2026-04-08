@@ -2,10 +2,9 @@
     <div class="gg-footer-content">
 
         <div class="gg-footer-links">
-            <a href="support.php">nous contacter</a>
-            <a href="confidentialite.php">Politique de confidentialité</a>
-            <a href="affiliation.php">programme d'affiliation</a>
-            <a href="conditions.php">les condition de ventes</a>
+            <a href="support.php">Nous contacter</a>
+            <a href="support.php?page=confidentialite">Politique de confidentialité</a>
+            <a href="support.php?page=cgv">Les condition de ventes</a>
         </div>
 
         <div class="gg-footer-features">

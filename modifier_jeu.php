@@ -99,6 +99,18 @@ if (isset($_POST['modifier_tout'])) {
                     <input type="text" name="image" value="<?php echo htmlspecialchars((string)$jeu['image']); ?>">
                 </div>
                 <div>
+                    <label>Miniature 1 (nom fichier) :</label><br>
+                    <input type="text" name="image" value="<?php echo htmlspecialchars((string)$jeu['img_min1']); ?>">
+                </div>
+                <div>
+                    <label>Miniature 2 (nom fichier) :</label><br>
+                    <input type="text" name="image" value="<?php echo htmlspecialchars((string)$jeu['img_min2']); ?>">
+                </div>
+                <div>
+                    <label>Miniature 3 (nom fichier) :</label><br>
+                    <input type="text" name="image" value="<?php echo htmlspecialchars((string)$jeu['img_min3']); ?>">
+                </div>
+                <div>
                     <label>Développeur :</label><br>
                     <input type="text" name="developpeur" value="<?php echo htmlspecialchars((string)$jeu['developpeur']); ?>">
                 </div>

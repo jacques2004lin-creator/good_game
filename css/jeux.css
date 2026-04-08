@@ -34,8 +34,9 @@ main {
   display: block;
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
-  color: white;
+.mainSwiper {
+  --swiper-navigation-color: white;
+  --swiper-pagination-color: white;
 }
 
 /* Miniatures */

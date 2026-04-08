@@ -46,7 +46,7 @@ $resultat_categories = $conn->query($sql_categories);
     <link rel="stylesheet" href="css/bibliotheque.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliothèque - Good Game</title>
 </head>
@@ -63,10 +63,10 @@ $resultat_categories = $conn->query($sql_categories);
                 <?php if ($resultat_biblio && $resultat_biblio->num_rows > 0): ?>
                     <?php while ($jeu = $resultat_biblio->fetch_assoc()): ?>
                         <?php $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))); ?>
-                        <div class="gg-lib-card">
+                        <a href='jeux.php?id=<?php echo $jeu["id"]; ?>' class="gg-lib-card">
                             <img src="image/jeux/<?php echo $nom_dossier; ?>/<?php echo htmlspecialchars($jeu['image']); ?>" alt="<?php echo htmlspecialchars($jeu["titre"]); ?>" class="gg-lib-img">
                             <h3 class="gg-lib-title"><?php echo htmlspecialchars($jeu['titre']); ?></h3>
-                        </div>
+                        </a>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <div class="gg-lib-empty">
@@ -124,7 +124,7 @@ $resultat_categories = $conn->query($sql_categories);
     </main>
 
     <?php include 'includes/footer.php'; ?>
-    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/js/tom-select.complete.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/tom.js"></script>
 </body>
