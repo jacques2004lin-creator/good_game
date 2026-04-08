@@ -26,17 +26,17 @@ Le projet est conçu pour être installé très facilement sans passer par phpMy
    git clone https://github.com/jacques2004lin-creator/good_game.git
 
 2. **Lancer l'environnement** :
-Docker : Lancez vos containers ``(docker-compose up -d)``.
+Docker : Lancez vos containers `docker-compose up -d`.
 
 3. **Initialiser la base de données** :
 Ouvrez votre navigateur et accédez à :
-``http://localhost:8080/good_game/ini.php``
-(Le script créera automatiquement la base, les tables, et insérera les jeux de démonstration ainsi que le compte administrateur).
+`http://localhost:8080/good_game/ini.php`
+(Le script créera automatiquement la base, les tables, et insérera les jeux ainsi que le compte administrateur).
 
-## Identifiants de test (Admin)
+## Compte Admin
 Pour accéder à l'espace administrateur, utilisez les identifiants suivants :
-- **Email** : ``admin@test.com``
-- **Mot de passe** : ``123``
+- **Email** : `admin@test.com`
+- **Mot de passe** : `123`
 
 ## Technologies utilisées
 
