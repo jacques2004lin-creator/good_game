@@ -85,6 +85,7 @@ $resultat_categories = $conn->query($sql_categories);
                         <input type="text" name="q_lib" placeholder="Recherche..." value="<?php echo htmlspecialchars($recherche_lib); ?>">
                     </div>
 
+<<<<<<< HEAD
                 <form action="bibliotheque.php" method="GET" id="filterForm">
                     <!-- Recherche texte -->
                     <div class="gg-filter-search">
@@ -115,6 +116,8 @@ $resultat_categories = $conn->query($sql_categories);
                     <select name="categorie_id" class="mobile-only-select" onchange="this.form.submit()">
                         <option value="0">Toutes les catégories</option>
                         <?php
+=======
+>>>>>>> 2e7c67c (test)
                     <h4 class="gg-filter-subtitle">Catégories:</h4>
 
                     <!-- PC -->
@@ -144,11 +147,15 @@ $resultat_categories = $conn->query($sql_categories);
                             while ($cat = $resultat_categories->fetch_assoc()) {
                                 $nom_affiche = ucfirst(strtolower(str_replace('_', ' ', $cat['nom'])));
                                 $selected = ($categorie_active == $cat['id']) ? 'selected' : '';
+<<<<<<< HEAD
 
                                 echo "<option value='" . $cat['id'] . "' $selected>" . htmlspecialchars($nom_affiche) . "</option>";
 
                                 echo "<option value='".$cat['id']."' $selected>".htmlspecialchars($nom_affiche)."</option>";
 
+=======
+                                echo "<option value='".$cat['id']."' $selected>".htmlspecialchars($nom_affiche)."</option>";
+>>>>>>> 2e7c67c (test)
                             }
                         }
                         ?>
