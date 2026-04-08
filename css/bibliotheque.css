@@ -5,7 +5,6 @@ main {
 .gg-lib-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex-wrap: wrap;
   margin: 50px 0;
   padding: 0 60px;

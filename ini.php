@@ -154,7 +154,7 @@ INSERT IGNORE INTO `jeux` (`id`, `titre`, `description`, `prix`, `date_sortie`, 
 (14, 'Fortnite', 'Battle Royale.', 0.00, NULL, NULL, 'fortnite.jpg', 8, 'Non renseigné', '18'),
 (15, 'Fruit Ninja', 'Tranchage fruits.', 0.00, NULL, NULL, 'fruitninja.jpg', 8, 'Non renseigné', '18'),
 (16, 'Resident Evil Requiem', 'Horreur.', 69.99, NULL, NULL, 'residentevil.jpg', 7, 'Non renseigné', '18');
-
+ 
 SET FOREIGN_KEY_CHECKS = 1;
 ";
 

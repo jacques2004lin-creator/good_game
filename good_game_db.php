@@ -1,13 +1,18 @@
 <?php
 $servername = "db";
 $username = "root";
-$passowrd = "root";
+$password = "root";
 $dbname = "good_game";
-
-$conn = new mysqli($servername, $username, $passowrd, $dbname);
-$conn->set_charset("utf8mb4");
-
-if ($conn->connect_errno == 1049) {
-    header("Location: ini.php");
-    exit();
+ 
+try {
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset("utf8mb4");
+ 
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() === 1049) {
+        header("Location: ini.php");
+        exit();
+    } else {
+        die("Erreur de connexion : " . $e->getMessage());
+    }
 }

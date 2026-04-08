@@ -44,7 +44,6 @@
                 <li><a href="compte.php">Compte</a></li>
                 <li><a href="liste_souhaits.php">Liste de souhaits</a></li>
                 <li><a href="historique.php">Mes commandes</a></li>
-                <li><a href="support.php">Assistance</a></li>
                 <li><hr></li>
                 <li><a href="deconnexion.php">Déconnexion</a></li>
             </ul>
