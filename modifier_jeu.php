@@ -1,7 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("db", "root", "root", "good_game");
-$conn->set_charset("utf8mb4");
+include "good_game_db.php";
 
 $message = "";
 

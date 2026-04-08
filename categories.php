@@ -2,8 +2,7 @@
 session_start();
 
 // Connexion à la base de données
-$conn = new mysqli("db", "root", "root", "good_game");
-$conn->set_charset("utf8mb4");
+include "good_game_db.php";
 
 // Requete pour récupérer les catégories
 $sql_categories = "SELECT * FROM categories"; 
