@@ -2,14 +2,14 @@
 main {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centre verticalement */
-  align-items: center; /* Centre horizontalement */
+  justify-content: center;
+  align-items: center;
   gap: 50px;
 
   /* LES AJOUTS MAGIQUES POUR LE CENTRAGE : */
   width: 100%;
-  min-height: 60vh; /* S'assure que le bloc prend au moins 60% de la hauteur de l'écran pour centrer verticalement */
-  padding: 50px 20px; /* Évite que le contenu colle aux bords de l'écran ou au header/footer */
+  min-height: 60vh;
+  padding: 50px 20px;
   box-sizing: border-box;
 }
 
@@ -48,7 +48,7 @@ main {
   padding: 35px;
   width: 100%;
   display: flex;
-  flex-direction: column; /* Ajouté pour s'assurer que le texte s'empile bien au centre */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;

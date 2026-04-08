@@ -32,6 +32,32 @@ $resultat_biblio = $conn->query($sql_biblio);
 // RÉCUPÉRER TOUTES LES CATÉGORIES POUR LE MENU LATÉRAL
 $sql_categories = "SELECT id, nom FROM categories ORDER BY nom ASC";
 $resultat_categories = $conn->query($sql_categories);
+
+// Filtre
+$filtre_sql = "";
+$categorie_active = isset($_GET['categorie_id']) && is_numeric($_GET['categorie_id']) ? (int)$_GET['categorie_id'] : null;
+$recherche_lib = isset($_GET['q_lib']) ? $conn->real_escape_string($_GET['q_lib']) : "";
+
+// Si une catégorie est sélectionnée
+if ($categorie_active) {
+    $filtre_sql .= " AND jeux.categorie_id = $categorie_active";
+}
+
+// Si une recherche est faite
+if (!empty($recherche_lib)) {
+    $filtre_sql .= " AND jeux.titre LIKE '%$recherche_lib%'";
+}
+
+// Récupérer les jeux de la biblio
+$sql_biblio = "
+    SELECT jeux.id, jeux.titre, jeux.image 
+    FROM biblio 
+    JOIN jeux ON biblio.jeu_id = jeux.id 
+    WHERE biblio.utilisateur_id = $id_utilisateur
+    $filtre_sql
+    ORDER BY jeux.titre ASC
+";
+$resultat_biblio = $conn->query($sql_biblio);
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +68,7 @@ $resultat_categories = $conn->query($sql_categories);
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bibliotheque.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliothèque - Good Game</title>
@@ -75,10 +102,16 @@ $resultat_categories = $conn->query($sql_categories);
 
             <aside class="gg-lib-sidebar">
                 <h3 class="gg-filter-title">FILTRE</h3>
-
-                <div class="gg-filter-search">
-                    <input type="text" placeholder="Recherche">
-                </div>
+                <form action="bibliotheque.php" method="GET" class="gg-filter-search">
+                    <?php
+                    if($categorie_active) {
+                        echo "<input type='hidden' name='categorie_id' value='" . $categorie_active . "'>";
+                    }
+                    ?>
+                    
+                    <input type="text" name="q_lib" placeholder="Recherche dans ma collec..." 
+                        value="<?php echo htmlspecialchars($recherche_lib); ?>">
+                </form>
 
                 <h4 class="gg-filter-subtitle">Catégories:</h4>
                 <ul class="gg-filter-list">

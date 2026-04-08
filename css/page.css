@@ -1,8 +1,6 @@
-/* TITRES ET BOUTONS PARTAGÉS (Optimisation) */
+/* TITRES ET BOUTONS PARTAGÉS */
 
-.gg-cart-title,
-.gg-page-title,
-.gg-cart-empty h2 {
+.gg-cart-title, .gg-page-title, .gg-cart-empty h2 {
   color: white;
   font-size: 32px;
   font-weight: bold;
@@ -18,8 +16,7 @@
 }
 
 /* Boutons verts et rouges */
-.btn-green,
-.btn-red {
+.btn-green, .btn-red {
   padding: 14px;
   border-radius: 6px;
   font-size: 13px;
@@ -28,12 +25,14 @@
   text-transform: uppercase;
   width: 100%;
 }
+
 .btn-green {
   background-color: #28a745;
   color: white;
   border: none;
   transition: background-color 0.2s;
 }
+
 .btn-green:hover {
   background-color: #218838;
 }
@@ -44,16 +43,14 @@
   border: 1px solid #5a0000;
   transition: all 0.2s;
 }
+
 .btn-red:hover {
   background-color: #a00000;
   color: white;
 }
 
 /* Boutons blancs partagés */
-.btn-submit,
-.gg-btn-white-full,
-.gg-btn-white,
-.gg-btn-white-small {
+.btn-submit, .gg-btn-white-full, .gg-btn-white, .gg-btn-white-small {
   background-color: white;
   color: black;
   border: none;
@@ -61,10 +58,8 @@
   cursor: pointer;
   transition: background-color 0.2s;
 }
-.btn-submit:hover,
-.gg-btn-white-full:hover,
-.gg-btn-white:hover,
-.gg-btn-white-small:hover {
+
+.btn-submit:hover, .gg-btn-white-full:hover, .gg-btn-white:hover, .gg-btn-white-small:hover {
   background-color: #e0e0e0;
 }
 
@@ -73,33 +68,34 @@
   padding: 14px;
   font-size: 15px;
 }
+
 .gg-btn-white-full {
   border-radius: 6px;
   padding: 15px;
   width: 100%;
   font-size: 14px;
 }
+
 .gg-btn-white {
   text-decoration: none;
   padding: 12px 24px;
   border-radius: 6px;
   font-size: 14px;
 }
+
 .gg-btn-white-small {
   border-radius: 4px;
   padding: 8px 16px;
   font-size: 13px;
 }
 
-/* STYLE DU FORMULAIRE D'INSCRIPTION */
-
-/* la grande boîte grise foncée */
+/* FORMULAIRE D'INSCRIPTION */
 .inscription-wrapper {
-  background-color: #1e1e1e; /* gris très foncé */
-  border-radius: 12px; /* bords arrondis */
+  background-color: #1e1e1e;
+  border-radius: 12px;
   padding: 40px;
   max-width: 400px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5); /* ombre douce pour détacher du fond noir */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
   margin: auto;
   width: 100%; 
 }
@@ -109,10 +105,12 @@
   text-align: center;
   margin-bottom: 30px;
 }
+
 .form-header .form-logo {
   height: 45px;
   margin-bottom: 15px;
 }
+
 .form-header h2 {
   margin: 0;
   font-size: 24px;
@@ -124,27 +122,29 @@
 .inscription-form {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* espace régulier entre chaque champ */
+  gap: 15px;
 }
 
 /* les champs de saisie (Nom, Email, etc.) */
 .form-input {
-  background-color: #2a2a2a; /* gris un peu plus clair que le fond */
-  border: 1px solid #333; /* bordure très discrète */
+  background-color: #2a2a2a;
+  border: 1px solid #333;
   border-radius: 6px;
   padding: 14px 15px;
   color: white;
   font-size: 14px;
   transition: border-color 0.3s;
 }
+
 /* la couleur du texte indicatif (placeholder) */
 .form-input::placeholder {
   color: #888;
 }
+
 /* effet quand on clique dans un champ */
 .form-input:focus {
   outline: none;
-  border-color: #666; /* la bordure s'éclaire légèrement */
+  border-color: #666;
   background-color: #333;
 }
 
@@ -156,13 +156,15 @@
   margin-top: 5px;
   margin-bottom: 10px;
 }
+
 .checkbox-group input[type="checkbox"] {
-  margin-top: 3px; /* aligne la case avec la première ligne du texte */
-  accent-color: #555; /* Change la couleur de la case */
+  margin-top: 3px;
+  accent-color: #555;
 }
+
 .checkbox-group label {
   font-size: 11px;
-  color: #aaa; /* texte gris clair */
+  color: #aaa;
   line-height: 1.4;
   cursor: pointer;
 }
@@ -172,25 +174,26 @@
   text-align: center;
   margin-top: 20px;
 }
+
 .back-link {
   color: #aaa;
   text-decoration: none;
   font-size: 13px;
   display: inline-flex;
   align-items: center;
-  gap: 8px; /* espace entre le chevron et le texte */
+  gap: 8px;
   transition: color 0.2s;
 }
+
 .back-link:hover {
-  color: white; /* devient blanc au survol */
+  color: white;
 }
+
 .chevron {
   font-size: 14px;
 }
 
-/* MEDIA QUERIES (RESPONSIVE GLOBALE)*/
-
-/* Tablettes et petits écrans (900px et moins) */
+/* Responsive */
 @media (max-width: 900px) {
   .account-layout,
   .gg-cart-layout,

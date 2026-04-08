@@ -1,9 +1,20 @@
-/* PAGE LISTE DE SOUHAITS (DESIGN FINAL)  */
+/* PAGE LISTE DE SOUHAITS */
+.gg-wl-card {
+  width: 100%;
+  max-width: 800px;
+}
+
+.gg-wl-container {
+  margin: 40px auto;
+  max-width: 800px;
+  width: 90%;
+}
 
 .gg-wl-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
 .gg-wl-img {
@@ -17,9 +28,9 @@
 /* section Bas (boutons alignés à droite) */
 .gg-wl-bottom {
   display: flex;
-  justify-content: flex-end; /* aligne le groupe à droite */
+  justify-content: flex-end;
   align-items: center;
-  gap: 15px; /* gère l'espace entre les boutons restants */
+  gap: 15px;
 }
 
 /* Liste de souhaits (Mobile) */

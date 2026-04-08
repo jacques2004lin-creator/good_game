@@ -91,6 +91,7 @@ $res_achats = $conn->query($sql_achats);
     <title>Admin - Good Game</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
     <main>
