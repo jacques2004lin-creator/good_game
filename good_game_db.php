@@ -1,4 +1,10 @@
 <?php
+mysqli_report(MYSQLI_REPORT_OFF);
+
+$username = "root";
+$dbname = "good_game";
+
+// Détection de l'environnement
 if (gethostbyname('db') !== 'db') {
     // Docker
     $servername = "db";
@@ -9,10 +15,17 @@ if (gethostbyname('db') !== 'db') {
     $password = "";
 }
 
-$conn = @new mysqli($servername, $username, $passowrd, $dbname);
-$conn->set_charset("utf8mb4");
+// Tentative de connexion
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_errno == 1049) {
-    header("Location: ini.php");
-    exit();
+// GESTION DES ERREURS
+if ($conn->connect_errno) {
+    // Erreur 1049 = La base de données n'existe pas
+    if ($conn->connect_errno == 1049) {
+        header("Location: ini.php");
+        exit();
+    } else {
+        // Autre erreur
+        die("Erreur de connexion : " . $conn->connect_error);
+    }
 }

@@ -1,6 +1,21 @@
 <?php
 // CONFIGURATION DE LA CONNEXION
-include "good_game_db.php";
+mysqli_report(MYSQLI_REPORT_OFF);
+
+$dbname = "good_game";
+$username = "root";
+
+// Docker
+$servername = "db";
+$password = "root";
+$conn = new mysqli($servername, $username, $password);
+
+// XAMPP
+if ($conn->connect_error) {
+    $servername = "localhost";
+    $password = "";
+    $conn = new mysqli($servername, $username, $password);
+}
 
 if ($conn->connect_error) {
     die("<h2 style='color:red;'>Erreur de connexion : " . $conn->connect_error . "</h2>");
