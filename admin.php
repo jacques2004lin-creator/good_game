@@ -92,6 +92,7 @@ $res_achats = $conn->query($sql_achats);
     <link href="css/style.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
     <main>

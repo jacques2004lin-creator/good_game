@@ -49,6 +49,7 @@ $resultat_categories = $conn->query($sql_categories);
     <link href="https://cdn.jsdelivr.net/npm/tom-select@2.5.2/dist/css/tom-select.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliothèque - Good Game</title>
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body>
