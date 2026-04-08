@@ -239,14 +239,13 @@ CREATE TABLE `utilisateurs` (
   `email` varchar(100) NOT NULL,
   `motdepasse` varchar(255) NOT NULL,
   `role` enum('client','admin') DEFAULT 'client',
-  `code_2fa` varchar(4) DEFAULT '1234'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `motdepasse`, `role`, `code_2fa`) VALUES
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `motdepasse`, `role`) VALUES
 (3, '', '', 'admin@test.com', 'admin', 'admin', '1234'),
 (4, '', '', 'client@test.com', '1234', 'client', '1234'),
 (5, 'zeaz', 'ezaeza', 'zeaz@gmail.com', '$2y$10$ci.eRicp2J7IypsCY9jr0.GSssbsRWZCv2fVvKold4wm5t7YH8pLe', 'client', '1234'),

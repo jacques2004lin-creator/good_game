@@ -1,33 +1,22 @@
 <?php
-// CONFIGURATION DE LA CONNEXION
+// Config connexion
 mysqli_report(MYSQLI_REPORT_OFF);
 
-$dbname = "good_game";
-$username = "root";
-
-// Docker
 $servername = "db";
+$username = "root";
 $password = "root";
-$conn = new mysqli($servername, $username, $password);
-
-// XAMPP
-if ($conn->connect_error) {
-    $servername = "localhost";
-    $password = "";
-    $conn = new mysqli($servername, $username, $password);
-}
+$dbname = "good_game";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    die("<h2 style='color:red;'>Erreur de connexion : " . $conn->connect_error . "</h2>");
+    die("Erreur de connexion : " . $conn->connect_error);
 }
 
-echo "<h1>Initialisation de la base de données</h1>";
-
-// 2. CRÉATION DE LA BASE
+// Création de la base
 $conn->query("CREATE DATABASE IF NOT EXISTS `$dbname` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
 $conn->select_db($dbname);
-echo "Base de données '$dbname' prête.<br>";
 
+// SQL
 $sql = "
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -45,7 +34,6 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `email` varchar(100) NOT NULL UNIQUE,
   `motdepasse` varchar(255) NOT NULL,
   `role` enum('client','admin') DEFAULT 'client',
-  `code_2fa` varchar(4) DEFAULT '1234'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `jeux` (
@@ -138,7 +126,14 @@ INSERT IGNORE INTO `categories` (`id`, `nom`, `couleur`, `icone`) VALUES
 (9, 'moba', '#333333', '');
 
 INSERT IGNORE INTO `jeux` (`id`, `titre`, `description`, `prix`, `date_sortie`, `developpeur`, `image`, `categorie_id`, `editeur`, `pegi`) VALUES
-(1, 'Icarus', 'Jeu de survie JcE.', 11.55, '2021-12-04', 'RocketWerkz', 'icarus.jpg', 2, 'RocketWerkz', '16'),
+(1, 'Icarus', 'Icarus est un jeu de survie JcE en session. Explorez une nature sauvage en proie au chaos.', 11.55, 
+'2021-12-04', 'RocketWerkz', 'RocketWerkz', 'icarus.jpg', 2, 'Solo, Multijoueur en ligne, Coopération en ligne', 'ICARUS 
+est un jeu de survie JcE en session jusqu\'à huit joueurs en coop ou en solo. Explorez une nature sauvage extraterrestre 
+en proie au chaos suite à une terraformation ratée. Survivez assez longtemps pour extraire de la matière exotique, puis 
+retournez en orbite pour fabriquer des technologies plus avancées.', 'Windows 10 (64-bit)', 'Intel i5 8400', '16 Go', 
+'Nvidia GTX 1060 6GB', 'DirectX 11', '70 Go', 'Windows 10 (64-bit)', 'Intel i7-9700', '32 Go', 'NVIDIA RTX 3060ti', 
+'DirectX 11', '70 Go', 'Anglais', 'Français, Anglais, Allemand, Espagnol, Japonais', '16', 'image1.jpg', 'image2.jpg', 
+'image3.jpg'),
 (2, 'ARC Raiders', 'Shooter coopératif.', 39.99, NULL, NULL, 'arc_raiders.jpg', 1, 'Non renseigné', '18'),
 (3, 'Marathon', 'Shooter de Bungie.', 31.49, NULL, NULL, 'marathon.jpg', 1, 'Non renseigné', '18'),
 (4, 'Battlefield 6', 'Guerre totale.', 69.99, NULL, NULL, 'battlefield6.jpg', 1, 'Non renseigné', '18'),
@@ -154,9 +149,17 @@ INSERT IGNORE INTO `jeux` (`id`, `titre`, `description`, `prix`, `date_sortie`, 
 (14, 'Fortnite', 'Battle Royale.', 0.00, NULL, NULL, 'fortnite.jpg', 8, 'Non renseigné', '18'),
 (15, 'Fruit Ninja', 'Tranchage fruits.', 0.00, NULL, NULL, 'fruitninja.jpg', 8, 'Non renseigné', '18'),
 (16, 'Resident Evil Requiem', 'Horreur.', 69.99, NULL, NULL, 'residentevil.jpg', 7, 'Non renseigné', '18');
- 
+
 SET FOREIGN_KEY_CHECKS = 1;
 ";
+
+// Compte Admin
+$email_admin = "admin@test.com";
+$pass_admin = password_hash("123", PASSWORD_DEFAULT);
+
+$conn->query("DELETE FROM utilisateurs WHERE email = '$email_admin'");
+
+$conn->query("INSERT INTO utilisateurs (email, motdepasse, role, prenom, nom) VALUES ('$email_admin', '$pass_admin', 'admin', 'admin', 'admin')");
 
 if ($conn->multi_query($sql)) {
     do {
@@ -164,15 +167,12 @@ if ($conn->multi_query($sql)) {
             $result->free();
         }
     } while ($conn->more_results() && $conn->next_result());
-    
-    echo "<div style='background:green; color:white; padding:15px; margin-top:20px; display:inline-block; border-radius:5px;'>
-            INSTALLATION RÉUSSIE !<br>
-            Toutes les tables ont été créées et les jeux ont été ajoutés.
-          </div>";
-    echo "<p><a href='index.php' style='font-weight:bold; color:blue;'>Cliquer ici pour aller sur le site</a></p>";
-} else {
-    echo "Erreur lors de l'exécution du SQL : " . $conn->error;
-}
 
-$conn->close();
+    $conn->close();
+    
+    header("Location: index.php");
+    exit();
+} else {
+    echo "Erreur lors de l'exécution : " . $conn->error;
+}
 ?>
