@@ -72,6 +72,7 @@ if (isset($_POST['modifier_tout'])) {
     <link href="css/admin.css" rel="stylesheet">
     <link href="css/modifier.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
     <main>
