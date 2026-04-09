@@ -10,7 +10,7 @@ if (strpos($host_actuel, 'gamer.gd') !== false) {
     // CONFIGURATION INFINITYFREE
     $servername = "sql310.infinityfree.com";
     $username   = "if0_41112905";
-    $password   = "jacqueslin";
+    $password   = "MOT_DE_PASSE_SECRET";
     $dbname     = "if0_41112905_good_game";
 } else {
     // CONFIGURATION LOCALE

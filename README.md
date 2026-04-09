@@ -1,5 +1,7 @@
 # Good Game - Plateforme E-commerce de Jeux Vidéo
 
+> **Lien du site en ligne** : [http://goodgame.gamer.gd](http://goodgame.gamer.gd)
+
 **Good Game** est un projet de site web dynamique permettant la consultation, la gestion et l'achat de jeux vidéo en ligne. Ce projet a été réalisé en utilisant PHP, MySQL et Docker.
 
 ## Fonctionnalités
@@ -47,4 +49,8 @@ Pour accéder à l'espace administrateur, utilisez les identifiants suivants :
   - **SwiperJS** : Pour le slider d'images des jeux.
   - **Tom Select** : Pour la barre de recherche prédictive.
 - **Icônes** : Font Awesome 6
-- **Environnement** : Docker
+
+## Accès au projet
+
+- **Version en ligne** : [http://goodgame.gamer.gd](http://goodgame.gamer.gd) (Déploiement automatique via GitHub Actions)
+- **Version locale** : Utiliser Docker avec `docker-compose up -d` et initialiser via `/ini.php`.
