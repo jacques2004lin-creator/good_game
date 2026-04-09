@@ -5,16 +5,13 @@ mysqli_report(MYSQLI_REPORT_OFF);
 $host_actuel = $_SERVER['HTTP_HOST'];
 
 // MODIFICATION : On ajoute 'gamer.gd' dans la détection
-if (strpos($host_actuel, 'infinityfreeapp.com') !== false || 
-    strpos($host_actuel, 'epizy.com') !== false || 
-    strpos($host_actuel, 'gamer.gd') !== false) {
-    
+if (strpos($host_actuel, 'gamer.gd') !== false) {
+
     // CONFIGURATION INFINITYFREE
     $servername = "sql310.infinityfree.com";
     $username   = "if0_41112905";
     $password   = "jacqueslin";
     $dbname     = "if0_41112905_good_game";
-
 } else {
     // CONFIGURATION LOCALE
     $dbname = "good_game";
@@ -37,7 +34,6 @@ if (strpos($host_actuel, 'infinityfreeapp.com') !== false ||
 try {
     $conn = new mysqli($servername, $username, $password, $dbname);
     $conn->set_charset("utf8mb4");
-
 } catch (mysqli_sql_exception $e) {
     if ($e->getCode() === 1049) {
         header("Location: ini.php");
