@@ -246,12 +246,12 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `motdepasse`, `role`) VALUES
-(3, '', '', 'admin@test.com', 'admin', 'admin', '1234'),
-(4, '', '', 'client@test.com', '1234', 'client', '1234'),
-(5, 'zeaz', 'ezaeza', 'zeaz@gmail.com', '$2y$10$ci.eRicp2J7IypsCY9jr0.GSssbsRWZCv2fVvKold4wm5t7YH8pLe', 'client', '1234'),
-(6, 'zeae', 'ezae', 'zeaze@gmail.com', '$2y$10$F4UfenWKYBYIlHZAeR0JFeKo5Hd.4fdtvzYvrAOV0VqQfkuwZwVDi', 'client', '1234'),
-(7, 'rtgg', 'dfg', 'zaea@gmail.com', '$2y$10$00U34CYsLkgwe0wcgvbedONkomt5k61JQBcBD5EV51DLtp4SJM2si', 'client', '1234'),
-(8, 'eza', 'eza', 'eza@test.com', '$2y$10$BJMOb//dBoJxmMA2ddGWgOBjekxni6tG6GDVE6AMw6GtJ48nUySAq', 'admin', '1234');
+(3, '', '', 'admin@test.com', 'admin', 'admin'),
+(4, '', '', 'client@test.com', '1234', 'client'),
+(5, 'zeaz', 'ezaeza', 'zeaz@gmail.com', '$2y$10$ci.eRicp2J7IypsCY9jr0.GSssbsRWZCv2fVvKold4wm5t7YH8pLe', 'client'),
+(6, 'zeae', 'ezae', 'zeaze@gmail.com', '$2y$10$F4UfenWKYBYIlHZAeR0JFeKo5Hd.4fdtvzYvrAOV0VqQfkuwZwVDi', 'client'),
+(7, 'rtgg', 'dfg', 'zaea@gmail.com', '$2y$10$00U34CYsLkgwe0wcgvbedONkomt5k61JQBcBD5EV51DLtp4SJM2si', 'client'),
+(8, 'eza', 'eza', 'eza@test.com', '$2y$10$BJMOb//dBoJxmMA2ddGWgOBjekxni6tG6GDVE6AMw6GtJ48nUySAq', 'admin');
 
 --
 -- Indexes for dumped tables
