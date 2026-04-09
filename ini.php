@@ -73,7 +73,6 @@ CREATE TABLE IF NOT EXISTS `achats` (
   `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `utilisateur_id` int(11) DEFAULT NULL,
   `sous_total` decimal(10,2) DEFAULT NULL,
-  `status` varchar(50) DEFAULT 'En attente',
   `date_achat` datetime DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs`(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

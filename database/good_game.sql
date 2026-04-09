@@ -31,26 +31,25 @@ CREATE TABLE `achats` (
   `id` int(11) NOT NULL,
   `utilisateur_id` int(11) DEFAULT NULL,
   `sous_total` decimal(10,2) DEFAULT NULL,
-  `status` varchar(50) DEFAULT 'En attente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `achats`
 --
 
-INSERT INTO `achats` (`id`, `utilisateur_id`, `sous_total`, `status`) VALUES
-(1, 8, 11.55, 'Validée'),
-(2, 8, 23.99, 'Validée'),
-(3, 8, 69.99, 'Validée'),
-(4, 8, 0.00, 'Validée'),
-(5, 8, 69.99, 'Validée'),
-(6, 8, 31.49, 'Validée'),
-(7, 8, 69.99, 'Livrée'),
-(8, 8, 11.99, 'Validée'),
-(9, 8, 11.99, 'Validée'),
-(10, 8, 87.98, 'Validée'),
-(11, 8, 0.00, 'Validée'),
-(12, 8, 0.00, 'Validée');
+INSERT INTO `achats` (`id`, `utilisateur_id`, `sous_total`) VALUES
+(1, 8, 11.55),
+(2, 8, 23.99),
+(3, 8, 69.99),
+(4, 8, 0.00),
+(5, 8, 69.99),
+(6, 8, 31.49),
+(7, 8, 69.99),
+(8, 8, 11.99),
+(9, 8, 11.99),
+(10, 8, 87.98),
+(11, 8, 0.00),
+(12, 8, 0.00);
 
 -- --------------------------------------------------------
 
