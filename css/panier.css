@@ -180,6 +180,17 @@
   min-height: 400px;
 }
 
+@media (max-width: 900px) {
+  .gg-cart-items-section, .gg-cart-summary, .gg-lib-sidebar {
+    width: auto;
+  }
+
+  .gg-cart-items-section {
+    width: 97%;
+    padding: 15px;
+  }
+}
+
 @media (max-width: 480px) {
   .gg-cart-summary {
     width: 300px;
