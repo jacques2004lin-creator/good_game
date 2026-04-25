@@ -50,3 +50,12 @@
         </div>
     </div>
 </header>
+
+<?php if (isset($_SESSION['message'])): ?>
+    <div class="notification">
+        <?php 
+            echo $_SESSION['message']; 
+            unset($_SESSION['message']);
+        ?>
+    </div>
+<?php endif; ?>

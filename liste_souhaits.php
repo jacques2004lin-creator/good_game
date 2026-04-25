@@ -10,6 +10,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
 include "database/good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
+// Supprime des souhaits les jeux que l'utilisateur possède déjà
 $conn->query("
     DELETE FROM souhait 
     WHERE utilisateur_id = $id_utilisateur 
@@ -28,10 +29,15 @@ if (isset($_POST['action']) && $_POST['action'] == 'ajouter_souhait') {
         
         if ($verif_souhait->num_rows == 0) {
             $conn->query("INSERT INTO souhait (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id_a_ajouter)");
+            $_SESSION['message'] = "Jeu ajouté à votre liste de souhaits !";
+        } else {
+            $_SESSION['message'] = "Ce jeu est déjà dans votre liste de souhaits.";
         }
+    } else {
+        $_SESSION['message'] = "Vous possédez déjà ce jeu.";
     }
     
-    header("Location: liste_souhaits.php");
+    header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
 }
 
@@ -39,6 +45,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'ajouter_souhait') {
 if (isset($_POST['btn_supprimer'])) {
     $jeu_id_a_retirer = (int)$_POST['jeu_id'];
     $conn->query("DELETE FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_retirer");
+    // Après suppression réussie
+    $_SESSION['message'] = "Jeu retiré de la liste de souhaits.";
     header("Location: liste_souhaits.php"); 
     exit();
 }
@@ -52,7 +60,9 @@ if (isset($_POST['btn_ajouter_panier'])) {
 
     if ($check_panier->num_rows == 0) {
         $conn->query("INSERT INTO panier (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id)");
-        $conn->query("DELETE FROM souhait WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id");
+        $_SESSION['message'] = "Jeu ajouté au panier !";
+    } else {
+        $_SESSION['message'] = "Le jeu est déjà dans votre panier.";
     }
     
     header("Location: liste_souhaits.php"); 

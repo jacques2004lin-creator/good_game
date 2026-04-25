@@ -36,6 +36,31 @@ a {
   text-decoration: none;
 }
 
+.notification {
+  background-color: #2ecc71;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+  position: relative;
+  animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% { 
+    opacity: 0; 
+    display: none; 
+  }
+}
+
 /* HEADER & NAVIGATION */
 .site-header {
   display: flex;

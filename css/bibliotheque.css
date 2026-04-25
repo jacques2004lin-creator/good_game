@@ -46,7 +46,7 @@ main {
 
 .gg-lib-img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 7 / 4;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -238,7 +238,7 @@ main {
   }
 
   .gg-lib-img {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 7 / 4;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;

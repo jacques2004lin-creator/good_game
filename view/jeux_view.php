@@ -103,7 +103,7 @@
                         echo "<form action='liste_souhaits.php' method='POST'>";
                             echo "<input type='hidden' name='action' value='ajouter_souhait'>";
                             echo "<input type='hidden' name='id_produit' value='" . $jeu['id'] . "'>";
-                            echo "<button type='submit' class='btn-souhait'>Liste de souhaits</button>";
+                            echo "<button type='submit' class='btn-souhait'><i class='fa-regular fa-bookmark'></i> Liste de souhaits</button>";
                         echo "</form>";
                     }
                     ?>

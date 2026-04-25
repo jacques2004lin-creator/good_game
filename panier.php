@@ -19,9 +19,11 @@ if (isset($_POST['action']) && $_POST['action'] == 'ajouter') {
     if ($verif_panier->num_rows == 0) {
         // S'il n'y est pas, on l'ajoute dans la base de données !
         $conn->query("INSERT INTO panier (utilisateur_id, jeu_id) VALUES ($id_utilisateur, $jeu_id_a_ajouter)");
-    }
+        $_SESSION['message'] = "Jeu ajouté à votre panier !";
+    } else {
+        $_SESSION['message'] = "Ce jeu est déjà dans votre panier.";
+    } 
     
-    // On recharge la page proprement
     header("Location: panier.php");
     exit();
 }
@@ -30,6 +32,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'ajouter') {
 if (isset($_POST['btn_supprimer'])) {
     $jeu_id_a_supprimer = (int)$_POST['jeu_id'];
     $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur AND jeu_id = $jeu_id_a_supprimer");
+    $_SESSION['message'] = "Jeu retiré du panier !";
     header("Location: panier.php"); 
     exit();
 }
@@ -37,6 +40,7 @@ if (isset($_POST['btn_supprimer'])) {
 // SUPPRIMER TOUT LE PANIER
 if (isset($_POST['btn_supprimer_tout'])) {
     $conn->query("DELETE FROM panier WHERE utilisateur_id = $id_utilisateur");
+    $_SESSION['message'] = "Votre panier a été vidé !";
     header("Location: panier.php");
     exit();
 }
