@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
 $conn->query("
@@ -68,7 +68,7 @@ $sql_souhait = "
 ";
 $resultat_souhait = $conn->query($sql_souhait);
 
-include "liste_souhaits_view.php";
+include "view/liste_souhaits_view.php";
 
 $conn->close();
 ?>

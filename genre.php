@@ -2,10 +2,10 @@
 session_start();
 
 // Connexion à la base de données
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 // On vérifie si la catégorie est bien présente dans l'URL
-if (isset($_GET['cat']) && !empty($_GET['cat'])) {
+if(isset($_GET['cat']) && !empty($_GET['cat'])) {
     $categorie_choisie = $conn->real_escape_string($_GET['cat']);
 
     // On récupére les jeux qui ont ce nom de catégorie
@@ -24,7 +24,7 @@ if (isset($_GET['cat']) && !empty($_GET['cat'])) {
     exit();
 }
 
-include "genre_view.php";
+include "view/genre_view.php";
 
 $conn->close();
 ?>

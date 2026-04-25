@@ -130,6 +130,18 @@ th {
     border: 1px solid #333;
 }
 
+.alignement {
+    display: flex;
+    gap: 20px;
+}
+
+.couleur_boite {
+    height: 40px;
+    width: 60px;
+    padding: 2px;
+    margin-bottom: 20px;
+}
+
 h4 {
     margin-bottom: 5px;
 }

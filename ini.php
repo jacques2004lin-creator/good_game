@@ -8,7 +8,7 @@ $password = "root";
 $dbname = "good_game";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
+if($conn->connect_error) {
     die("Erreur de connexion : " . $conn->connect_error);
 }
 
@@ -160,12 +160,13 @@ $conn->query("DELETE FROM utilisateurs WHERE email = '$email_admin'");
 
 $conn->query("INSERT INTO utilisateurs (email, motdepasse, role, prenom, nom) VALUES ('$email_admin', '$pass_admin', 'admin', 'admin', 'admin')");
 
-if ($conn->multi_query($sql)) {
+// Execute plusieurs requêtes SQL, nettoie la mémoire puis redirige vers la page d'accueil
+if($conn->multi_query($sql)) {
     do {
-        if ($result = $conn->store_result()) {
+        if($result = $conn->store_result()) {
             $result->free();
         }
-    } while ($conn->more_results() && $conn->next_result());
+    } while($conn->more_results() && $conn->next_result());
 
     $conn->close();
     

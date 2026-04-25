@@ -2,7 +2,7 @@
 session_start();
 
 // Connexion à la base de données
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 // Requête pour récupérer Resident Evil Requiem
 $sql_banniere = "SELECT * FROM jeux WHERE id = 16";
@@ -26,7 +26,7 @@ $res_gratuit = $conn->query($sql_gratuit);
 $sql_genres = "SELECT * FROM categories LIMIT 5"; 
 $res_genres = $conn->query($sql_genres);
 
-include "index_view.php";
+include "view/index_view.php";
 
 $conn->close();
 ?>

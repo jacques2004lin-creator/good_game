@@ -1,11 +1,17 @@
 <?php
 session_start();
-include "good_game_db.php";
+include "database/good_game_db.php";
+
+// On Vérifie si c'est bien l'Admin
+if(!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: index.php");
+    exit();
+}
 
 $message = "";
 
 // Chargement des données
-if (isset($_GET['id'])) {
+if(isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $sql = "SELECT * FROM jeux WHERE id = $id";
     $res = $conn->query($sql);
@@ -16,7 +22,7 @@ if (isset($_GET['id'])) {
 }
 
 // Sauvegarde modif
-if (isset($_POST['modifier_tout'])) {
+if(isset($_POST['modifier_tout'])) {
     $id = intval($_POST['id']);
     $titre = $conn->real_escape_string((string)$_POST['titre']);
     $prix = floatval($_POST['prix']);
@@ -53,7 +59,7 @@ if (isset($_POST['modifier_tout'])) {
             sys_rec_os='$r_os', sys_rec_cpu='$r_cpu', sys_rec_ram='$r_ram', sys_rec_gpu='$r_gpu', sys_rec_dx='$r_dx', sys_rec_stockage='$r_st'
             WHERE id = $id";
 
-    if ($conn->query($sql)) {
+    if($conn->query($sql)) {
         header("Location: admin.php?msg=Le jeu a été mis à jour");
         exit();
     } else {
@@ -63,7 +69,7 @@ if (isset($_POST['modifier_tout'])) {
 
 $cats = $conn->query("SELECT * FROM categories");
 
-include "modifier_jeu_view.php";
+include "view/modifier_jeu_view.php";
 
 $conn->close();
 ?>

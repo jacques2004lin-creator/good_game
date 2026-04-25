@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($jeu['titre']); ?></title>
+    <title><?php echo htmlspecialchars($jeu['titre']); ?> - Good Game</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/jeux.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />

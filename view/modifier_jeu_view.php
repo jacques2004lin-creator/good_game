@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Modifier <?php echo htmlspecialchars((string)$jeu['titre']); ?></title>
+    <title>Modifier <?php echo htmlspecialchars((string)$jeu['titre']); ?> - Good Game</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
     <link href="css/modifier.css" rel="stylesheet">

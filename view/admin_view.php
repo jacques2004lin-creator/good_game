@@ -6,6 +6,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/admin.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <main>
@@ -16,7 +17,7 @@
 
         <?php
         if($message) {
-            echo "<p class='msg'>$message</p>";
+            echo "<p class='msg'>" . htmlspecialchars($message) . "</p>";
         }
         ?>
 
@@ -49,6 +50,69 @@
                         }
                     } else {
                         echo "<tr><td colspan='5' class='vide'>Aucune commande.</td></tr>";
+                    }
+                    ?>
+                </table>
+            </div>
+        </section>
+
+        <!-- Catégorie -->
+        <section>
+            <h2>Gestion des Catégories</h2>
+            <div class="form-box">
+                <h3>Ajouter une catégorie</h3>
+                <form method="POST" style="display:flex; flex-direction:column; gap: 10px;">
+                    <input type="hidden" name="action" value="ajouter_categorie">
+                    
+                    <div class="alignement">
+                        <div style="flex: 1;">
+                            <h4>Nom</h4>
+                            <input type="text" name="nom_cat" placeholder="Ex: Horreur" required>
+                        </div>
+
+                        <div style="flex: 1;">
+                            <h4>Icône (Font Awesome)</h4>
+                            <input type="text" name="icone_cat" placeholder="Ex: fa-solid fa-ghost">
+                        </div>
+
+                        <div style="flex: 1;">
+                            <h4>Couleur</h4>
+                            <input type="color" name="couleur_cat" value="#4DA0FF" class="couleur_boite">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-ajouter">Ajouter la catégorie</button>
+                </form>
+            </div>
+
+            <!-- Tableau des catégories -->
+            <div class="table-wrapper">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Icône</th>
+                        <th>Nom</th>
+                        <th>Couleur</th>
+                        <th>Action</th>
+                    </tr>
+                    <?php
+                    while($cat = $res_toutes_categories->fetch_assoc()) {
+                        echo "<tr>";
+                            echo "<td>#" . $cat['id'] . "</td>";
+                            echo "<td><i class='" . htmlspecialchars($cat['icone']) . "'></i></td>";
+                            echo "<td><strong>" . htmlspecialchars($cat['nom']) . "</strong></td>";
+                            echo "<td>";
+                                echo "<span style='display:inline-block; margin-right:5px; width:20px; height:20px; background:" . $cat['couleur'] . "; border-radius:4px; vertical-align:middle;'></span>";
+                                echo $cat['couleur'];
+                            echo "</td>";
+                            echo "<td>";
+                                echo "<form method='POST' onsubmit=\"return confirm('Supprimer cette catégorie ?')\">";
+                                    echo "<input type='hidden' name='action' value='supprimer_categorie'>";
+                                    echo "<input type='hidden' name='id_cat' value='" . $cat['id'] . "'>";
+                                    echo "<button type='submit' class='btn btn-supprimer'>Supprimer</button>";
+                                    echo "<a href='modifier_categorie.php?id=" . $cat['id'] . "' class='btn btn-update'>Modif</a>";                                echo "</form>";
+                            echo "</td>";
+                        echo "</tr>";
                     }
                     ?>
                 </table>
@@ -145,10 +209,10 @@
                                 echo "</ul></td>";
                                 echo "<td><strong>" . htmlspecialchars((string)$j['titre']) . "</strong></td>";
                                 echo "<td>" . htmlspecialchars((string)$j['cat_nom']) . "</td>";
-                                echo "<td>" . $j['prix'] . " €</td>";
+                                echo "<td style='width:80px'>" . $j['prix'] . " €</td>";
                                 echo "<td>" . $j['pegi'] . "</td>";
                                 echo "<td>" . htmlspecialchars((string)$j['developpeur']) . "</td>";
-                                echo "<td>" . mb_strimwidth((string)$j['description'], 0, 30, "...") . "</td>";
+                                echo "<td>" . htmlspecialchars(mb_strimwidth((string)$j['description'], 0, 30, "...")) . "</td>";
                                 echo "<td>";
                                     echo "<div class='boutons'>";
                                         echo "<a href='modifier_jeu.php?id=" . $j['id'] . "' class='btn btn-update'>Modif</a>";

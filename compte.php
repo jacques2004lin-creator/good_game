@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 $id_utilisateur = $_SESSION['id_utilisateur'];
 $message_succes = "";
@@ -77,7 +77,7 @@ $sql_user = "SELECT * FROM utilisateurs WHERE id = $id_utilisateur";
 $result = $conn->query($sql_user);
 $utilisateur_actuel = $result->fetch_assoc();
 
-include "compte_view.php";
+include "view/compte_view.php";
 
 $conn->close();
 ?>

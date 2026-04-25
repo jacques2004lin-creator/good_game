@@ -54,7 +54,7 @@
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="4">
+                            <td colspan="4" style="text-align:center;">
                                 Vous n'avez pas encore passé de commande.
                             </td>
                         </tr>

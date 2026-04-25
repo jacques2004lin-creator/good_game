@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
 // GESTION DES FILTRES
@@ -37,7 +37,7 @@ $resultat_biblio = $conn->query($sql_biblio);
 $sql_categories = "SELECT id, nom FROM categories ORDER BY nom ASC";
 $resultat_categories = $conn->query($sql_categories);
 
-include "bibliotheque_view.php";
+include "view/bibliotheque_view.php";
 
 $conn->close();
 ?>

@@ -2,7 +2,7 @@
 // DÉMARRAGE DE LA SESSION
 session_start();
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 $message = "";
 
@@ -40,7 +40,7 @@ if (isset($_POST['btn_connexion'])) {
     }
 }
 
-include "connexion_view.php";
+include "view/connexion_view.php";
 
 $conn->close();
 ?>

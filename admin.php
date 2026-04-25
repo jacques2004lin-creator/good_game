@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 // On Vérifie si c'est bien l'Admin
 if(!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
@@ -11,10 +11,9 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
 $message = "";
 
 // Gestion des actions
-if (isset($_POST['action'])) {
-
-    // Action : Ajouter un jeu
-    if ($_POST['action'] == 'ajouter_jeu') {
+if(isset($_POST['action'])) {
+    // Ajouter un jeu
+    if($_POST['action'] == 'ajouter_jeu') {
         $titre = $conn->real_escape_string($_POST['titre']);
         $prix = floatval($_POST['prix']);
         $cat = intval($_POST['categorie_id']);
@@ -65,11 +64,33 @@ if (isset($_POST['action'])) {
         }
     }
 
-    // Action : Supprimer
-    if ($_POST['action'] == 'supprimer_jeu') {
+    // Supprimer un jeu
+    if($_POST['action'] == 'supprimer_jeu') {
         $id = intval($_POST['id_jeu']);
         $conn->query("DELETE FROM jeux WHERE id = $id");
         $message = "Jeu supprimé !";
+    }
+
+    // Ajouter une catégorie
+    if($_POST['action'] == 'ajouter_categorie') {
+        $nom_cat = $conn->real_escape_string($_POST['nom_cat']);
+        $couleur_cat = $conn->real_escape_string($_POST['couleur_cat']);
+        $icone_cat = $conn->real_escape_string($_POST['icone_cat']);
+
+        if(!empty($nom_cat)) {
+            $sql_cat = "INSERT INTO categories (nom, couleur, icone) 
+                        VALUES ('$nom_cat', '$couleur_cat', '$icone_cat')";
+            if($conn->query($sql_cat)) {
+                $message = "Catégorie '$nom_cat' ajoutée avec succès !";
+            }
+        }
+    }
+
+    // Supprimer une catégorie
+    if($_POST['action'] == 'supprimer_categorie') {
+        $id_cat = intval($_POST['id_cat']);
+        $conn->query("DELETE FROM categories WHERE id = $id_cat");
+        $message = "Catégorie supprimée !";
     }
 }
 
@@ -87,7 +108,9 @@ $res_liste = $conn->query($sql_liste);
 
 $cats = $conn->query("SELECT * FROM categories");
 
-include "admin_view.php";
+$res_toutes_categories = $conn->query("SELECT * FROM categories ORDER BY nom ASC");
+
+include "view/admin_view.php";
 
 $conn->close();
 ?>

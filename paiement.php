@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
 // VÉRIFIER QUE LE PANIER N'EST PAS VIDE
@@ -47,7 +47,7 @@ if ($conn->query($sql_achat) === TRUE) {
     $achat_reussi = false;
 }
 
-include "paiement_view.php";
+include "view/paiement_view.php";
 
 $conn->close();
 ?>

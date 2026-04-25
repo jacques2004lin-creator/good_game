@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 $message = "";
 
@@ -17,12 +17,14 @@ if (isset($_POST['btn_inscription'])) {
 
     if ($conn->query($sql) === TRUE) {
         $message = "<p>Inscription réussie ! Vous pouvez maintenant vous connecter.</p>";
+        header("Location: connexion.php");
+        exit();
     } else {
         $message = "<p>Erreur (Cet email est peut-être déjà utilisé).</p>";
     }
 }
 
-include "inscription_view.php";
+include "view/inscription_view.php";
 
 $conn->close();
 ?>

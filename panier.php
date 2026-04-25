@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_utilisateur'])) {
     exit();
 }
 
-include "good_game_db.php";
+include "database/good_game_db.php";
 $id_utilisateur = $_SESSION['id_utilisateur'];
 
 if (isset($_POST['action']) && $_POST['action'] == 'ajouter') {
@@ -51,7 +51,7 @@ $sql_panier = "
 $resultat_panier = $conn->query($sql_panier);
 $total_panier = 0;
 
-include "panier_view.php";
+include "view/panier_view.php";
 
 $conn->close();
 ?>

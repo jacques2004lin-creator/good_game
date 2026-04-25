@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good Game - Support</title>
+    <title>Support - Good Game</title>
     <link href="css/support.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
@@ -191,28 +191,6 @@
                 <p>19.2. Ces conditions ont été modifiées pour la dernière fois le 2 novembre 2023. Les versions précédentes de ces conditions, y compris leurs dates d'entrée en vigueur, sont disponibles ici .</p>
             </div>
 
-        <!--
-        </div> <?php // elseif($page == 'ticket'): ?>
-                <a href="?page=support" class="btn-back"> < Retour</a>
-                <h1>Ouvrir un ticket d'assistance</h1>
-                <div class="content-box">
-                    <form class="ticket-form">
-                        <input type="text" placeholder="Votre Nom" required>
-                        <input type="email" placeholder="Votre Email" required>
-                        <input type="text" placeholder="Numéro de commande (ex: #12345)">
-                        <select required>
-                            <option value="">Sélectionnez un motif</option>
-                            <option value="remboursement">Demande de remboursement</option>
-                            <option value="cle">Clé invalide / déjà utilisée</option>
-                            <option value="paiement">Problème de paiement</option>
-                            <option value="autre">Autre demande</option>
-                        </select>
-                        <textarea rows="5" placeholder="Décrivez votre problème en détail..." required></textarea>
-                        <button type="submit" class="btn-submit">Envoyer ma demande</button>
-                    </form>
-                </div>
-        -->
-
         <?php elseif($page == 'paiement'): ?>
             <a href="?page=support" class="btn-back"> < Retour</a>
             <h1>Support Paiement</h1>
@@ -312,7 +290,6 @@
                             <p>Le délai de traitement moyen est de 12 à 24 heures. Les fonds sont reversés directement sur le mode de paiement utilisé lors de l'achat.</p>
                         </section>
                     <?php endif; ?>
-                    <!-- <a href="?page=ticket" class="btn-ticket-open">Ouvrir un ticket</a> -->
                 </div>
             <?php endif; ?>
 
@@ -389,7 +366,6 @@
                             </ol>
                         </section>
                     <?php endif; ?>
-                    <!-- <a href="?page=ticket" class="btn-ticket-open">Ouvrir un ticket</a> -->
                 </div>
             <?php endif; ?>
 
@@ -475,7 +451,6 @@
                             <p>Si vous avez des questions ou des inquiétudes concernant la sécurité de votre compte, n'hésitez pas à nous contacter. Nous sommes toujours là pour vous aider à protéger vos informations personnelles et à sécuriser votre compte.</p>
                         </section>
                     <?php endif; ?>
-                    <!-- <a href="?page=ticket" class="btn-ticket-open">Ouvrir un ticket</a> -->
                 </div>
             <?php endif; ?>
         <?php endif; ?>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($titre); ?></title>
+    <title><?php echo htmlspecialchars($titre); ?> - Good Game</title>
     <link href="css/genre.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>

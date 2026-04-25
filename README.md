@@ -15,7 +15,7 @@
 - **Historique d'achat** : Suivi détaillé de toutes les commandes passées.
 
 ### Côté Administrateur :
-- **Gestion du catalogue** : Ajouter, modifier ou supprimer des jeux.
+- **Gestion du catalogue et des catégories** : Ajouter, modifier ou supprimer des jeux et des catégories.
 - **Gestion des stocks** : Mise à jour des prix et des descriptions techniques.
 - **Suivi des ventes** : Vue d'ensemble sur les commandes clients.
 

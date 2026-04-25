@@ -150,6 +150,10 @@ main {
   padding: 20px;
 }
 
+.gg-lib-empty p {
+  text-align: center;
+}
+
 .gg-filter-divider {
   margin-bottom: 10px;
   border-bottom: 1px solid #333;

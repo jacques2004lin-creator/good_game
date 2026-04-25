@@ -2,7 +2,7 @@
 session_start();
 
 // Connexion à la base de données
-include "good_game_db.php";
+include "database/good_game_db.php";
 
 // Vérifie si on a bien l'id du jeu dans l'URL
 if(isset($_GET['id'])) {
@@ -34,18 +34,18 @@ $nom_dossier = str_replace(' ', '_', strtolower(htmlspecialchars($jeu['titre']))
 $deja_possede = false;
 
 // Vérifie si l'utilisateur à deja le jeu
-if (isset($_SESSION['id_utilisateur'])) {
+if(isset($_SESSION['id_utilisateur'])) {
     $id_user = $_SESSION['id_utilisateur'];
     $id_jeu = $jeu['id'];
     
     $check_biblio = $conn->query("SELECT * FROM biblio WHERE utilisateur_id = '$id_user' AND jeu_id = '$id_jeu'");
     
-    if ($check_biblio && $check_biblio->num_rows > 0) {
+    if($check_biblio && $check_biblio->num_rows > 0) {
         $deja_possede = true;
     }
 }
 
-include "jeux_view.php";
+include "view/jeux_view.php";
 
 $conn->close();
 ?>
