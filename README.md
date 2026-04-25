@@ -48,7 +48,7 @@ Pour accéder à l'espace administrateur, utilisez les identifiants suivants :
 - **Bibliothèques JavaScript** : 
   - **SwiperJS** : Pour le slider d'images des jeux.
   - **Tom Select** : Pour la barre de recherche prédictive.
-- **Icônes** : Font Awesome 6
+- **Icônes** : Font Awesome 7.0.1
 
 ## Accès au projet
 
