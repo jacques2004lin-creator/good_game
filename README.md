@@ -42,7 +42,7 @@ Pour accéder à l'espace administrateur, utilisez les identifiants suivants :
 
 ## Technologies utilisées
 
-- **Backend** : PHP 8.1+
+- **Backend** : PHP 8.2.30
 - **Base de données** : MySQL
 - **Frontend** : HTML5, CSS3 (Flexbox & Grid), JavaScript (ES6)
 - **Bibliothèques JavaScript** : 
