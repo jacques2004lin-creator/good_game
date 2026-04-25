@@ -17,7 +17,7 @@ jobs:
 
       - name: Inject DB Password
         run: |
-          sed -i 's/MOT_DE_PASSE_SECRET/${{ secrets.DB_PASSWORD }}/g' good_game_db.php
+          sed -i 's|MOT_DE_PASSE_SECRET|${{ secrets.DB_PASSWORD }}|g' database/good_game_db.php
 
       - name: Sync files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
