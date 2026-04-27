@@ -20,7 +20,7 @@ Le code est structuré pour séparer l'affichage de la logique :
 - **Recherche intelligente** : Barre de recherche prédictive (Tom Select).
 - **Gestion du panier** : Ajout, suppression et calcul du total en temps réel.
 - **Liste de souhaits** : Sauvegarde des jeux favoris (avec suppression automatique si le jeu est acheté).
-- **Espace Compte** : Modification du prénom, de l'email et du mot de passe.
+- **Espace Compte** : Modification du prénom, de l'email, du mot de passe et suppression du compte.
 - **Historique d'achat** : Suivi détaillé de toutes les commandes passées.
 
 ### Côté Administrateur :
