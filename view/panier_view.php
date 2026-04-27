@@ -42,6 +42,7 @@
                                     </div>
                                 </div>
 
+                                <!-- Boutons -->
                                 <div class="gg-item-actions">
                                     <form action="" method="POST" style="margin: 0;">
                                         <input type="hidden" name="jeu_id" value="<?php echo $jeu['id']; ?>">
@@ -58,6 +59,7 @@
                         </div>
                     <?php endwhile; ?>
 
+                    <!-- Supprimer tout -->
                     <div class="gg-cart-footer-actions">
                         <form action="" method="POST">
                             <button type="submit" name="btn_supprimer_tout" class="gg-link-underline">Supprimer tous les articles</button>
@@ -65,6 +67,7 @@
                     </div>
                 </div>
 
+                <!-- Total -->
                 <div class="gg-cart-summary">
                     <div class="gg-summary-row">
                         <span class="gg-summary-bold">Sous-total</span>
@@ -83,7 +86,7 @@
             </div>
 
         <?php else: ?>
-
+            <!-- Vide -->
             <div class="gg-cart-empty">
                 <h2>Votre panier est vide.</h2>
                 <a href="index.php" class="gg-btn-white">Acheter des jeux et des applications</a>

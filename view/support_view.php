@@ -15,6 +15,7 @@
 
     <main>
         <?php if($page == 'support'): ?>
+            <!-- Page support -->
             <h1 class="page-title">Support</h1>
             <div class="support-container">
                 <a href="?page=commande" class="support-carte">
@@ -42,6 +43,7 @@
                 </div>
             </div>
 
+        <!-- Confidentialite -->
         <?php elseif($page == 'confidentialite'): ?>
             <a href="?page=support" class="btn-back"> < Retour</a>
             <h1>Politique de confidentialité</h1>
@@ -112,6 +114,7 @@
                 </ul>
             </div>
 
+        <!-- Conditions générales de vente -->
         <?php elseif($page == 'cgv'): ?>
             <a href="?page=support" class="btn-back"> < Retour</a>
             <h1>Conditions Générales de Vente</h1>
@@ -191,6 +194,7 @@
                 <p>19.2. Ces conditions ont été modifiées pour la dernière fois le 2 novembre 2023. Les versions précédentes de ces conditions, y compris leurs dates d'entrée en vigueur, sont disponibles ici .</p>
             </div>
 
+        <!-- Support paiement -->
         <?php elseif($page == 'paiement'): ?>
             <a href="?page=support" class="btn-back"> < Retour</a>
             <h1>Support Paiement</h1>
@@ -203,7 +207,7 @@
                 </div>
             <?php else: ?>
                 <div class="content-box">
-
+                    <!-- Peux pas effectuer le paiement -->
                     <?php if($section == 'refuse'): ?>
                         <section class="support-section">
                             <h3>Je ne peux pas effectuer le paiement</h3>
@@ -228,6 +232,7 @@
                             <p>Notre équipe sera heureuse de vous assister et de vous aider à résoudre le problème le plus rapidement possible. Nous prenons très au sérieux la satisfaction de nos clients, alors n'hésitez pas à nous contacter si vous avez des questions ou des inquiétudes via le formulaire de contact ou le chat fourni sur notre site web. Nous sommes là pour vous aider !</p>
                         </section>
 
+                    <!-- débiter -->
                     <?php elseif($section == 'debiter'): ?>
                         <section class="support-section">
                             <h3>L'argent a été débité mais aucun produit n'a été reçu</h3>
@@ -246,6 +251,7 @@
                             <p>Notre équipe examinera le problème et prendra les mesures nécessaires pour le résoudre le plus rapidement possible. Nous nous excusons pour les désagréments que ce problème a pu causer et nous ferons de notre mieux pour y remédier. Nous vous remercions de votre patience et de votre compréhension pendant que nous nous efforçons de résoudre le problème. Si nous ne sommes pas en mesure de résoudre le problème, nous procéderons à un remboursement ou à une nouvelle livraison du produit dès que possible. La satisfaction de nos clients nous tient à cœur. N'hésitez donc pas à nous contacter si vous avez des questions ou des inquiétudes en utilisant le formulaire de contact ou le chat disponible sur notre site web. Nous sommes là pour vous aider !</p>
                         </section>
 
+                    <!-- transaction -->
                     <?php elseif($section == 'transaction'): ?>
                         <section class="support-section">
                             <h3>Vous avez trouvé une transaction que vous n'avez pas faite ?</h3>
@@ -269,6 +275,7 @@
                             <p>Tout autre detail ou information lié à la transaction. Nous prenons la sécurité de nos clients au sérieux, alors n'hésitez pas à nous contacter si vous avez des questions ou des inquiétudes. Nous sommes là pour vous aider !</p>
                         </section>
 
+                    <!-- obtenir remboursement -->
                     <?php elseif($section == 'remboursement'): ?>
                         <section class="support-section">
                             <h3>Comment obtenir un remboursement pour un produit ?</h3>
@@ -293,6 +300,7 @@
                 </div>
             <?php endif; ?>
 
+        <!-- Support commandes -->
         <?php elseif($page == 'commande'): ?>
             <a href="?page=support" class="btn-back"> < Retour</a>
             <h1>Support Commandes</h1>
@@ -305,6 +313,7 @@
             <?php else: ?>
                 <div class="content-box">
 
+                    <!-- aide commande passée -->
                     <?php if($section == 'aide_passee'): ?>
                         <section class="support-section">
                             <h3>J’ai besoin d’aide pour une commande que j’ai passée</h3>
@@ -327,6 +336,7 @@
                             <p>Tant que vous n'avez pas cliqué sur "Afficher la clé", nous pouvons annuler la commande immédiatement. Si la clé a été révélée, nous ne pouvons malheureusement plus la reprendre.</p>
                         </section>
 
+                    <!-- info avant achat -->
                     <?php elseif($section == 'info_avant'): ?>
                         <section class="support-section">
                             <h3>Je souhaite obtenir des informations avant d'acheter</h3>
@@ -354,6 +364,7 @@
                             <p>Le prix affiché est le prix final. Cependant, selon le mode de paiement choisi (PayPal, Paysafecard, Carte Bleue), des frais de transaction propres à ces services peuvent s'ajouter au moment du checkout.</p>
                         </section>
 
+                    <!-- Où se trouve mon produit après l'achat ? -->
                     <?php elseif($section == 'ou_trouver'): ?>
                         <section class="support-section">
                             <h3>Où se trouve mon produit après l'achat ?</h3>
@@ -368,7 +379,8 @@
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-
+        
+        <!-- Support compte & sécurité -->
         <?php elseif($page == 'compte'): ?>
             <a href="?page=support" class="btn-back"> < Retour</a>
             <h1>Support Compte & Sécurité</h1>
@@ -382,6 +394,7 @@
             <?php else: ?>
                 <div class="content-box">
 
+                    <!-- preserver securité -->
                     <?php if($section == 'preserver'): ?>
                         <section class="support-section">
                             <h3>Comment préserver la sécurité de mon compte ?</h3>
@@ -401,6 +414,7 @@
                             <p>Si vous avez des questions ou des inquiétudes concernant la sécurité de votre compte, n'hésitez pas à nous contacter. Nous sommes toujours là pour vous aider à protéger vos informations personnelles et à sécuriser votre compte.</p>
                         </section>
 
+                    <!-- n'arrive pas a se connecter -->
                     <?php elseif($section == 'connexion'): ?>
                         <section class="support-section">
                             <h3>Vous n'arrivez pas à vous connecter à votre compte ?</h3>
@@ -415,6 +429,7 @@
                             <p>Nous vous présentons nos excuses pour les désagréments que cela a pu causer et nous ferons de notre mieux pour vous aider à résoudre le problème le plus rapidement possible.</p>
                         </section>
 
+                    <!-- sauvegarde infos -->
                     <?php elseif($section == 'sauvegarder'): ?>
                         <section class="support-section">
                             <h3>Quelles données sauvegardez-vous à mon sujet ?</h3>
@@ -432,6 +447,7 @@
                             <p>Nous nous engageons à sécuriser vos données personnelles et à respecter votre droit à la vie privée. Si vous avez des questions ou des inquiétudes, n'hésitez pas à nous contacter.</p>
                         </section>
 
+                    <!-- supprimer compte -->
                     <?php elseif($section == 'supprimer'): ?>
                         <section class="support-section">
                             <h3>Comment puis-je supprimer mon compte ?</h3>

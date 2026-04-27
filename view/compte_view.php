@@ -28,7 +28,7 @@
     <?php endif; ?>
 
     <div class="account-layout">
-
+        <!-- Accès Rapide -->
         <aside class="account-sidebar">
             <div class="sidebar-header">
                 <h3>Accès Rapide</h3>
@@ -41,7 +41,7 @@
         </aside>
 
         <main class="account-content">
-
+            <!-- Modif prénom -->
             <div class="account-card" id="sec-compte">
                 <div class="card-left">
                     <h3>Compte</h3>
@@ -58,6 +58,7 @@
                 </div>
             </div>
 
+            <!-- Modif mail ou mdp -->
             <div class="account-card" id="sec-acces">
                 <div class="card-left">
                     <h3>Accès au compte</h3>
@@ -78,6 +79,7 @@
                 </div>
             </div>
 
+            <!-- Supprimer le compte -->
             <div class="account-card" id="sec-supprimer">
                 <div class="card-left">
                     <h3>Supprimer le compte</h3>

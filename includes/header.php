@@ -51,6 +51,7 @@
     </div>
 </header>
 
+<!-- Notification -->
 <?php if (isset($_SESSION['message'])): ?>
     <div class="notification">
         <?php 
