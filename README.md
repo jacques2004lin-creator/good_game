@@ -4,6 +4,15 @@
 
 **Good Game** est un projet de site web dynamique permettant la consultation, la gestion et l'achat de jeux vidéo en ligne. Ce projet a été réalisé en utilisant PHP, MySQL et Docker.
 
+## Architecture du Projet
+Le code est structuré pour séparer l'affichage de la logique :
+* `/css/` et `/js/` : Les fichiers de style et scripts.
+* `/includes/` : Morceaux de code réutilisables (Header, Footer).
+* `/view/` : Les fichiers qui gèrent l'affichage HTML.
+* `/database/` : Les fichiers liés à la base de données.
+* `.github/workflows/` : Scripts pour mettre le site en ligne automatiquement.
+* Fichiers à la racine (`index.php`, `admin.php`, `panier.php`...) : Ce sont les fichiers principaux qui gèrent la logique PHP.
+
 ## Fonctionnalités
 
 ### Côté Client :
