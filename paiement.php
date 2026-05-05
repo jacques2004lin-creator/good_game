@@ -28,7 +28,7 @@ while ($jeu = $resultat_panier->fetch_assoc()) {
 }
 
 // TRANSACTION DANS LA BASE DE DONNÉES
-$sql_achat = "INSERT INTO achats (utilisateur_id, sous_total, status) VALUES ($id_utilisateur, $sous_total, 'Validée')";
+$sql_achat = "INSERT INTO achats (utilisateur_id, sous_total) VALUES ($id_utilisateur, $sous_total)";
 
 if ($conn->query($sql_achat) === TRUE) {
     $id_achat = $conn->insert_id; 

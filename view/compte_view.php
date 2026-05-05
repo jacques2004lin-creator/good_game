@@ -17,12 +17,12 @@
     <?php include 'includes/header.php'; ?>
 
     <?php if (!empty($message_succes)): ?>
-        <div>
+        <div class="notification">
             <?php echo $message_succes; ?>
         </div>
     <?php endif; ?>
     <?php if (!empty($message_erreur)): ?>
-        <div>
+        <div class="notification">
             <?php echo $message_erreur; ?>
         </div>
     <?php endif; ?>
@@ -95,7 +95,6 @@
                     </form>
                 </div>
             </div>
-
         </main>
     </div>
     <?php include 'includes/footer.php'; ?>

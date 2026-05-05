@@ -62,7 +62,7 @@ if (isset($_POST['btn_delete_account'])) {
         if ($conn->query($sql) === TRUE) {
             // Détruit la session et renvoie à l'accueil
             session_destroy();
-            header("Location: accueil.php");
+            header("Location: index.php");
             exit();
         } else {
             $message_erreur = "Erreur lors de la suppression du compte.";
