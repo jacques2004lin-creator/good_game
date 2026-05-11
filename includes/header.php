@@ -36,16 +36,22 @@
         <div class="profile-container">
             <img src="image/profile.png" class="profile-trigger" id="profileBtn" alt="Profil">
             <ul class="dropdown-menu" id="sideMenu">
-                <?php 
-                if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
-                    echo "<li><a href='admin.php' style='color: #ff4757;'>Administration</a></li>";
-                }
-                ?>
-                <li><a href="compte.php">Compte</a></li>
-                <li><a href="liste_souhaits.php">Liste de souhaits</a></li>
-                <li><a href="historique.php">Mes commandes</a></li>
-                <li><hr></li>
-                <li><a href="deconnexion.php">Déconnexion</a></li>
+                <?php if (isset($_SESSION['role'])) : ?>
+                    <!-- Pour les personnes qui ont un compte -->
+                    <?php if ($_SESSION['role'] == 'admin') : ?>
+                        <li><a href="admin.php" style="color: #ff4757;">Administration</a></li>
+                    <?php endif; ?>
+                    <li><a href="compte.php">Compte</a></li>
+                    <li><a href="bibliotheque.php">Ma Bibliothèque</a></li>
+                    <li><a href="liste_souhaits.php">Liste de souhaits</a></li>
+                    <li><a href="historique.php">Mes commandes</a></li>
+                    <li><hr></li>
+                    <li><a href="deconnexion.php">Déconnexion</a></li>
+                <?php else : ?>
+                    <!-- Pour les visiteurs -->
+                    <li><a href="connexion.php">Connexion</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
