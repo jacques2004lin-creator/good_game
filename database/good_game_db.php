@@ -8,10 +8,10 @@ $host_actuel = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
 // Détection de l'environnement
 if (strpos($host_actuel, 'gamer.gd') !== false) {
     // CONFIGURATION INFINITYFREE
-    $servername = "sql310.infinityfree.com";
-    $username   = "if0_41112905";
+    $servername = "sql308.infinityfree.com";
+    $username   = "if0_43337619";
     $password   = "MOT_DE_PASSE_SECRET";
-    $dbname     = "if0_41112905_good_game";
+    $dbname     = "if0_43337619_good_game";
 } else {
     // CONFIGURATION LOCALE
     $servername = "db"; 

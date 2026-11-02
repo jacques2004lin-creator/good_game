@@ -1,22 +1,13 @@
 <?php
-// Config connexion
-mysqli_report(MYSQLI_REPORT_STRICT | MYSQLI_REPORT_ERROR);
+require "database/good_game_db.php";
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-$servername = "db";
-$username = "root";
-$password = "root";
-$dbname = "good_game";
+if($conn->query("SHOW TABLES LIKE 'utilisateurs'")->num_rows > 0) {
+    http_response_code(404);
+    exit("L'initialisation a déjà été effectuée.");
+}
 
 try {
-  // On se connecte AU SERVEUR (sans base)
-  $conn = new mysqli($servername, $username, $password);
-  $conn->set_charset("utf8mb4");
-
-  // On crée la base et on rentre dedans
-  $conn->query("CREATE DATABASE IF NOT EXISTS `$dbname` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci");
-  $conn->select_db($dbname);
-
-  // On prépare le mot de passe admin crypté
   $pass_admin = password_hash("123", PASSWORD_DEFAULT);
 
   $sql = "

@@ -25,6 +25,6 @@ jobs:
           server: ftpupload.net # Change if using another host
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /goodgame.gamer.gd/htdocs/ # Replace with your correct path
+          server-dir: /htdocs/
           retries: 3
           retryDelay: 10

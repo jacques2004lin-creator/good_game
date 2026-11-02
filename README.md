@@ -42,12 +42,21 @@ Docker : Lancez vos containers `docker-compose up -d`.
 3. **Initialiser la base de données** :
 Ouvrez votre navigateur et accédez à :
 `http://localhost:8080/good_game/ini.php`
-(Le script créera automatiquement la base, les tables, et insérera les jeux ainsi que le compte administrateur).
+(Le script crée les tables, les jeux et le compte administrateur dans la base `good_game`. Sur InfinityFree, créez d'abord la base depuis le panneau d'hébergement. L'initialisation ne peut être exécutée qu'une seule fois.)
 
 ## Compte Admin
-Pour accéder à l'espace administrateur, utilisez les identifiants suivants :
+Pour une installation de démonstration, utilisez les identifiants suivants et changez immédiatement le mot de passe :
 - **Email** : `admin@test.com`
 - **Mot de passe** : `123`
+
+## Déploiement InfinityFree
+
+Le workflow GitHub Actions publie automatiquement les changements poussés sur `main`. Dans les secrets Actions du dépôt, configurez :
+- `FTP_USERNAME` : nom d'utilisateur FTP InfinityFree.
+- `FTP_PASSWORD` : mot de passe FTP InfinityFree.
+- `DB_PASSWORD` : mot de passe MySQL InfinityFree.
+
+Le compte d'hébergement et la base MySQL doivent exister avant le déploiement. Après la première publication, ouvrez `/ini.php` une seule fois pour créer les tables et les jeux, puis changez le mot de passe administrateur de démonstration.
 
 ## Technologies utilisées
 
