@@ -72,3 +72,7 @@ Le compte d'hébergement et la base MySQL doivent exister avant le déploiement.
 
 - **Version en ligne** : [http://goodgame.gamer.gd](http://goodgame.gamer.gd) (Déploiement automatique via GitHub Actions)
 - **Version locale** : Utiliser Docker avec `docker-compose up -d` et initialiser via `/ini.php`.
+
+## Auteurs
+- **Equipe** : Christian Jin, Jacques Lin et Jordan Moysan
+- **Tuteur** : Rezak AZIZ
